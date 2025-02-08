@@ -25,35 +25,3 @@
 
 📌 **CLAYN 웹사이트 개발 진행 중**  
 추후 업데이트 예정! 🚀
-
-
-**폴더 구조**
-📂 project-CLAYN
-├── 📂 assets/ // 디자인 리소스: Figma 파일, 참고자료 등
-├── 📂 public/ // 정적 파일: 이미지, 폰트, 아이콘 등
-│ ├── 📂 images/ // 로고, 제품 사진, 배경 이미지 등
-│ ├── 📂 fonts/ // 조선일보명조 같은 커스텀 폰트
-│ ├── 📂 icons/ // SVG 등 아이콘 파일
-│ ├── 📂 videos/ // 인트로 영상이 있다면 여기에
-├── 📂 src/ // 소스 코드
-│ ├── 📂 css/ // 스타일 관련 파일
-│ │ ├── global.css // 전역 스타일
-│ │ ├── style.css // 미디어쿼리 외 전역 스타일
-│ │ ├── responsive-desktop.css // 데스크탑 반응형 스타일 (1280px 이상)
-│ │ ├── responsive-tablet.css // 태블릿 반응형 스타일 (769px ~ 1279px)
-│ │ ├── responsive-mobile.css // 모바일 반응형 스타일 (0 ~ 768px)
-│ │ ├── animations.css // GSAP 애니메이션 관련 스타일
-│ │ ├── components.css // 버튼, 카드 등 UI 컴포넌트 스타일
-│ │ ├── font-style.css // 폰트, 컬러 정의
-│ │ ├── fonts.css // 커스텀 폰트 스타일 (다운로드 폰트 정의)
-│ ├── 📂 js/ // 기능 관련 파일
-│ │ ├── lenis.js // Lenis 스크롤 설정
-│ │ ├── animations.js // GSAP 애니메이션 관련 스크립트
-│ │ ├── components.js // 공통 UI 컴포넌트 관리
-│ │ ├── main.js // 메인 스크립트 (페이지 초기화 및 이벤트 핸들링)
-│ │ ├── utils.js // 공통 유틸 함수 (필요 시 추가 가능)
-│ ├── 📂 html/ // 개별 페이지 HTML
-│ │ ├── mainPage.html // 메인 페이지
-│ │ ├── 404.html // 404 페이지
-├── index.html // 프로젝트 루트 페이지
-└── 파비콘들
