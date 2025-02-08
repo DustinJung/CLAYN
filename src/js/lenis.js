@@ -8,7 +8,7 @@ const lenis = new Lenis({
 
 // 모바일 감지 함수 다시 추가
 function isMobile() {
-  return window.matchMedia("(max-width: 1023px)").matches;
+  return window.matchMedia("(max-width: 1279px)").matches;
 }
 
 // 미디어쿼리 설정

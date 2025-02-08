@@ -5,52 +5,114 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CLAYN - 감성적인 미니멀 도자기</title>
     
-    <!-- Global Styles -->
-    <link href="../css/global.css" rel="stylesheet">
-
-    <!--파비콘 설정-->
-    <!-- 기본 파비콘 (최신 브라우저) -->
-    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-
-    <!-- 대체 파비콘 (구형 브라우저, 일부 모바일 지원) -->
-    <link rel="icon" href="../favicon.png" type="image/png">
-
-    <!-- 최후의 보루 (옛날 브라우저 지원) -->
-    <link rel="icon" href="../favicon.ico" type="image/x-icon">
-
-    <!-- 애플 홈 화면 아이콘 (아이폰 & 아이패드) -->
-    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-    
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/spoqa/spoqa-han-sans@2.1/SpoqaHanSansNeo.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
-    
+
+    <!-- 파비콘 설정 -->
+    <!-- 기본 파비콘 (최신 브라우저) -->
+    <link rel="icon" href="../../public/icons/favicon-light.svg" type="image/svg+xml" media="(prefers-color-scheme: light)">
+    <!-- 다크 모드용 파비콘 -->
+    <link rel="icon" href="../../public/icons/favicon-dark.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
+
+    <!-- 대체 파비콘 (구형 브라우저, 일부 모바일 지원) -->
+    <link rel="icon" href="../../public/icons/favicon-light.png" type="image/png" media="(prefers-color-scheme: light)">
+    <link rel="icon" href="../../public/icons/favicon-dark.png" type="image/png" media="(prefers-color-scheme: dark)">
+
+    <!-- 최후의 보루 (옛날 브라우저 지원) -->
+    <link rel="icon" href="../../public/icons/favicon.ico" type="image/x-icon">
+
+    <!-- 애플 홈 화면 아이콘 (아이폰 & 아이패드, 다크 모드 전환) -->
+    <!-- 라이트 모드 아이콘 -->
+    <link rel="apple-touch-icon" href="../../public/icons/apple-touch-icon-light-180.png" sizes="180x180" media="(prefers-color-scheme: light)"> <!--180x180 px: 가장 중요한 사이즈. iPhone 및 iPad의 홈 화면에서 사용됩니다.-->
+    <link rel="apple-touch-icon" href="../../public/icons/apple-touch-icon-light-167.png" sizes="167x167" media="(prefers-color-scheme: light)"> <!--167x167 px: iPad Pro에서 사용됩니다.-->
+    <link rel="apple-touch-icon" href="../../public/icons/apple-touch-icon-light-152.png" sizes="152x152" media="(prefers-color-scheme: light)"> <!--152x152 px: iPad에서 사용됩니다.-->
+    <link rel="apple-touch-icon" href="../../public/icons/apple-touch-icon-light-120.png" sizes="120x120" media="(prefers-color-scheme: light)"> <!--120x120 px: iPhone 6, 7, 8 등 구형 기기에서 사용됩니다.-->
+
+    <!-- 다크 모드 아이콘 -->
+    <link rel="apple-touch-icon" href="../../public/icons/apple-touch-icon-dark-180.png" sizes="180x180" media="(prefers-color-scheme: dark)"> <!--180x180 px: 가장 중요한 사이즈. iPhone 및 iPad의 홈 화면에서 사용됩니다.-->
+    <link rel="apple-touch-icon" href="../../public/icons/apple-touch-icon-dark-167.png" sizes="167x167" media="(prefers-color-scheme: dark)"> <!--167x167 px: iPad Pro에서 사용됩니다.-->
+    <link rel="apple-touch-icon" href="../../public/icons/apple-touch-icon-dark-152.png" sizes="152x152" media="(prefers-color-scheme: dark)"> <!--152x152 px: iPad에서 사용됩니다.-->
+    <link rel="apple-touch-icon" href="../../public/icons/apple-touch-icon-dark-120.png" sizes="120x120" media="(prefers-color-scheme: dark)"> <!--120x120 px: iPhone 6, 7, 8 등 구형 기기에서 사용됩니다.-->
+        
+    <!-- Global Styles -->
+    <link href="../css/global.css" rel="stylesheet">
+
     <!-- Font & Color Definitions -->
     <link rel="stylesheet" href="../css/font-style.css">
     
-    <!-- Global Styles -->
-    <link href="../css/global.css" rel="stylesheet">
+    <!--노멀라이즈 CSS(내 공용)-->
+    <link href="../css/dustinnormalize.css" rel="stylesheet">
+
+    <!--전역 스타일-->
+    <link href="../css/style.css" rel="stylesheet">
 
     <!-- 반응형 스타일 시트 -->
     <link rel="stylesheet" href="../css/responsive-mobile.css">
     <link rel="stylesheet" href="../css/responsive-tablet.css">
     <link rel="stylesheet" href="../css/responsive-desktop.css">
+
 </head>
 <body>
-    <section>
-        <h1 class="brand_font">CLAYN</h1>
-        <p>(CLAY + Minimal)</p>
+    <!-- Pre-loader Section -->
+    <section id="pre-loader-section">
+        <!-- 로딩 화면 등 미리 보여줄 내용 -->
+         <div class="pre-loader">
+            <p class="pre-loader-counter">0%</p>
+            <img src="../../public/icons/pre-loader-img.png" alt="프리로더 전용 이미지">
+            <img src="../../public/images/pre-loader/pre-loader-under-text.png" alt="프리 로더 밑에 깔리는 이미지" class="pre-loader-img">
+         </div>
     </section>
-    
-    <section>
-        <h3 class="title_font">색상, 폰트</h3>
-        <p>배경색: <span style="color: #F8F6F4;">Off-White (#F8F6F4)</span></p>
-        <p>노말 Normal: <span style="color: #5C5C5C;">#5C5C5C</span></p>
-        <p class="point_clr point_font">포인트: <span style="color: #C4A88A;">Deep Beige (#C4A88A)</span></p>
-        <p class="extra_point_font">보조 포인트: <span style="color: #005D66;">Deep Blue-Green (#005D66)</span></p>
+
+    <!-- Header Section -->
+    <section id="header-section">
+        <header>
+        <!-- 상단 네비게이션, 로고, 메뉴 등 -->
+        </header>
     </section>
+
+    <!-- Main Content Section -->
+    <section id="main-section">
+        <main>
+            <!--marquee, 상단 Scrolling-Text-->
+            <div id="marquee">
+                <div class="marquee_inner_wrapper">
+                    <div class="marquee_inner">
+                        <p class="uppercase">도자는 가장 다재다능한 재료이며, 모든 창조의 기초입니다.</p>
+                        <p class="uppercase">예술은 사물이 아니라, 방식입니다.</p>
+                        <p class="uppercase">새로운 것을 창조하는 것은 지능에 의해 이루어지는 것이 아니라, 놀이 본능에 의해 이루어집니다.</p>
+                        <p class="uppercase">저는 생계를 위해 그릇을 만들지 않습니다. 삶을 위해 그릇을 만듭니다.</p>
+                        <p class="uppercase">예술은 모든 거짓 중에서 가장 아름답습니다.</p>
+                        <p class="uppercase">도예는 점토를 이야기로 바꾸는 예술입니다.</p>
+                        <p class="uppercase">도예의 아름다움은 손으로 만든 불완전함에 있습니다.</p>
+                        <p class="uppercase">도예의 예술에서 우리는 점토만을 만드는 것이 아니라, 영혼도 빚습니다.</p>
+                    </div>
+
+                    <div class="marquee_inner">
+                        <p class="uppercase">도자는 가장 다재다능한 재료이며, 모든 창조의 기초입니다.</p>
+                        <p class="uppercase">예술은 사물이 아니라, 방식입니다.</p>
+                        <p class="uppercase">새로운 것을 창조하는 것은 지능에 의해 이루어지는 것이 아니라, 놀이 본능에 의해 이루어집니다.</p>
+                        <p class="uppercase">저는 생계를 위해 그릇을 만들지 않습니다. 삶을 위해 그릇을 만듭니다.</p>
+                        <p class="uppercase">예술은 모든 거짓 중에서 가장 아름답습니다.</p>
+                        <p class="uppercase">도예는 점토를 이야기로 바꾸는 예술입니다.</p>
+                        <p class="uppercase">도예의 아름다움은 손으로 만든 불완전함에 있습니다.</p>
+                        <p class="uppercase">도예의 예술에서 우리는 점토만을 만드는 것이 아니라, 영혼도 빚습니다.</p>
+                    </div>
+                </div>
+            </div>
+        <!-- 주요 콘텐츠 영역 -->
+        </main>
+    </section>
+
+    <!-- Footer Section -->
+    <section id="footer-section">
+        <footer>
+        <!-- 푸터, 저작권, 연락처 정보 등 -->
+        </footer>
+    </section>
+
 
     <!-- CDN Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js" defer></script>

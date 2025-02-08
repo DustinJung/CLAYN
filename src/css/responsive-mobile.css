@@ -1,5 +1,13 @@
+/*responsive-mobile*/
+
 /* mobile: 768px 이하 */
 @media (max-width: 768px) {
     /* 모바일 전용 스타일 */
-    
+    :root {
+        --spacing-xs: 0.5rem;  /* 작은 간격 */
+        --spacing-sm: 1rem;    /* 기본 간격 */
+        --spacing-md: 1.5rem;  /* 중간 간격 */
+        --spacing-lg: 3rem;    /* 넉넉한 간격 */
+        --spacing-xl: 5rem;    /* 아주 큰 간격 */
+    }
 }

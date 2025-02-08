@@ -1,0 +1,70 @@
+목표:
+로고의 위치는 translate(0, calc(var(--rail-height) * (1 - var(--header-scroll-progress))))
+로고의 크기는 scale(calc(1 + var(--header-logo-scale) * (1 - var(--header-scroll-progress))))
+--rail-height: 고정 값인 1.5rem
+--header-scroll-progress: 스크롤 진행에 따라 0에서 1로 변하는 값 (스크롤 비율)
+--header-logo-scale: vh와 관련이 있음
+GSAP과 ScrollTrigger로 구현하는 방법
+스크롤 진행 상태에 따른 --header-scroll-progress 값 업데이트
+
+스크롤을 진행하면서 --header-scroll-progress를 동적으로 제어합니다. 0에서 1 사이로 변화해야 하므로 ScrollTrigger의 progress 값을 활용합니다.
+**--header-logo-scale**의 값은 vh와 연관되므로, 이를 ScrollTrigger의 progress 값에 따라 비율로 업데이트합니다.
+
+로고의 크기와 위치를 GSAP으로 변경합니다.
+
+코드 예시:
+javascript
+복사
+편집
+// GSAP과 ScrollTrigger 활성화
+gsap.registerPlugin(ScrollTrigger);
+
+const logo = document.querySelector('.logo'); // 로고 선택
+const root = document.documentElement; // CSS 변수에 접근하기 위해 HTML 요소 선택
+
+// ScrollTrigger 설정
+gsap.to(logo, {
+  scrollTrigger: {
+    trigger: logo, // 로고가 트리거
+    start: "top top", // 페이지 상단부터 시작
+    end: "bottom top", // 페이지 하단까지
+    scrub: true, // 스크롤에 따라 애니메이션 동기화
+    onUpdate: (self) => {
+      // 스크롤 진행 상태를 0과 1 사이로 설정
+      const scrollProgress = self.progress; // 0 ~ 1
+
+      // --header-scroll-progress (스크롤 진행 비율)
+      root.style.setProperty('--header-scroll-progress', scrollProgress);
+
+      // --header-logo-scale (vh와 관련된 크기 비율)
+      const vhScale = 1 + (scrollProgress * 0.5); // 예시로 스크롤 100%에서 크기를 1.5배로 설정
+      root.style.setProperty('--header-logo-scale', `${vhScale}vh`);
+
+      // 로고의 위치와 크기를 계산하여 설정
+      gsap.set(logo, {
+        transform: `translate(0, calc(1.5rem * (1 - var(--header-scroll-progress)))) 
+                    scale(calc(1 + var(--header-logo-scale) * (1 - var(--header-scroll-progress))))`
+      });
+    }
+  }
+});
+설명:
+gsap.to(): ScrollTrigger를 사용하여 스크롤에 따라 로고의 크기와 위치를 애니메이션합니다. scrub: true를 설정하여 스크롤 진행에 맞춰 애니메이션이 동기화되도록 합니다.
+onUpdate 콜백:
+**scrollProgress**는 스크롤 진행 비율로, 0에서 1 사이로 변하는 값입니다.
+**--header-scroll-progress**는 scrollProgress를 기반으로 설정됩니다.
+**--header-logo-scale**은 vh와 관련이 있어, 스크롤 진행에 따라 로고의 크기를 설정합니다. 여기서는 scrollProgress * 0.5로 설정했으니, 스크롤이 100% 진행되면 로고가 1.5배 커집니다.
+**gsap.set()**으로 로고의 transform 속성에 위치와 크기를 동적으로 계산하여 적용합니다. 이때 calc()와 var() 함수를 사용하여 CSS 변수들을 활용합니다.
+핵심 포인트:
+--rail-height는 고정 값인 1.5rem으로, 직접 계산해서 사용.
+--header-scroll-progress는 스크롤 진행 상태에 따라 0에서 1로 변하며, 이를 ScrollTrigger에서 관리.
+--header-logo-scale은 vh 값과 연관되어 있으며, 스크롤 진행에 따라 로고 크기를 동적으로 변화시킵니다.
+최종 목표:
+이 코드를 사용하면 스크롤에 따라 로고의 위치와 크기가 변하는 애니메이션을 GSAP과 ScrollTrigger로 구현할 수 있습니다.
+
+
+
+
+
+
+

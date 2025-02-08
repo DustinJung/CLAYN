@@ -1,3 +1,5 @@
+/*global*/
+
 /*변수*/
 :root {
     /*폰트 변수*/
@@ -7,6 +9,35 @@
     /*컬러 변수*/
     --point-clr : #C4A88A;
     --extra-point-clr : #005D66;
+    --extra-extra-point-clr : #fbcccd;
     --body-clr: #5C5C5C;
     --body-bg-clr: #F8F6F4;
+}
+
+/* 간격 변수 */
+:root {
+    --spacing-xs: 0.5rem;  /* 작은 간격 */
+    --spacing-sm: 1rem;    /* 기본 간격 */
+    --spacing-md: 2rem;    /* 중간 간격 */
+    --spacing-lg: 3.5rem;  /* 넉넉한 간격 (데스크탑 기준) */
+    --spacing-xl: 5rem;    /* 아주 큰 간격 */
+    --spacing-fix-half1rem: .5rem; /*변하지 않는 .5rem*/
+    --spacing-fix-1rem: 1rem; /*변하지 않는 1rem*/
+    --spacing-fix-2rem: 2rem; /*변하지 않는 2rem*/
+    --spacing-fix-3rem: 3rem; /*변하지 않는 3rem*/
+    --spacing-fix-4rem: 4rem; /*변하지 않는 4rem*/
+    --spacing-fix-5rem: 5rem; /*변하지 않는 5rem*/
+}
+
+.uppercase{
+    text-transform: uppercase;
+}
+
+@keyframes text-scrolling {
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
 }

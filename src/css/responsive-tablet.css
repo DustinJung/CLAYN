@@ -1,4 +1,13 @@
+/*responsive-tablet*/
+
 /* tablet: 769px ~ 1279px */
 @media (min-width: 769px) and (max-width: 1279px) {
      /* 태블릿 전용 스타일 */
+    :root {
+        --spacing-xs: 0.5rem;  /* 작은 간격 */
+        --spacing-sm: 1.25rem; /* 기본 간격 */
+        --spacing-md: 2rem;    /* 중간 간격 */
+        --spacing-lg: 3.5rem;  /* 넉넉한 간격 */
+        --spacing-xl: 5rem;    /* 아주 큰 간격 */
+    }
 }

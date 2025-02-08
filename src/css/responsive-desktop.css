@@ -1,5 +1,13 @@
+/*responsive-desktop*/
+
 /* desktop: 1280px 이상 */
 @media (min-width: 1280px) {
     /* 데스크탑 전용 스타일 */
-    
+    :root {
+        --spacing-xs: 0.75rem; /* 작은 간격 */
+        --spacing-sm: 1.5rem;  /* 기본 간격 */
+        --spacing-md: 2.5rem;  /* 중간 간격 */
+        --spacing-lg: 4rem;    /* 넉넉한 간격 */
+        --spacing-xl: 5rem;    /* 아주 큰 간격 */
+    }
 }

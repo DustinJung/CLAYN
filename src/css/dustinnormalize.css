@@ -1,0 +1,37 @@
+*{
+    margin:0; 
+    padding:0;
+}
+ul,ol{
+    list-style: none !important;
+}
+a{
+    text-decoration: none;
+    display: block;
+    color: inherit;
+}
+img{
+    vertical-align: top;
+}
+body, input, textarea, button{
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+}
+input, textarea, button{
+    background: none;
+}
+button{
+    cursor: pointer;
+}
+.label_hidden{
+	clip: rect(0 0 0 0);
+    border: 0;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
