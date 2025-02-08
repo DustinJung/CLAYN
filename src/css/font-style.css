@@ -1,0 +1,61 @@
+/*브랜드 폰트 - 브랜드 로고에 사용, 기록용으로 적어둠*/
+.brand_font{
+    font-weight: 600;
+    color: #222222 /*OFF-black*/
+}
+
+
+/* 기본 설정 */
+body {
+    color: var(--body-clr);
+    font-weight: 600;
+    background-color: var(--body-bg-clr);
+}
+
+/*Inter-Pretendard 폰트 사용 클래스*/
+body,
+.title_font{
+    font-family: var(--inter-font);
+}
+
+/*Manrope 폰트 사용 클래스*/
+.brand_font,
+.point_font,
+.extra_point_font{
+    font-family: var(--manrope-font);
+}
+
+
+/* 타이틀용 폰트 */
+.title_font {
+    font-weight: 700;
+}
+
+/* 포인트 텍스트 폰트 */
+.point_font {
+    font-weight: 700;
+    color: var(--point-clr);
+}
+
+/* 추가 강조 텍스트 */
+.extra_point_font {
+    font-weight: 700;
+    color: var(--extra-point-clr);
+}
+
+/*포인트 컬러*/
+.point_clr{
+    color: var(--point-clr);
+}
+/*포인트 요소 백그라운드*/
+.point_bg_clr{
+    background: var(--point-clr);
+}
+/*엑스트라 포인트 컬러*/
+.extra_point_clr{
+    color: var(--extra-point-clr);
+}
+/*엑스트라 요소 백그라운드 컬러*/
+.extra_point_bg_clr{
+    background: var(--extra-point-clr);
+}

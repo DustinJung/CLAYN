@@ -1,0 +1,12 @@
+/*변수*/
+:root {
+    /*폰트 변수*/
+    --inter-font : 'Inter', 'Pretendard', sans-serif;
+    --manrope-font : 'Manrope', 'Spoqa Han Sans Neo', sans-serif;
+
+    /*컬러 변수*/
+    --point-clr : #C4A88A;
+    --extra-point-clr : #005D66;
+    --body-clr: #5C5C5C;
+    --body-bg-clr: #F8F6F4;
+}
