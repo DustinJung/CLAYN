@@ -32,5 +32,5 @@
     transform-origin: 0 50%;
 }
 .header_nav_btn span.on{
-    background: white;
+    background: var(--body-bg-clr);
 }
