@@ -52,6 +52,10 @@ html,body{
     z-index: 200;
     top: calc(var(--spacing-fix-1rem) + .75rem);
 }
+.text_balance{
+    text-wrap: balance;
+    word-break: keep-all;
+}
 
 /*애니메이션*/
 @keyframes text-scrolling {

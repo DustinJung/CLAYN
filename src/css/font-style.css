@@ -28,12 +28,8 @@ body,
 }
 
 
-/* 타이틀용 폰트 */
-.title_font {
-    font-weight: 700;
-}
-
-/* 포인트 텍스트 폰트 */
+/* 타이틀용, 포인트용 폰트 */
+.title_font,
 .point_font {
     font-weight: 700;
 }
@@ -55,6 +51,10 @@ body,
 /*엑스트라 포인트 컬러*/
 .extra_point_clr{
     color: var(--extra-point-clr);
+}
+/*엑스트라 엑스트라 포인트 컬러*/
+.extra_extra_point_clr{
+    color: var(--extra-extra-point-clr);
 }
 /*엑스트라 요소 백그라운드 컬러*/
 .extra_point_bg_clr{

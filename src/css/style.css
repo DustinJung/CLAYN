@@ -84,8 +84,55 @@ body.is-ready #marquee{
     width: 50%;
     text-align: center;
     color: var(--body-bg-clr);
-    text-wrap: balance;
-    word-break: keep-all;
     font-size: var(--spacing-md);
     z-index: 100;
+}
+
+
+/*brand_introduce_section*/
+#brand_introduce_section_inner{
+    width: 100%;
+    overflow: hidden;
+    height: 100vh;
+    margin-top: var(--spacing-fix-2rem);
+    position: relative;
+    background: var(--extra-extra-point-clr);
+}
+#brand_introduce_section_inner .number{
+    position: absolute;
+    /*top: 60%;*/
+    /*left: 48%;*/
+    top: 70vh;
+    left: 0;
+    padding-left: 60%;
+    z-index: 100;
+    width: calc(var(--spacing-xl) + var(--spacing-fix-1rem));
+}
+#brand_introduce_section_inner .person{
+    position: absolute;
+    top: 5vh;
+    left: 0;
+    padding-left: 20%;
+    z-index: 80;
+    width: 30%;
+}
+#brand_introduce_section_inner .number:nth-of-type(4){
+    top: 55vh
+}
+#brand_introduce_section_inner .person:nth-of-type(8){
+    top: 30vh;
+}
+#brand_introduce_section_inner .text{
+    position: absolute;
+    top: 30vh;
+    right: 0;
+    padding-right: 28%;
+    z-index: 60;
+}
+#brand_introduce_section_inner .text:nth-of-type(3){
+    padding-right: 24%;
+}
+#brand_introduce_section_inner .text h3{
+    margin-bottom: var(--spacing-fix-1rem);
+    font-size: calc(var(--spacing-fix-1rem) + var(--spacing-fix-half1rem) + .25rem);
 }

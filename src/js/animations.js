@@ -157,6 +157,69 @@ function introBgVdTxt() {
     anticipatePin: 1,
   });
 }
+
+// brand_introduce_section 애니메이션
+function brand_introduce_section() {
+  const intro_section = document.querySelector('#brand_introduce_section');
+  const number = gsap.utils.toArray('#brand_introduce_section .number');
+  const person = gsap.utils.toArray('#brand_introduce_section .person');
+
+  // GSAP 타임라인 설정
+  const animation = gsap.timeline();
+  
+  // 처음 상태로 설정 (x: 0으로 보이도록)
+  number.forEach((number, i) => {
+    // Number 애니메이션
+    animation.fromTo(
+      number,
+      { x: '2000px', opacity: 0, },  // 처음에는 오른쪽 바깥에 위치
+      { x: 0, duration: 1, ease: "power3.out", opacity: 1, },
+      i * 3  // 각 애니메이션 시작 시간 설정
+    ).to(
+      number,
+      { x: '-2000px', duration: 1, opacity: 0, ease: 'power.in' },  // 이동 애니메이션
+      i * 3 + 1.5
+    );
+  
+    // Person 애니메이션 추가
+    const person = gsap.utils.toArray('#brand_introduce_section .person');
+    animation.fromTo(
+      person[i],  // i번째 person에 대해서
+      { x: '-2000px', opacity: 0, },  // 처음에는 오른쪽 바깥에 위치
+      { x: 0, duration: 1, ease: "power3.out", opacity: 1, },
+      i * 3  // 각 애니메이션 시작 시간 설정
+    ).to(
+      person[i],  // i번째 person에 대해서
+      { x: '2000px', duration: 1, opacity: 0, ease: 'power.in' },  // 이동 애니메이션
+      i * 3 + 1.5
+    );
+
+    // text 애니메이션 추가
+    const text = gsap.utils.toArray('#brand_introduce_section .text');
+    animation.fromTo(
+      text[i],  // i번째 person에 대해서
+      { x: '-2000px', opacity: 0, },  // 처음에는 오른쪽 바깥에 위치
+      { x: 0, duration: 1, ease: "power3.out", opacity: 1, },
+      i * 3  // 각 애니메이션 시작 시간 설정
+    ).to(
+      text[i],  // i번째 person에 대해서
+      { x: '-2000px', duration: 1, opacity: 0, ease: 'power.in' },  // 이동 애니메이션
+      i * 3 + 1.5
+    );
+  });
+
+  // ScrollTrigger 애니메이션 설정
+  ScrollTrigger.create({
+    animation: animation,
+    trigger: intro_section,
+    start: "36px top",
+    end: '+=8000',
+    scrub: .5,
+    pin: true,
+    anticipatePin: 1,
+    markers: false,  // 마커는 보기 편하게 설정
+  });
+}
 // 여기에 애니메이션 정의 함수 추가
 function initAnimations() {
   // 여기다가 애니메이션 코드 추가하면 됨
@@ -165,6 +228,7 @@ function initAnimations() {
   logoTranslate(); // logoTranslate 실행
   introBgVdTxt(); // logo intro 진입시 색바뀌기 실행
   letLogoFillCg() // intro video section scroll trigger 실행
+  brand_introduce_section()
 }
 
 // 외부에서 사용할 수 있도록 내보내기
