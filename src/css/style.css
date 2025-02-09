@@ -96,7 +96,7 @@ body.is-ready #marquee{
     height: 100vh;
     margin-top: var(--spacing-fix-2rem);
     position: relative;
-    background: var(--extra-extra-point-clr);
+    /*background: var(--extra-extra-point-clr);*/
 }
 #brand_introduce_section_inner .number{
     position: absolute;
