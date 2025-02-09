@@ -97,6 +97,7 @@ function logoTranslate() {
 // logo intro section 진입 시 가독성 문제로 fill 값 바꾸게 하는 함수, 스크롤 기준은 밑 introBgVdTxt() 함수와 맞춤.
 function letLogoFillCg() {
   const logoSvg = document.querySelector(".logo_g"); // SVG 선택
+  const navMenu = document.querySelectorAll('.header_nav_btn span'); // header_nav_btn span 전부 선택 // 쿼리셀렉터올은 nodeList를 반환하고, 이 객체는 배열처럼 반복 가능하기 때문에 각 span에 반복문을 돌려서 클래스를 추가하거나 제거해야 함.
 
   ScrollTrigger.create({
     trigger: "#intro_video_wrapper",
@@ -104,12 +105,24 @@ function letLogoFillCg() {
     end: "+=6000",
     markers: false,
     scrub: true,
-    onEnter: () => {logoSvg.classList.add('on')}, // 스크롤 진입 시 포인트 컬러
-    onLeave: () => {
-      gsap.delayedCall(1.5, () => logoSvg.classList.remove('on')); // 1.5초 딜레이 후 클래스 제거
+    onEnter: () => { 
+      logoSvg.classList.add('on');
+      navMenu.forEach(span => span.classList.add('on')); // 그래서 forEach를 쓴 것. 각 span에 'on' 클래스 추가, 
     },
-    onEnterBack: () => {logoSvg.classList.add('on')}, // 다시 진입 시 포인트 컬러
-    onLeaveBack: () => {logoSvg.classList.remove('on')},
+    onLeave: () => {
+      gsap.delayedCall(1.5, () => { 
+        logoSvg.classList.remove('on');
+        navMenu.forEach(span => span.classList.remove('on')); // 각 span에서 'on' 클래스 제거
+      }); // 1.5초 딜레이 후 클래스 제거
+    },
+    onEnterBack: () => { 
+      logoSvg.classList.add('on');
+      navMenu.forEach(span => span.classList.add('on')); // 다시 진입 시 'on' 클래스 추가
+    },
+    onLeaveBack: () => { 
+      logoSvg.classList.remove('on');
+      navMenu.forEach(span => span.classList.remove('on')); // 다시 벗어나면 'on' 클래스 제거
+    },
   });
 }
 
