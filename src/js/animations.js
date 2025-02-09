@@ -104,14 +104,12 @@ function letLogoFillCg() {
     end: "+=6000",
     markers: false,
     scrub: true,
-    onEnter: () => logoSvg.classList.add('on'), // 스크롤 진입 시 포인트 컬러
+    onEnter: () => {logoSvg.classList.add('on')}, // 스크롤 진입 시 포인트 컬러
     onLeave: () => {
       gsap.delayedCall(1.5, () => logoSvg.classList.remove('on')); // 1.5초 딜레이 후 클래스 제거
     },
-    onEnterBack: () => logoSvg.classList.add('on'), // 다시 진입 시 포인트 컬러
-    onLeaveBack: () => {
-      gsap.delayedCall(1.5, () => logoSvg.classList.remove('on')); // 1.5초 딜레이 후 클래스 제거
-    },
+    onEnterBack: () => {logoSvg.classList.add('on')}, // 다시 진입 시 포인트 컬러
+    onLeaveBack: () => {logoSvg.classList.remove('on')},
   });
 }
 

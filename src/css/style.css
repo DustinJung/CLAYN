@@ -56,10 +56,6 @@ body.is-ready #marquee{
 }
 .logo{
     width: 100%;
-    -webkit-mask-image: url('../../public/icons/logo.svg');
-    mask-image: url('../../public/icons/logo.svg');
-    background-color: #222222;
-    transition: background-color 0.5s ease;
 }
 .logo_g.on path{
     fill: #F8F6F4;
