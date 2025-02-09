@@ -1,7 +1,11 @@
 /*global*/
-
+html,body{
+    font-size: 16px;
+}
 
 /*변수*/
+
+    /*폰트,컬러 변수*/
 :root {
     /*폰트 변수*/
     --inter-font : 'Inter', 'Pretendard', sans-serif;
@@ -13,9 +17,10 @@
     --extra-extra-point-clr : #fbcccd;
     --body-clr: #5C5C5C;
     --body-bg-clr: #F8F6F4;
+    --logo-clr: #222222;
 }
 
-/* 간격 변수 */
+    /* 간격 변수 */
 :root {
     --spacing-xs: 0.5rem;  /* 작은 간격 */
     --spacing-sm: 1rem;    /* 기본 간격 */
@@ -30,63 +35,31 @@
     --spacing-fix-5rem: 5rem; /*변하지 않는 5rem*/
 }
 
-/*전역 스타일*/
-body{
-    font-size: 16px;
+    /*cubic bezier*/
+:root {
+    --cubic-x1: 0.215;
+    --cubic-y1: 0.61;
+    --cubic-x2: 0.355;
+    --cubic-y2: 1;
+    /*cubic-bezier(var(--cubic-x1), var(--cubic-y1), var(--cubic-x2), var(--cubic-y2));*/
 }
+/*전역 스타일*/
 .uppercase{
     text-transform: uppercase;
+}
+.header_fixed{
+    position: fixed;
+    z-index: 200;
+    top: calc(var(--spacing-fix-1rem) + .75rem);
 }
 
 /*애니메이션*/
 @keyframes text-scrolling {
-    0%{
-        transform: translateX(100%);
+    0% {
+        transform: translateX(0);
     }
-    100%{
+    100% {
         transform: translateX(-100%);
     }
 }
 
-/*프리 로더 관련*/
-.pre-loader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--extra-point-clr);
-    color: var(--extra-extra-point-clr);
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999999999;
-    overflow: hidden;
-}
-.pre-loader-img{
-    transform: scaleY(0); /* 초기 상태에서 높이를 0으로 설정 */
-    transform-origin: top; /* 위에서 아래로 */
-    transition: transform 0.5s ease-in-out; /* transform에 transition 적용 */
-    opacity: 0; /* 초기 상태에서 보이지 않도록 설정 */
-}
-.pre-loader-counter{
-    opacity: 0;
-    transform: scaleY(0); /* 초기 상태에서 높이를 0으로 설정 */
-    transform-origin: bottom; /* 위에서 아래로 */
-    transition: transform 0.5s ease-in-out;
-}
-.pre-loader-img.on{
-    transform: scaleY(1); /* 요소가 위로 확장되면서 보이게 됨 */
-    opacity: 1; /* 이미지가 보이게 됨 */
-}
-.pre-loader-counter.on{
-    opacity: 1;
-    transform: scaleY(1); /* 요소가 위로 확장되면서 보이게 됨 */
-}
-.pre-loader.hide {
-    height: 0;
-    pointer-events: none;
-    overflow: hidden;
-}

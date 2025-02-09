@@ -36,7 +36,6 @@ body,
 /* 포인트 텍스트 폰트 */
 .point_font {
     font-weight: 700;
-    color: var(--point-clr);
 }
 
 /* 추가 강조 텍스트 */

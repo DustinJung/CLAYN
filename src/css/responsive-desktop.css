@@ -10,4 +10,15 @@
         --spacing-lg: 4rem;    /* 넉넉한 간격 */
         --spacing-xl: 5rem;    /* 아주 큰 간격 */
     }
+
+    /*gutter class*/
+    .with-gutter{
+        box-sizing: border-box;
+        padding: 0 var(--spacing-xl);
+    }
+
+    /*header_nav_btn*/
+    .header_nav_btn:hover span:first-of-type{
+        transform: scale(0.75, 1);
+    }
 }

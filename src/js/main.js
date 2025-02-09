@@ -1,11 +1,13 @@
 // main.js (메인 실행 파일)
 
-import { lenis } from "./lenis.js"; // ✅ Lenis 가져오기
+import { lenis } from "./animations.js"; // ✅ Lenis 가져오기
 import { initAnimations } from "./animations.js";
 import { initUIComponents } from "./components.js"; // ✅ UI 기능 모듈 가져오기
 
+
 window.onload = function () {
   try {
+    lenis.stop();
     // 애니메이션 초기화 (Preloader 포함)
     initAnimations();
 

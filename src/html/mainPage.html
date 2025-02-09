@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CLAYN - 감성적인 미니멀 도자기</title>
-    
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/spoqa/spoqa-han-sans@2.1/SpoqaHanSansNeo.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
 
     <!-- 파비콘 설정 -->
     <!-- 기본 파비콘 (최신 브라우저) -->
-    <link rel="icon" href="../../public/icons/favicon-light.svg" type="image/svg+xml" media="(prefers-color-scheme: light)">
+    <link rel="icon" href="../../public/icons/favicon-light.svg" type="image/svg+xml"
+        media="(prefers-color-scheme: light)">
     <!-- 다크 모드용 파비콘 -->
-    <link rel="icon" href="../../public/icons/favicon-dark.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
+    <link rel="icon" href="../../public/icons/favicon-dark.svg" type="image/svg+xml"
+        media="(prefers-color-scheme: dark)">
 
     <!-- 대체 파비콘 (구형 브라우저, 일부 모바일 지원) -->
     <link rel="icon" href="../../public/icons/favicon-light.png" type="image/png" media="(prefers-color-scheme: light)">
@@ -26,25 +30,39 @@
 
     <!-- 애플 홈 화면 아이콘 (아이폰 & 아이패드, 다크 모드 전환) -->
     <!-- 라이트 모드 아이콘 -->
-    <link rel="apple-touch-icon" href="../../public/icons/apple-touch-icon-light-180.png" sizes="180x180" media="(prefers-color-scheme: light)"> <!--180x180 px: 가장 중요한 사이즈. iPhone 및 iPad의 홈 화면에서 사용됩니다.-->
-    <link rel="apple-touch-icon" href="../../public/icons/apple-touch-icon-light-167.png" sizes="167x167" media="(prefers-color-scheme: light)"> <!--167x167 px: iPad Pro에서 사용됩니다.-->
-    <link rel="apple-touch-icon" href="../../public/icons/apple-touch-icon-light-152.png" sizes="152x152" media="(prefers-color-scheme: light)"> <!--152x152 px: iPad에서 사용됩니다.-->
-    <link rel="apple-touch-icon" href="../../public/icons/apple-touch-icon-light-120.png" sizes="120x120" media="(prefers-color-scheme: light)"> <!--120x120 px: iPhone 6, 7, 8 등 구형 기기에서 사용됩니다.-->
+    <link rel="apple-touch-icon" href="../../public/icons/apple-touch-icon-light-180.png" sizes="180x180"
+        media="(prefers-color-scheme: light)"> <!--180x180 px: 가장 중요한 사이즈. iPhone 및 iPad의 홈 화면에서 사용됩니다.-->
+    <link rel="apple-touch-icon" href="../../public/icons/apple-touch-icon-light-167.png" sizes="167x167"
+        media="(prefers-color-scheme: light)"> <!--167x167 px: iPad Pro에서 사용됩니다.-->
+    <link rel="apple-touch-icon" href="../../public/icons/apple-touch-icon-light-152.png" sizes="152x152"
+        media="(prefers-color-scheme: light)"> <!--152x152 px: iPad에서 사용됩니다.-->
+    <link rel="apple-touch-icon" href="../../public/icons/apple-touch-icon-light-120.png" sizes="120x120"
+        media="(prefers-color-scheme: light)"> <!--120x120 px: iPhone 6, 7, 8 등 구형 기기에서 사용됩니다.-->
 
     <!-- 다크 모드 아이콘 -->
-    <link rel="apple-touch-icon" href="../../public/icons/apple-touch-icon-dark-180.png" sizes="180x180" media="(prefers-color-scheme: dark)"> <!--180x180 px: 가장 중요한 사이즈. iPhone 및 iPad의 홈 화면에서 사용됩니다.-->
-    <link rel="apple-touch-icon" href="../../public/icons/apple-touch-icon-dark-167.png" sizes="167x167" media="(prefers-color-scheme: dark)"> <!--167x167 px: iPad Pro에서 사용됩니다.-->
-    <link rel="apple-touch-icon" href="../../public/icons/apple-touch-icon-dark-152.png" sizes="152x152" media="(prefers-color-scheme: dark)"> <!--152x152 px: iPad에서 사용됩니다.-->
-    <link rel="apple-touch-icon" href="../../public/icons/apple-touch-icon-dark-120.png" sizes="120x120" media="(prefers-color-scheme: dark)"> <!--120x120 px: iPhone 6, 7, 8 등 구형 기기에서 사용됩니다.-->
-        
+    <link rel="apple-touch-icon" href="../../public/icons/apple-touch-icon-dark-180.png" sizes="180x180"
+        media="(prefers-color-scheme: dark)"> <!--180x180 px: 가장 중요한 사이즈. iPhone 및 iPad의 홈 화면에서 사용됩니다.-->
+    <link rel="apple-touch-icon" href="../../public/icons/apple-touch-icon-dark-167.png" sizes="167x167"
+        media="(prefers-color-scheme: dark)"> <!--167x167 px: iPad Pro에서 사용됩니다.-->
+    <link rel="apple-touch-icon" href="../../public/icons/apple-touch-icon-dark-152.png" sizes="152x152"
+        media="(prefers-color-scheme: dark)"> <!--152x152 px: iPad에서 사용됩니다.-->
+    <link rel="apple-touch-icon" href="../../public/icons/apple-touch-icon-dark-120.png" sizes="120x120"
+        media="(prefers-color-scheme: dark)"> <!--120x120 px: iPhone 6, 7, 8 등 구형 기기에서 사용됩니다.-->
+
     <!-- Global Styles -->
     <link href="../css/global.css" rel="stylesheet">
 
     <!-- Font & Color Definitions -->
     <link rel="stylesheet" href="../css/font-style.css">
-    
+
     <!--노멀라이즈 CSS(내 공용)-->
     <link href="../css/dustinnormalize.css" rel="stylesheet">
+
+    <!--animation 관련 css-->
+    <link href="../css/animations.css" rel="stylesheet">
+
+    <!--button, nav 등 UI 관련 css-->
+    <link href="../css/components.css" rel="stylesheet">
 
     <!--전역 스타일-->
     <link href="../css/style.css" rel="stylesheet">
@@ -55,21 +73,55 @@
     <link rel="stylesheet" href="../css/responsive-desktop.css">
 
 </head>
+
 <body>
     <!-- Pre-loader Section -->
     <section id="pre-loader-section">
         <!-- 로딩 화면 등 미리 보여줄 내용 -->
-         <div class="pre-loader">
+        <div class="pre-loader">
             <p class="pre-loader-counter">0%</p>
             <img src="../../public/icons/pre-loader-img.png" alt="프리로더 전용 이미지">
-            <img src="../../public/images/pre-loader/pre-loader-under-text.png" alt="프리 로더 밑에 깔리는 이미지" class="pre-loader-img">
-         </div>
+            <img src="../../public/images/pre-loader/pre-loader-under-text.png" alt="프리 로더 밑에 깔리는 이미지"
+                class="pre-loader-img">
+        </div>
     </section>
 
     <!-- Header Section -->
     <section id="header-section">
         <header>
-        <!-- 상단 네비게이션, 로고, 메뉴 등 -->
+            <!-- 상단 네비게이션, 로고, 메뉴 등 -->
+            <a href="mainPage.html" class="logo_wrapper header_fixed">
+                <i class="logo-transform">
+                    <!--<img src="../../public/icons/logo.svg" alt="logo" width="135" class="logo">-->
+                    <svg version="1.1" class="logo" id="레이어_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 550 150" enable-background="new 0 0 550 150" xml:space="preserve">
+                        <g class="logo_g">
+                        <path fill="#212121" d="M69.76,133.13c-11.16,0-20.72-2.44-28.67-7.32c-7.96-4.88-14.07-11.69-18.33-20.42
+                            C18.5,96.65,16.37,86.52,16.37,75c0-11.52,2.13-21.65,6.39-30.38c4.26-8.73,10.37-15.54,18.33-20.42
+                            c7.96-4.88,17.52-7.32,28.67-7.32c12.87,0,23.59,3.22,32.16,9.65c8.58,6.43,14.6,15.1,18.06,26l-18.83,5.19
+                            c-2.17-7.29-5.86-12.98-11.08-17.09c-5.22-4.11-11.99-6.16-20.31-6.16c-7.49,0-13.73,1.68-18.72,5.04
+                            c-4.99,3.36-8.73,8.07-11.24,14.14C37.3,59.72,36.03,66.84,35.97,75c0,8.16,1.25,15.28,3.76,21.35
+                            c2.51,6.07,6.26,10.79,11.28,14.14c5.01,3.36,11.26,5.04,18.75,5.04c8.32,0,15.09-2.07,20.31-6.2c5.22-4.13,8.91-9.82,11.08-17.05
+                            l18.83,5.19c-3.46,10.9-9.48,19.57-18.06,26C93.35,129.91,82.63,133.13,69.76,133.13z"/>
+                        <path fill="#212121" d="M138.58,130.8V19.2h18.68v94.09h49.29v17.51H138.58z"/>
+                        <path fill="#212121" d="M211.97,130.8l35.19-111.6h27.36l35.18,111.6h-19.22L258.55,30.67h4.18L231.2,130.8H211.97z M231.58,106.62
+                            V89.18h58.59v17.44H231.58z"/>
+                        <path fill="#212121" d="M341.48,130.8V85.07L303.5,19.2h21.78l25.65,44.48l25.58-44.48h21.78l-37.9,65.88v45.73H341.48z"/>
+                        <path fill="#212121" d="M409.13,130.8V19.2h18.91l51.77,78.66V19.2h18.91v111.6h-18.91l-51.77-78.66v78.66H409.13z"/>
+                        <path fill="#212121" d="M509.18,130.8v-13.35h-5.13v-2.49h12.9v2.49h-5.13v13.35H509.18z"/>
+                        <path fill="#212121" d="M517.9,130.8v-15.84h2.39l5.48,11.22l5.48-11.22h2.39v15.84h-2.47v-10.15l-4.86,10.15h-1.06l-4.85-10.15
+                            v10.15H517.9z"/>
+                        </g>
+                    </svg>
+                </i>
+            </a>
+
+            <!--메뉴 바-->
+            <button aria-label="CLAY-Nmenu-Toggle-Button" class="header_nav_btn header_fixed">
+                <span aria-label="hidden"></span>
+                <span aria-label="hidden"></span>
+                <span aria-label="hidden"></span>
+                <span aria-label="hidden"></span>
+            </button>
         </header>
     </section>
 
@@ -102,14 +154,32 @@
                     </div>
                 </div>
             </div>
-        <!-- 주요 콘텐츠 영역 -->
+
+            <!-- 주요 콘텐츠 영역 -->
+            <seciton id="intro_video_wrapper">
+                <video src="../../public/videos/intro/intro.mp4" autoplay muted loop preload="auto" width="100%" height="auto"></video>
+                <div class="black_bg"></div>
+                <div class="black_bg"></div>
+                <div class="black_bg"></div>
+                <p class="intro_text point_font">"당신의 일상, 그 작은 순간 속에서 가장 강렬한 감동은 무엇일까요?"</p>
+                <P class="intro_text point_font">우리는 그 답을 CLAYN에서 찾았습니다.</P>
+                <P class="intro_text point_font">정교하게 다듬어진 형태와 세련된 모던 미니멀 디자인 속에,</P>
+                <P class="intro_text point_font">단순함 그 이상의 힘을 담았습니다.</P>
+                <P class="intro_text point_font">CLAYN의 도자기는 단순히 그릇이 아닙니다.</P>
+                <P class="intro_text point_font">그것은 당신의 공간을 고요하고 강렬한 예술적 감동으로 채우는 시간의 조각입니다.</P>
+                <P class="intro_text point_font">당신의 하루, 이제는 그릇 속에서 특별한 이야기를 시작해 보세요.</P>
+            </seciton>
+
+            <section class="what">
+
+            </section>
         </main>
     </section>
 
     <!-- Footer Section -->
     <section id="footer-section">
         <footer>
-        <!-- 푸터, 저작권, 연락처 정보 등 -->
+            <!-- 푸터, 저작권, 연락처 정보 등 -->
         </footer>
     </section>
 
@@ -121,8 +191,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
     <script src="https://unpkg.com/split-type" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js" defer></script>
-    
+
     <!-- Custom Scripts -->
     <script type="module" src="../js/main.js" defer></script>
 </body>
+
 </html>
