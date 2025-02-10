@@ -34,3 +34,34 @@
 .header_nav_btn span.on{
     background: var(--body-bg-clr);
 }
+
+
+/*버튼 디자인*/
+:root {
+    --btn-padding: 1rem 1.5rem;
+}
+.clayn_btn {
+    padding: var(--btn-padding);
+    background: var(--extra-point-clr);
+    color: var(--body-bg-clr);
+    border-radius: 500px;
+    position: relative;
+    z-index: 30;
+}
+.clayn_btn:hover{
+    animation-name: jelly;
+    animation-duration: .5s;
+}
+@keyframes jelly {
+    25% {
+      transform: scale(0.9, 1.1);
+    }
+  
+    50% {
+      transform: scale(1.1, 0.9);
+    }
+  
+    75% {
+      transform: scale(0.95, 1.05);
+    }
+  }

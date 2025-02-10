@@ -26,3 +26,8 @@ window.onload = function () {
     console.error("초기화 중 오류 발생:", error);
   }
 };
+
+
+
+// jQeury
+

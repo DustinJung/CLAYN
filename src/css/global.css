@@ -70,7 +70,7 @@ html,body{
     margin-right: auto;
     margin-left: auto;
     z-index: 20;
-    position: relative;
+    position: absolute;
     top: 0;
 }
 

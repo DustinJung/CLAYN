@@ -223,6 +223,7 @@ function brand_introduce_section() {
 
 
 
+/*
 function article1_animate() {
   const firstSec = document.querySelector('#featured_products_section .article1 .element_gutter');
   const vdWrapper = document.querySelector('#featured_products_section .article1');
@@ -294,6 +295,7 @@ function updateParallaxScroll(newEndValue) {
     }
   });
 }
+  */
 
 // 여기에 애니메이션 정의 함수 추가
 function initAnimations() {
@@ -304,8 +306,6 @@ function initAnimations() {
   introBgVdTxt(); // logo intro 진입시 색바뀌기 실행
   letLogoFillCg(); // intro video section scroll trigger 실행
   brand_introduce_section();
-  featured_article_parallax();
-  article1_animate();
 }
 
 // 외부에서 사용할 수 있도록 내보내기
