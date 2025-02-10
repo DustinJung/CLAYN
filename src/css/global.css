@@ -11,6 +11,11 @@ html,body{
     --inter-font : 'Inter', 'Pretendard', sans-serif;
     --manrope-font : 'Manrope', 'Spoqa Han Sans Neo', sans-serif;
 
+    /*폰트 사이즈 변수*/
+    --title-size : calc((var(--spacing-fix-3rem)) + (var(--spacing-fix-half1rem)));
+    --text-effect-size : calc((var(--spacing-fix-2rem)) + (var(--spacing-fix-half1rem)));
+    --text-size : var(--spacing-fix-1rem);
+
     /*컬러 변수*/
     --point-clr : #C4A88A;
     --extra-point-clr : #005D66;
@@ -55,6 +60,18 @@ html,body{
 .text_balance{
     text-wrap: balance;
     word-break: keep-all;
+}
+.section_top_mg_gutter{
+    margin-top: var(--spacing-fix-2rem);
+}
+.element_gutter{
+    left: 50%;
+    transform: translateX(-50%);
+    margin-right: auto;
+    margin-left: auto;
+    z-index: 20;
+    position: relative;
+    top: 0;
 }
 
 /*애니메이션*/

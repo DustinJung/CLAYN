@@ -161,13 +161,13 @@ function introBgVdTxt() {
 // brand_introduce_section 애니메이션
 function brand_introduce_section() {
   const intro_section = document.querySelector('#brand_introduce_section');
-  const number = gsap.utils.toArray('#brand_introduce_section .number');
-  const person = gsap.utils.toArray('#brand_introduce_section .person');
+
 
   // GSAP 타임라인 설정
   const animation = gsap.timeline();
   
-  // 처음 상태로 설정 (x: 0으로 보이도록)
+  //number 애니메이션 추가
+  const number = gsap.utils.toArray('#brand_introduce_section .number');
   number.forEach((number, i) => {
     // Number 애니메이션
     animation.fromTo(
@@ -220,6 +220,81 @@ function brand_introduce_section() {
     markers: false,  // 마커는 보기 편하게 설정
   });
 }
+
+
+
+function article1_animate() {
+  const firstSec = document.querySelector('#featured_products_section .article1 .element_gutter');
+  const vdWrapper = document.querySelector('#featured_products_section .article1');
+
+  let scrollEndValue = "+=1000px"; // 🔥 이 값을 조정하면 자동으로 parallax에도 반영됨
+
+  gsap.fromTo(firstSec, { 
+      autoAlpha: 0, // 시작 상태
+      y: 50 
+    }, 
+    { 
+      autoAlpha: 1, // opacity 1로 서서히 전환
+      y: 0, // y 위치 이동
+      duration: 1.5, 
+      ease: "power2.out", 
+      scrollTrigger: {
+        trigger: vdWrapper,
+        start: "top top",
+        end: scrollEndValue, // 동적으로 설정
+        scrub: true,
+        markers: false,
+        id: "first_sec_markers",
+        onUpdate: (self) => {
+          updateParallaxScroll(self.end); // 🔥 패럴랙스 애니메이션에도 반영
+        }
+      }
+    }
+  );
+}
+
+function featured_article_parallax() {
+  const articles = gsap.utils.toArray('#featured_products_section article');
+
+  articles.forEach((article, i) => {
+    if (i === articles.length - 1) return; // 마지막 article은 제외
+
+    let nextArticle = articles[i + 1];
+
+    let parallaxTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: article,
+        start: "top top",
+        end: "+=1000px", // 기본값, 이후 업데이트 가능
+        scrub: true,
+        pin: true,
+        pinSpacing: true,
+      }
+    })
+    .to(nextArticle, {
+      yPercent: -100, 
+      ease: "none",
+    });
+
+    article.parallaxTimeline = parallaxTimeline; // 타임라인 저장
+  });
+}
+
+// 🔥 article1의 스크롤 길이에 맞춰 parallax의 길이 업데이트
+function updateParallaxScroll(newEndValue) {
+  const articles = gsap.utils.toArray('#featured_products_section article');
+
+  articles.forEach((article, i) => {
+    if (i === articles.length - 1) return; 
+
+    let scrollTrigger = article.parallaxTimeline.scrollTrigger;
+    if (scrollTrigger) {
+      scrollTrigger.end = newEndValue; // end 값을 업데이트
+      scrollTrigger.refresh(); // 변경 사항 적용
+    }
+  });
+}
+
 // 여기에 애니메이션 정의 함수 추가
 function initAnimations() {
   // 여기다가 애니메이션 코드 추가하면 됨
@@ -227,8 +302,10 @@ function initAnimations() {
   initPreloader(); // Preloader 실행
   logoTranslate(); // logoTranslate 실행
   introBgVdTxt(); // logo intro 진입시 색바뀌기 실행
-  letLogoFillCg() // intro video section scroll trigger 실행
-  brand_introduce_section()
+  letLogoFillCg(); // intro video section scroll trigger 실행
+  brand_introduce_section();
+  featured_article_parallax();
+  article1_animate();
 }
 
 // 외부에서 사용할 수 있도록 내보내기

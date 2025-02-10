@@ -34,6 +34,7 @@ body,
     font-weight: 700;
 }
 
+
 /* 추가 강조 텍스트 */
 .extra_point_font {
     font-weight: 700;
@@ -59,4 +60,8 @@ body,
 /*엑스트라 요소 백그라운드 컬러*/
 .extra_point_bg_clr{
     background: var(--extra-point-clr);
+}
+/*off-white 바디 색깔 포인트 컬러*/
+.off-white_clr{
+    color: var(--body-bg-clr);
 }

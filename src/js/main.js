@@ -8,7 +8,7 @@ import { initUIComponents } from "./components.js"; // ✅ UI 기능 모듈 가�
 window.onload = function () {
   try {
     lenis.stop();
-    // 애니메이션 초기화 (Preloader 포함)
+    // 애니메이션 초기화 (gsap를 이용한)
     initAnimations();
 
     // UI 기능 초기화 (슬라이더, 모달 등)

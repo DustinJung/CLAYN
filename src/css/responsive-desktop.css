@@ -16,9 +16,14 @@
         box-sizing: border-box;
         padding: 0 var(--spacing-xl);
     }
-
+    .element_gutter{
+        width: 1200px;
+        margin-top: 25vh;
+    }
     /*header_nav_btn*/
     .header_nav_btn:hover span:first-of-type{
         transform: scale(0.75, 1);
     }
+
+
 }
