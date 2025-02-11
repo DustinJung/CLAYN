@@ -168,7 +168,7 @@ body.is-ready #marquee{
     font-size: var(--text-effect-size);
 }
 #featured_products_section .article2{
-    background: var(--body-bg-clr);
+    background: /*var(--body-bg-clr);*/ black;
     position: relative;
     top: 0;
     left: 0;
