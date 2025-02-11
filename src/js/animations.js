@@ -221,81 +221,123 @@ function brand_introduce_section() {
   });
 }
 
+//** featured section의 article1과 article2의 pin을 통한 배경 parallax
+function article_animate() {
+  const articles = document.querySelectorAll('#featured_products_section article');
+  const article1 = document.querySelector('#featured_products_section .article1');
 
-
-/*
-function article1_animate() {
-  const firstSec = document.querySelector('#featured_products_section .article1 .element_gutter');
-  const vdWrapper = document.querySelector('#featured_products_section .article1');
-
-  let scrollEndValue = "+=1000px"; // 🔥 이 값을 조정하면 자동으로 parallax에도 반영됨
-
-  gsap.fromTo(firstSec, { 
-      autoAlpha: 0, // 시작 상태
-      y: 50 
-    }, 
-    { 
-      autoAlpha: 1, // opacity 1로 서서히 전환
-      y: 0, // y 위치 이동
-      duration: 1.5, 
-      ease: "power2.out", 
-      scrollTrigger: {
-        trigger: vdWrapper,
-        start: "top top",
-        end: scrollEndValue, // 동적으로 설정
-        scrub: true,
-        markers: false,
-        id: "first_sec_markers",
-        onUpdate: (self) => {
-          updateParallaxScroll(self.end); // 🔥 패럴랙스 애니메이션에도 반영
-        }
-      }
-    }
-  );
-}
-
-function featured_article_parallax() {
-  const articles = gsap.utils.toArray('#featured_products_section article');
-
-  articles.forEach((article, i) => {
-    if (i === articles.length - 1) return; // 마지막 article은 제외
-
-    let nextArticle = articles[i + 1];
-
-    let parallaxTimeline = gsap.timeline({
-      scrollTrigger: {
+  gsap.utils.toArray(articles).forEach((article, i) => {
+    ScrollTrigger.create({
         trigger: article,
         start: "top top",
-        end: "+=1000px", // 기본값, 이후 업데이트 가능
-        scrub: true,
-        pin: true,
-        pinSpacing: true,
-      }
-    })
-    .to(nextArticle, {
-      yPercent: -100, 
-      ease: "none",
+        pin: true, 
+        pinSpacing: false,
+        markers: false,
     });
-
-    article.parallaxTimeline = parallaxTimeline; // 타임라인 저장
-  });
+});
 }
 
-// 🔥 article1의 스크롤 길이에 맞춰 parallax의 길이 업데이트
-function updateParallaxScroll(newEndValue) {
-  const articles = gsap.utils.toArray('#featured_products_section article');
+//**featured section의 article1 관련 함수
+function letFeaturedVisible() {
+  const section = document.querySelector("#featured_products_section");
+  const element_gutter = document.querySelector("#featured_products_section .article1 .element_gutter");
 
-  articles.forEach((article, i) => {
-    if (i === articles.length - 1) return; 
+  // 처음에는 숨겨진 상태로 설정
+  gsap.set(element_gutter, { autoAlpha: 0, y: 50 });
 
-    let scrollTrigger = article.parallaxTimeline.scrollTrigger;
-    if (scrollTrigger) {
-      scrollTrigger.end = newEndValue; // end 값을 업데이트
-      scrollTrigger.refresh(); // 변경 사항 적용
-    }
+  ScrollTrigger.create({
+    trigger: section,
+    start: "top 40%", // 섹션이 화면에 들어오면 시작
+    end: "+=10% 10%", // 섹션이 화면에서 완전히 사라질 때 끝
+    markers: false,
+    onEnter: () => animateIn(element_gutter), // 등장 애니메이션
+    onLeave: () => animateOut(element_gutter), // 퇴장 애니메이션
+    onEnterBack: () => animateIn(element_gutter), // 다시 올라올 때 등장
+    onLeaveBack: () => animateOut(element_gutter), // 다시 내려갈 때 퇴장
   });
+
+  // 등장 애니메이션 (아래에서 올라오면서 나타남)
+  function animateIn(element) {
+    gsap.to(element, {
+      autoAlpha: 1,
+      y: 0,
+      duration: 0.75,
+      ease: "expo.out",
+    });
+  }
+
+  // 퇴장 애니메이션 (다시 아래로 사라짐)
+  function animateOut(element) {
+    gsap.to(element, {
+      autoAlpha: 0,
+      y: 50,
+      duration: 1.75,
+      ease: "expo.inOut",
+    });
+  }
 }
-  */
+
+// featured section의 article2 관련 함수
+function article2_animate() {
+  const black_wall = document.querySelector('#featured_products_section .black-wall');
+  const article1 = document.querySelector('#featured_products_section .article1')
+  const article2 = document.querySelector('#featured_products_section .article2');
+  const section = document.querySelector('#featured_products_section')
+  const liElements = gsap.utils.toArray('#featured_products_section ul li');
+  
+  function animate1() {
+      //타임라인 생성
+  const art2ani = gsap.timeline();
+
+  // article2에 대한 애니메이션 정의
+  art2ani.fromTo([article2], {
+   opacity: 0,
+ }, {
+   opacity: 1,
+   duration: 1,
+ }),
+ 
+
+   ScrollTrigger.create({
+     animation: art2ani,
+     trigger: article2,
+     start: 'top bottom',
+     end: 'bottom top',
+     scrub: true,
+     markers: true,
+   });
+  };
+
+  function animate2() {
+      //article1에 대한 애니메이션 정의
+
+      const art2ani = gsap.timeline();
+
+     art2ani.fromTo(article1, {
+      opacity: 1,
+    }, {
+      opacity: 0,
+      duration: 1,
+    });
+ 
+   ScrollTrigger.create({
+    animation: art2ani,
+    trigger: article2,
+    start: 'top bottom',
+    end: 'bottom top',
+    scrub: true,
+    markers: true,
+  });
+  };
+
+  animate1();
+  animate2();
+
+
+}
+
+
+
 
 // 여기에 애니메이션 정의 함수 추가
 function initAnimations() {
@@ -306,6 +348,9 @@ function initAnimations() {
   introBgVdTxt(); // logo intro 진입시 색바뀌기 실행
   letLogoFillCg(); // intro video section scroll trigger 실행
   brand_introduce_section();
+  article_animate();
+  letFeaturedVisible();
+  article2_animate();
 }
 
 // 외부에서 사용할 수 있도록 내보내기
