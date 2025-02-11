@@ -168,7 +168,7 @@ body.is-ready #marquee{
     font-size: var(--text-effect-size);
 }
 #featured_products_section .article2{
-    background: black;
+    background: var(--body-bg-clr);
     position: relative;
     top: 0;
     left: 0;
@@ -186,4 +186,18 @@ body.is-ready #marquee{
     margin-right: auto;
     font-size: var(--title-size);
     width: 1200px;
+}
+
+/*MAIN SEC-03-b, swiper-products-section*/
+#swiper_products_section{
+    position: relative;
+    width: 100%;
+    background: var(--body-bg-clr);
+    box-sizing: border-box;
+    margin-top: 100vh;
+}
+.big_products_swiper_wrapper{
+    display: block;
+    height: 506px;
+    transition: transform;
 }

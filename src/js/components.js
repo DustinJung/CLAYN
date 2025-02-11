@@ -3,6 +3,8 @@
 // Swiper.js 초기화 함수
 function initSwiper() {
   // ✅ Swiper 설정 추가 가능
+
+
   console.log("Swiper 초기화");
 }
 

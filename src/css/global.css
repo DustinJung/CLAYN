@@ -83,6 +83,30 @@ html,body{
     z-index: 40;
 }*/
 
+/*스와이퍼*/
+/* 기본 스타일 */
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--body-bg-clr);
+    border-radius: 20px;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+} 
+
 
 /*애니메이션*/
 @keyframes text-scrolling {

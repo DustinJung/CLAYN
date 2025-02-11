@@ -49,6 +49,9 @@
     <link rel="apple-touch-icon" href="../../public/icons/apple-touch-icon-dark-120.png" sizes="120x120"
         media="(prefers-color-scheme: dark)"> <!--120x120 px: iPhone 6, 7, 8 등 구형 기기에서 사용됩니다.-->
 
+    <!--swiper Css-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
     <!-- Global Styles -->
     <link href="../css/global.css" rel="stylesheet">
 
@@ -215,6 +218,7 @@
             </section>
 
             <!--Sec03 - "Featured Products" (대표 제품) section-->
+
             <!--섹션 진입하면 바로 article1에 있는 elementgutter opacity 가 서서히 보이게하고 화면에 article1이 꽉 차고 이후 스크롤 내리면 다시 article1에 있는 element gutter의 opacity 서서히 사라지고 article2의 초기 height이(100vh) 화면에 고정되고 article2가 opacity 1을 점점 가지면서, article2 속 ul의 li 텍스트들이 밑에서부터 위로 하나씩 등장, scrub으로 제어.-->
             <section id="featured_products_section" class="section_top_mg_gutter">
                 <!--text article-->
@@ -230,7 +234,7 @@
 
                 <!--products slide article-->
                 <article class="featured_article article2">
-                    <ul class="title_font point_font off-whte_clr text_balance off-white_clr">
+                    <ul class="title_font point_font text_balance">
                         <li>정교한 디자인과 자연스러운 균형이 만나 탄생한 특별한 컬렉션</li>
                         <li>미니멀한 곡선과 깊이 있는 색감, 당신의 공간에 따뜻한 터치를 더하세요</li>
                         <li>손끝에서 완성된 유니크한 감성, CLAYN만의 시그니처 라인업</li>
@@ -238,8 +242,31 @@
                     </ul>
                 </article>
             </section>
-            
-
+            <!--1920x800 이미지, 공작샵-->
+            <!--그 후 article2가 올라가면서 서서히 보이는 스와이퍼 상품들-->
+            <section id="swiper_products_section" class="swiper_products_section">
+                <article class="big_products_swiper_wrapper">
+                    <!-- Swiper 컨테이너 -->
+                    <!-- Swiper -->
+                    <div class="swiper mySwiper sec3-swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="../../public/images/main-section/sec03/big-swiper-01.png" alt="대표상품 이미지"></div>
+                            <div class="swiper-slide"><img src="../../public/images/main-section/sec03/big-swiper-01.png" alt="대표상품 이미지"></div>
+                            <div class="swiper-slide"><img src="../../public/images/main-section/sec03/big-swiper-01.png" alt="대표상품 이미지"></div>
+                            <div class="swiper-slide"><img src="../../public/images/main-section/sec03/big-swiper-01.png" alt="대표상품 이미지"></div>
+                            <div class="swiper-slide"><img src="../../public/images/main-section/sec03/big-swiper-01.png" alt="대표상품 이미지"></div>
+                            <div class="swiper-slide"><img src="../../public/images/main-section/sec03/big-swiper-01.png" alt="대표상품 이미지"></div>
+                            <div class="swiper-slide"><img src="../../public/images/main-section/sec03/big-swiper-01.png" alt="대표상품 이미지"></div>
+                            <div class="swiper-slide"><img src="../../public/images/main-section/sec03/big-swiper-01.png" alt="대표상품 이미지"></div>
+                            <div class="swiper-slide"><img src="../../public/images/main-section/sec03/big-swiper-01.png" alt="대표상품 이미지"></div>
+                            <div class="swiper-slide"><img src="../../public/images/main-section/sec03/big-swiper-01.png" alt="대표상품 이미지"></div>
+                            <div class="swiper-slide"><img src="../../public/images/main-section/sec03/big-swiper-01.png" alt="대표상품 이미지"></div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                </article>
+            </section>
 
             <section class="what">
 
@@ -262,10 +289,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/ScrollToPlugin.min.js"></script>
     <script src="https://unpkg.com/split-type" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <!-- Custom Scripts -->
     <script type="module" src="../js/main.js" defer></script>
+
+    <script>
+        // sec-3 Swiper 초기화
+          var swiper = new Swiper(".sec3-swiper", {
+              navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+              },
+              slidesPerView: '4', // 자동 크기 조정
+              centeredSlides: true,  // 가운데 정렬
+              spaceBetween: 20,      // 슬라이드 간격
+              loop: true,            // 무한 루프
+          });
+        </script>
+
 </body>
 
 </html> 

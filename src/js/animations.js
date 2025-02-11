@@ -304,7 +304,7 @@ function article2_animate() {
      start: 'top bottom',
      end: 'bottom top',
      scrub: true,
-     markers: true,
+     markers: false,
    });
   };
 
@@ -326,7 +326,7 @@ function article2_animate() {
     start: 'top bottom',
     end: 'bottom top',
     scrub: true,
-    markers: true,
+    markers: false,
   });
   };
 
@@ -336,6 +336,32 @@ function article2_animate() {
 
 }
 
+// article2의 ul의 li들을 순차적으로 보이게 하는 함수
+function artticle2_ul() {
+
+const liElements = gsap.utils.toArray('#featured_products_section ul li');
+
+liElements.forEach((li, index) => {
+  gsap.fromTo(
+    li,
+    { autoAlpha: 0, y: 50 }, // 처음에는 투명하고 아래에 위치
+    {
+      autoAlpha: 1,
+      y: 0,
+      duration: 0.8,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: li,
+        start: 'top 80%', // li 요소가 화면의 80% 위치에 도달하면 실행
+        //toggleActions: 'play none none reverse', // 처음엔 이거로 하려 했는데 scrub이 좋다 걍.. reverse는 완전히 돌아와야지만 되는 문제가 있음
+        scrub: .5,
+        markers: false,
+      },
+    }
+  );
+});
+
+}
 
 
 
@@ -351,6 +377,7 @@ function initAnimations() {
   article_animate();
   letFeaturedVisible();
   article2_animate();
+  artticle2_ul();
 }
 
 // 외부에서 사용할 수 있도록 내보내기
