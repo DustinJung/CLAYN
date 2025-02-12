@@ -243,6 +243,7 @@
                     </ul>
                 </article>
             </section>
+            
             <!--1920x800 이미지, 공작샵-->
             <!--그 후 article2가 올라가면서 서서히 보이는 스와이퍼 상품들-->
             <section id="swiper_products_section" class="swiper_products_section">
@@ -340,7 +341,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@latest/dist/lenis.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/ScrollToPlugin.min.js" defer></script>
     <script src="https://unpkg.com/split-type" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
@@ -349,32 +350,7 @@
 
     <script>
         // sec-3 Swiper 초기화
-          var swiper = new Swiper(".sec3-swiper", {
-              navigation: {
-              nextEl: ".swiper-button-next",
-              prevEl: ".swiper-button-prev",
-              },
-              slidesPerView: '3', // 자동 크기 조정
-              spaceBetween: 50,      // 슬라이드 간격
-              loop: true,            // 무한 루프
-              centeredSlides: true, // 센터모드
-              effect: 'coverflow',
-              coverflowEffect: {
-                rotate: 0, // 회전 없음
-                stretch: 30, // 슬라이드 간 간격
-                depth: 75, // 깊이감
-                modifier: 2,
-                slideShadows: true, // 그림자
-                },
-              //on: {
-              //  slideChange: function () {
-              //      document.querySelectorAll('.swiper-slide').forEach(slide => {
-              //      slide.style.opacity = '0.5'; // 모든 슬라이드를 반투명하게
-              //      });
-              //      document.querySelector('.swiper-slide-active').style.opacity = '1'; // 활성 슬라이드만 강조
-              //  },
-              //  },
-            });
+
         </script>
 
 </body>

@@ -363,7 +363,42 @@ liElements.forEach((li, index) => {
 
 }
 
-
+// section 3의 active slider의 scale을 크게 해버리기
+function letActiveHorny() {
+  let swiper_div = document.querySelector('.big_products_swiper_wrapper');
+  let active_swiper = swiper_div.querySelector('.swiper-slide-active');
+  let swiper_shit = swiper_div.querySelector('.swiper');
+  let swiper_img = active_swiper.querySelector('img');
+  let sec3_swiper = document.querySelector('.sec3-swiper');
+  let black_left = sec3_swiper.querySelector('.swiper-slide-shadow-left')
+  let black_right = sec3_swiper.querySelector('.swiper-slide-shadow-right')
+  let sibal = [swiper_shit, black_left, black_right, swiper_img];
+  
+  // swiper_img와 .swiper, prev 그리고 next slideShadows의 forEach로 묶어서 한번에 scale값을 조정하는 함수
+  function gang4() {
+    sibal.forEach((sibal, i) => {
+      let letHorny2 = gsap.timeline();
+  
+      letHorny2.fromTo(sibal, {
+        scale: 5,
+      }, {
+        scale: 1,
+        transformOrigin: "center center",
+      })
+    
+      ScrollTrigger.create({
+        animation: letHorny2,
+        trigger: swiper_div,
+        start: '40% bottom',
+        end: '-20% 5%',
+        scrub: true,
+        markers: true,
+      })
+    })
+  }
+  
+  gang4();
+}
 
 // 여기에 애니메이션 정의 함수 추가
 function initAnimations() {
@@ -381,4 +416,4 @@ function initAnimations() {
 }
 
 // 외부에서 사용할 수 있도록 내보내기
-export { initAnimations, lenis };
+export { initAnimations, letActiveHorny, lenis };

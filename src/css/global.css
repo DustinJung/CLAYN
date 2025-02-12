@@ -65,7 +65,7 @@ html,body{
     margin-top: var(--spacing-fix-2rem);
 }
 .article_margin_top{
-    margin-top: var(--spacing-fix-1rem);
+    margin-top: calc(var(--spacing-fix-1rem) + var(--spacing-fix-half1rem));
 }
 .element_gutter{
     left: 50%;

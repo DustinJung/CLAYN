@@ -193,11 +193,13 @@ body.is-ready #marquee{
 /*MAIN SEC-03-b, swiper-products-section*/
 #swiper_products_section{
     position: relative;
+    z-index: 100;
+    /*transform: translateY(-400px);*/
     width: 100%;
     background: /*var(--body-bg-clr);*/ black;
     box-sizing: border-box;
     margin-top: calc(100vh + 1000px);
-    padding: var(--spacing-fix-1rem) 0;
+    padding: calc(var(--spacing-fix-1rem) + var(--spacing-fix-half1rem)) 0;
 }
 .big_products_swiper_wrapper{
     display: block;
