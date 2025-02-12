@@ -173,9 +173,10 @@ body.is-ready #marquee{
     top: 0;
     left: 0;
     width: 100%;
+    height: calc(100vh + 1000px);
     min-height: 100vh;
     display: flex;
-    align-items: center;
+    /*align-items: center;*/
     justify-content: center;
 }
 #featured_products_section ul{
@@ -186,18 +187,49 @@ body.is-ready #marquee{
     margin-right: auto;
     font-size: var(--title-size);
     width: 1200px;
+    margin-top: var(--spacing-fix-5rem);
 }
 
 /*MAIN SEC-03-b, swiper-products-section*/
 #swiper_products_section{
     position: relative;
     width: 100%;
-    background: var(--body-bg-clr);
+    background: /*var(--body-bg-clr);*/ black;
     box-sizing: border-box;
-    margin-top: 100vh;
+    margin-top: calc(100vh + 1000px);
+    padding: var(--spacing-fix-1rem) 0;
 }
 .big_products_swiper_wrapper{
     display: block;
-    height: 506px;
     transition: transform;
+}
+.sec3_products_marquee{
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-fix-1rem);
+}
+.sec3_products_marquee ul{
+    display: flex;
+    white-space: nowrap;
+    will-change: transform;
+    gap: var(--spacing-fix-1rem);
+
+}
+.sec3_products_marquee1 ul{
+    animation: img-marquee1 60s linear infinite;
+}
+.sec3_products_marquee2 ul{
+    animation: img-marquee2 60s linear infinite;
+}
+.sec3_products_marquee ul li{
+    width: 378px;
+    height: 212px;
+}
+.sec3_products_marquee ul li img{
+    object-fit: cover;
+    width: 100%;
+    height: auto;
 }
