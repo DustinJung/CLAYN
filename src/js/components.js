@@ -34,6 +34,7 @@ function initSwiper() {
 
       on: {
         transitionEnd: function() { //slideChange는 실행 중에 함수발생, transitionEnd는 완전히 종료 후.
+            //letACtiveHorny안에 조건문으로 false값을 만들어 놓고, 여기서 재실행 return false 이용
             letActiveHorny();
         }
       }

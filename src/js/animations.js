@@ -373,7 +373,7 @@ function letActiveHorny() {
   let black_left = sec3_swiper.querySelector('.swiper-slide-shadow-left')
   let black_right = sec3_swiper.querySelector('.swiper-slide-shadow-right')
   let sibal = [swiper_shit, black_left, black_right, swiper_img];
-  
+
   // swiper_img와 .swiper, prev 그리고 next slideShadows의 forEach로 묶어서 한번에 scale값을 조정하는 함수
   function gang4() {
     sibal.forEach((sibal, i) => {
