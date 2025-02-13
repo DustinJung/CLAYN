@@ -403,6 +403,7 @@ function letActiveHorny() {
         })
       //})
       };
+
       function gang3() {
         let letHorny2 = gsap.timeline();
 
@@ -437,6 +438,69 @@ function letActiveHorny() {
   
 }
 
+// sec4의 요소들 순서대로 보이게 하기
+function letSec4IconVisible() {
+  //sec4의 icon article 순서대로 보이게 하기
+  function gang1() {
+    const JSicons = document.querySelectorAll('.icon-wrapper');
+    const iconsWrapper = document.querySelector('.sec4article');
+  
+    let iconsArray = gsap.utils.toArray(JSicons);
+  
+    gsap.from(iconsArray, {
+      scrollTrigger: {
+        trigger: iconsWrapper,
+        markers: false,
+        start: 'top 60%',
+        toggleActions: 'play none none reverse',
+      },
+      opacity: 0,
+      duration: 1.2,
+      stagger: 0.2, // 여러 아이콘을 순차적으로 애니메이션
+    });
+  }
+
+  function gang2() {
+    const h2El = document.querySelector('.sec4h2');
+
+    gsap.from(h2El, {
+      scrollTrigger: {
+        trigger: h2El,
+        start: 'top-=30px 50%',
+        toggleActions: 'play none none reverse',
+      },
+      autoAlpha: 0,
+      duration: 0.6,
+    })
+  }
+
+  function gang3() {
+    const images = document.querySelectorAll('.CTA_wrapper');
+    const img = gsap.utils.toArray(images);
+  
+    images.forEach(item => {
+      let ani = gsap.timeline();
+  
+      ani.from(item, {
+        autoAlpha: 0,
+        duration: 0.4,
+      });
+  
+      ScrollTrigger.create({
+        animation: ani,
+        trigger: item,  // 각 아이템에 대해 트리거를 독립적으로 설정
+        start: 'top 35%', // 각 아이템의 시작 위치
+        toggleActions: 'play none none reverse',
+      });
+    });
+  }
+
+  gang2();
+  gang1();
+  gang3();
+}
+
+
 // 여기에 애니메이션 정의 함수 추가
 function initAnimations() {
   // 여기다가 애니메이션 코드 추가하면 됨
@@ -451,6 +515,7 @@ function initAnimations() {
   article2_animate();
   artticle2_ul();
   letActiveHorny();
+  letSec4IconVisible();
 }
 
 // 외부에서 사용할 수 있도록 내보내기

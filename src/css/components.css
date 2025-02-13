@@ -47,6 +47,7 @@
     border-radius: 500px;
     position: relative;
     z-index: 30;
+    font-weight: 400;
 }
 .clayn_btn:hover{
     animation-name: jelly;
@@ -65,3 +66,62 @@
       transform: scale(0.95, 1.05);
     }
   }
+  @keyframes jelly2 {
+    25% {
+    transform: scale(0.9, 1.1) translate(-50%, -50%);
+}
+
+    50% {
+    transform: scale(1.1, 0.9) translate(-50%, -50%);
+}
+
+    75% {
+    transform: scale(0.95, 1.05) translate(-50%, -50%);
+}
+    
+}
+
+/*sec4 온라인, 에듀케이션 , 스튜디오 CTA 모달*/
+.CTA_wrapper > div::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 30;
+    width: 100%;
+    height: 100%;
+    transition: opacity .3s ease;
+}
+.CTA_wrapper > div:hover::before{
+    backdrop-filter: blur(10px); /* 흐림 효과 */
+    background: rgba(0, 0, 0, 0.5);
+}
+.CTA_wrapper > div:hover img{
+    transform: scale(1.1);
+}
+.CTA_wrapper .clayn_btn{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: transparent !important;
+    font-size: 26px;
+    letter-spacing: 1.3px;
+    font-weight: 400;
+    pointer-events: none; /* 버튼이 기본적으로 클릭 불가 */
+    transition: transform 0.3s ease, background 0.3s ease;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); /* 은은한 그림자 */
+}
+/* 호버시 버튼 활성화 */
+.CTA_wrapper > div:hover .clayn_btn {
+    background: var(--extra-point-clr) !important;
+    pointer-events: all; /* 버튼 클릭 가능 */
+    transform: translate(-50%, -50%); /* 버튼 위치 유지 */
+}
+  /* 버튼 호버 시 Jelly 애니메이션 */
+.CTA_wrapper > div:hover .clayn_btn:hover {
+    animation-name: jelly2;
+    animation-duration: .5s;
+}
