@@ -20,7 +20,7 @@ html,body{
     --point-clr : #C4A88A;
     --extra-point-clr : #005D66;
     --extra-extra-point-clr : #fbcccd;
-    --body-clr: #5C5C5C;
+    --body-clr: #222222;
     --body-bg-clr: #F8F6F4;
     --logo-clr: #222222;
 }
@@ -75,6 +75,12 @@ html,body{
     z-index: 20;
     position: absolute;
     top: 0;
+}
+.lookup{
+    padding-top: 110px;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: var(--spacing-fix-3rem);
 }
 /*.black-wall{
     width: 100%;

@@ -24,6 +24,10 @@
     .header_nav_btn:hover span:first-of-type{
         transform: scale(0.75, 1);
     }
-
+    .non-parallax-section{
+        width: 1200px;
+        margin-right: auto;
+        margin-left: auto;
+    }
 
 }

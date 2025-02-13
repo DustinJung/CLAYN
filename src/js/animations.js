@@ -399,7 +399,7 @@ function letActiveHorny() {
           start: '10% 70%',
           end: '-20% 5%',
           scrub: true,
-          markers: true,
+          markers: false,
         })
       //})
       };
@@ -409,17 +409,19 @@ function letActiveHorny() {
         letHorny2.fromTo(img_float, {
           scale: 1,
           yPercent: -80,
+          zIndex: 80,
         }, {
           scale: 0,
           yPercent: 0,
           opacity: 0, // yPercent가 0으로 내려오면 opacity를 0으로 변경
+          zIndex: 0,
         })
 
 
         ScrollTrigger.create({
           animation: letHorny2,
           trigger: swiper_div,
-          start: '-30% 50%',
+          start: '-40% 50%',
           end: 'bottom+=25% 5%',
           scrub: true,
           markers: false,
