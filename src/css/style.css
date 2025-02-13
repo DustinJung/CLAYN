@@ -235,3 +235,16 @@ body.is-ready #marquee{
     width: 100%;
     height: auto;
 }
+.img_float{
+    position: absolute;
+    z-index: 0;
+    width: 100vw;
+    height: 100vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.img_float img{
+    width: 100%;
+    height: 100%;
+}

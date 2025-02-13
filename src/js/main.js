@@ -8,11 +8,14 @@ import { initUIComponents } from "./components.js"; // ✅ UI 기능 모듈 가�
 window.onload = function () {
   try {
     lenis.stop();
-    // 애니메이션 초기화 (gsap를 이용한)
-    initAnimations();
 
     // UI 기능 초기화 (슬라이더, 모달 등)
     initUIComponents();
+
+    // 애니메이션 초기화 (gsap를 이용한)
+    initAnimations();
+
+
 
     console.log("웹페이지가 로드되었습니다."); // 페이지 로딩 후 로그 출력
 
@@ -29,5 +32,4 @@ window.onload = function () {
 
 
 
-// jQeury
 

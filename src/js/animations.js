@@ -369,35 +369,70 @@ function letActiveHorny() {
   let active_swiper = swiper_div.querySelector('.swiper-slide-active');
   let swiper_shit = swiper_div.querySelector('.swiper');
   let swiper_img = active_swiper.querySelector('img');
-  let sec3_swiper = document.querySelector('.sec3-swiper');
+  let sec3_swiper = swiper_div.querySelector('.sec3-swiper');
   let black_left = sec3_swiper.querySelector('.swiper-slide-shadow-left')
   let black_right = sec3_swiper.querySelector('.swiper-slide-shadow-right')
-  let sibal = [swiper_shit, black_left, black_right, swiper_img];
-
+  let img_float = document.querySelector('.img_float img');
+  //let sibal = [swiper_shit, black_left, black_right, swiper_img];////
   // swiper_img와 .swiper, prev 그리고 next slideShadows의 forEach로 묶어서 한번에 scale값을 조정하는 함수
-  function gang4() {
-    sibal.forEach((sibal, i) => {
-      let letHorny2 = gsap.timeline();
+    //sibal.forEach((sibal, i) => {
+      function gang4() {
+        let letHorny2 = gsap.timeline();
   
-      letHorny2.fromTo(sibal, {
-        scale: 5,
-      }, {
-        scale: 1,
-        transformOrigin: "center center",
-      })
-    
-      ScrollTrigger.create({
-        animation: letHorny2,
-        trigger: swiper_div,
-        start: '40% bottom',
-        end: '-20% 5%',
-        scrub: true,
-        markers: true,
-      })
-    })
-  }
+        //letHorny2.fromTo(sibal, {
+        //  scale: 5,
+        //}, {
+        //  scale: 1,
+        //  transformOrigin: "center center",
+        //})
+        
+        letHorny2.fromTo(sec3_swiper, {
+          opacity: 0,
+        }, {
+          opacity: 1,
+          duration: 1,
+          transformOrigin: "center center",
+        })//
+        ScrollTrigger.create({
+          animation: letHorny2,
+          trigger: swiper_div,
+          start: '10% 70%',
+          end: '-20% 5%',
+          scrub: true,
+          markers: true,
+        })
+      //})
+      };
+      function gang3() {
+        let letHorny2 = gsap.timeline();
+
+        letHorny2.fromTo(img_float, {
+          scale: 1,
+          yPercent: -80,
+        }, {
+          scale: 0,
+          yPercent: 0,
+          opacity: 0, // yPercent가 0으로 내려오면 opacity를 0으로 변경
+        })
+
+
+        ScrollTrigger.create({
+          animation: letHorny2,
+          trigger: swiper_div,
+          start: '-30% 50%',
+          end: 'bottom+=25% 5%',
+          scrub: true,
+          markers: false,
+        })
+      //})
+      };
+      
+
+
+      gang4();
+      gang3();
   
-  gang4();
+  
 }
 
 // 여기에 애니메이션 정의 함수 추가
@@ -413,7 +448,8 @@ function initAnimations() {
   letFeaturedVisible();
   article2_animate();
   artticle2_ul();
+  letActiveHorny();
 }
 
 // 외부에서 사용할 수 있도록 내보내기
-export { initAnimations, letActiveHorny, lenis };
+export { initAnimations, lenis };
