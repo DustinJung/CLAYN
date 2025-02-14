@@ -475,7 +475,7 @@ function letSec4IconVisible() {
   }
 
   function gang3() {
-    const images = document.querySelectorAll('.CTA_wrapper');
+    const images = document.querySelectorAll('.CTA_wrapper > div');
     const img = gsap.utils.toArray(images);
   
     images.forEach(item => {
@@ -483,14 +483,16 @@ function letSec4IconVisible() {
   
       ani.from(item, {
         autoAlpha: 0,
-        duration: 0.4,
+        duration: 0.8,
+        ease: 'ease-in',
       });
   
       ScrollTrigger.create({
         animation: ani,
         trigger: item,  // 각 아이템에 대해 트리거를 독립적으로 설정
-        start: 'top 35%', // 각 아이템의 시작 위치
+        start: 'top 80%', // 각 아이템의 시작 위치
         toggleActions: 'play none none reverse',
+        markers: false,
       });
     });
   }

@@ -110,13 +110,14 @@
     font-size: 26px;
     letter-spacing: 1.3px;
     font-weight: 400;
+    padding : 2rem 3.5rem;
     pointer-events: none; /* 버튼이 기본적으로 클릭 불가 */
     transition: transform 0.3s ease, background 0.3s ease;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); /* 은은한 그림자 */
 }
 /* 호버시 버튼 활성화 */
 .CTA_wrapper > div:hover .clayn_btn {
-    background: var(--extra-point-clr) !important;
+    /*background: var(--extra-point-clr) !important;*/
     pointer-events: all; /* 버튼 클릭 가능 */
     transform: translate(-50%, -50%); /* 버튼 위치 유지 */
 }

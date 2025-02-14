@@ -306,3 +306,8 @@ body.is-ready #marquee{
     transition: transform .3s ease;
     object-fit: cover;
 }
+
+/*section5 about section*/
+#about_section{
+    display: grid;
+}
