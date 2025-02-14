@@ -23,6 +23,7 @@ html,body{
     --body-clr: #222222;
     --body-bg-clr: #F8F6F4;
     --logo-clr: #222222;
+    --warm-gray: #5C5C5C;
 }
 
     /* 간격 변수 */
@@ -38,6 +39,7 @@ html,body{
     --spacing-fix-3rem: 3rem; /*변하지 않는 3rem*/
     --spacing-fix-4rem: 4rem; /*변하지 않는 4rem*/
     --spacing-fix-5rem: 5rem; /*변하지 않는 5rem*/
+
 }
 
     /*cubic bezier*/
@@ -48,6 +50,22 @@ html,body{
     --cubic-y2: 1;
     /*cubic-bezier(var(--cubic-x1), var(--cubic-y1), var(--cubic-x2), var(--cubic-y2));*/
 }
+
+/*grid 정의*/
+:root {
+    --dl-columns: calc(1 / 3 * 100% - 2 / 3 * var(--grid-gutter)) auto;
+    --grid-gutter: 1rem; /* 여백 값 설정 */
+    --grid-gutter-half: calc(1rem * 0.5);
+}
+.o {
+    --dl-columns: calc(1 / 3 * 100% - 2 / 3 * var(--grid-gutter)) auto;
+}
+.o-dl {
+  display: grid;
+  grid-template-columns: var(--dl-columns);
+}
+
+
 /*전역 스타일*/
 .uppercase{
     text-transform: uppercase;

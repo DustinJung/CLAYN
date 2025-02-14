@@ -309,10 +309,85 @@ body.is-ready #marquee{
 
 /*SEC5 thank you section*/
 #thank_you_section{
-    
+    box-sizing: border-box;
+    padding: 1.5rem 0;
+}
+#thank_you_section_wrapper{
+    background: url(../../public/images/main-section/sec05/background.psd)no-repeat 0 0, #F8F6F4;
+    background-blend-mode: multiply;
+    position: relative;
+}
+#thank_you_section_wrapper::before{
+    content: "";
+    top:0;
+    bottom:0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top left, rgba(255,255,255,0.3), transparent);
+    mix-blend-mode: overlay;
 }
 
 /*section6 about section*/
 #about_section{
     display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-row-gap: calc(15 * var(--vh, 1vh)); /*--vh는 모바일이나 태블릿에서만 쓴다*/
+    grid-column-gap: var(--grid-gutter);
+    padding-top: 110px;
+    margin: calc(2 * var(--spacing-fix-5rem)) auto 0;
+    padding-bottom: var(--spacing-fix-3rem);
+    color: var(--warm-gray);
+}
+#about_section blockquote{
+    font-size: 2.2rem;
+    line-height: 1.6;
+    font-style: italic;
+    color: var(--warm-gray);
+    border-left: 4px solid #C4A88A; /* 왼쪽 구분선 */
+    padding-left: 15px;
+    /*white-space: pre-wrap;*/
+}
+#about_section blockquote .right-align{
+    text-align: right;
+}
+#about_section figcaption{
+    width: calc(50% - var(--grid-gutter-half));
+    margin-left: auto;
+    position: relative;
+}
+#about_section figcaption p{
+    position: absolute;
+    bottom: 15%;
+    font-family: var(--manrope-font);
+    font-weight: 500;
+    line-height: 1;
+    left: calc(1 / 3* 100% + 1 / 3* var(--grid-gutter)); /*1 / 3 * 100%는 부모 너비의 3분의 1*/
+}
+#about_section .o-dl{
+    display: flex;
+    flex-direction: column;
+}
+#about_section .o-dl_row{
+    display: grid;
+    grid-template-columns: var(--dl-columns);
+    grid-column-gap: var(--grid-gutter);
+}
+#about_section .o-dl_row:not(:first-child){
+    margin-top: var(--spacing-fix-3rem);
+}
+#about_section .o-dl_title{
+    text-transform: uppercase;
+}
+#about_section .o-dl_desc{
+    display: flex;
+    flex-direction: column;
+}
+#about_section .o-body-text{
+    line-height: 1.2;
+}
+#about_section .about_col{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-gap: calc(2 * var(--grid-gutter)) var(--grid-gutter);
 }

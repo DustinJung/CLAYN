@@ -451,17 +451,58 @@ function letSec4IconVisible() {
       scrollTrigger: {
         trigger: iconsWrapper,
         markers: false,
-        start: 'top 60%',
-        toggleActions: 'play none none reverse',
+        start: 'top 55%',
+        toggleActions: 'play none none reset',
       },
       opacity: 0,
-      duration: 1.2,
-      stagger: 0.2, // 여러 아이콘을 순차적으로 애니메이션
+      duration: 1.1,
+      stagger: 0.15, // 여러 아이콘을 순차적으로 애니메이션
     });
   }
+  function bitchbitch() {
+    const JSicons = document.querySelectorAll('.icon-wrapper');
+    const iconsWrapper = document.querySelector('.sec4article');
+  
+    let iconsArray = gsap.utils.toArray(JSicons);
 
+
+    const bitch = gsap.timeline({
+      scrollTrigger: {
+        trigger: iconsWrapper,
+        markers: false,
+        start: 'top 55%',
+        toggleActions: 'play none none reset',
+      },
+      ease: "power4.out",
+    })
+
+    bitch.from(iconsArray[0], {
+      opacity: 0,
+      duration: 0.15,
+    });
+    bitch.from(iconsArray[1], {
+      opacity: 0,
+      duration: 0.15,
+    }, "-=.01");
+    bitch.from(iconsArray[2], {
+      opacity: 0,
+      duration: 0.15,
+    }, "-=.02");
+    bitch.from(iconsArray[3], {
+      opacity: 0,
+      duration: 0.15,
+    }, '+=.04');
+    bitch.from(iconsArray[4], {
+      opacity: 0,
+      duration: 0.15,
+    }, '+=.08');
+    bitch.from(iconsArray[5], {
+      opacity: 0,
+      duration: 0.15,
+    }, '+=.13');
+  }
   function gang2() {
-    const h2El = document.querySelector('.sec4h2');
+    const h2El = document.querySelector('#anytime_section .sec4h2');
 
     gsap.from(h2El, {
       scrollTrigger: {
@@ -473,7 +514,6 @@ function letSec4IconVisible() {
       duration: 0.6,
     })
   }
-
   function gang3() {
     const images = document.querySelectorAll('.CTA_wrapper > div');
     const img = gsap.utils.toArray(images);
@@ -497,8 +537,9 @@ function letSec4IconVisible() {
     });
   }
 
-  gang2();
-  gang1();
+  //gang2();
+  //gang1();
+  bitchbitch();
   gang3();
 }
 
@@ -507,30 +548,67 @@ function sec5() {
   const sec5_path = document.querySelector("#thank_you_path");
   const sec5_wrapper = document.querySelector("#thank_you_section");
   const sec5 = sec5_wrapper.querySelector(".lookup");
+  const h2 = sec5_wrapper.querySelector('.sec4h2')
 
   //const pathLength = sec5_path.getTotalLength(); // path 길이 구하는 메서드. 실제 JS 메서드임.
   //console.log("Path 길이:", pathLength);
 
 
-  function thank_you_path() {
-    gsap.fromTo(
+
+  function thank_you_path_and_see_you_later() {
+    const ani = gsap.timeline({
+      scrollTrigger: {
+        trigger: sec5,
+        start: "top 40%",
+        toggleActions: "play none none reset", // 스크롤 올리면 다시 사라지게 설정
+        markers: false,
+      }
+    });
+
+    ani.fromTo(
       sec5_path,
       { strokeDasharray: "4739.13916015625", strokeDashoffset: "4739.13916015625" }, // 시작 상태
       {
         strokeDashoffset: "0", // 최종 상태 (선이 다 나타남)
-        duration: 3,
+        duration: 2.5,
         ease: "power2.out",
-        scrollTrigger: {
-          trigger: sec5,
-          start: "top 40%",
-          toggleActions: "play none none reset", // 스크롤 올리면 다시 사라지게 설정
-          markers: true,
-        },
       }
     );
-  }
 
-  thank_you_path();
+    ani.from(h2, {
+      opacity: 0,
+      duration: .5,
+      ease: 'ease2.in',
+    })
+  };
+
+  thank_you_path_and_see_you_later();
+}
+
+function sec6() {
+  const mySignPath = document.querySelector('#my-sign-path');
+  const mySign = document.querySelector('.my-sign');
+  const about_section = document.querySelector('#about_section');
+  const figure = about_section.querySelector('figure');
+  //const pathLength = mySignPath.getTotalLength(); // path 길이 구하는 메서드. 실제 JS 메서드임.
+  //console.log("Path 길이:", pathLength);
+
+  gsap.fromTo(mySignPath, 
+    {
+      strokeDasharray: '1890.7489013671875',
+      strokeDashoffset: '1890.7489013671875',
+    },
+      {
+        strokeDashoffset: '0',
+        duration: 1,
+        ease: 'ease2.out',
+        scrollTrigger: {
+          trigger: figure,
+          start: 'top 50%',
+          markers: false,
+          toggleActions: 'play none none reset',
+        }
+      })
 }
 
 
@@ -551,6 +629,7 @@ function initAnimations() {
   letActiveHorny();
   letSec4IconVisible();
   sec5();
+  sec6();
 }
 
 // 외부에서 사용할 수 있도록 내보내기
