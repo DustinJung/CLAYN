@@ -502,6 +502,38 @@ function letSec4IconVisible() {
   gang3();
 }
 
+// sec5의 애니메이션
+function sec5() {
+  const sec5_path = document.querySelector("#thank_you_path");
+  const sec5_wrapper = document.querySelector("#thank_you_section");
+  const sec5 = sec5_wrapper.querySelector(".lookup");
+
+  //const pathLength = sec5_path.getTotalLength(); // path 길이 구하는 메서드. 실제 JS 메서드임.
+  //console.log("Path 길이:", pathLength);
+
+
+  function thank_you_path() {
+    gsap.fromTo(
+      sec5_path,
+      { strokeDasharray: "4739.13916015625", strokeDashoffset: "4739.13916015625" }, // 시작 상태
+      {
+        strokeDashoffset: "0", // 최종 상태 (선이 다 나타남)
+        duration: 3,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: sec5,
+          start: "top 40%",
+          toggleActions: "play none none reset", // 스크롤 올리면 다시 사라지게 설정
+          markers: true,
+        },
+      }
+    );
+  }
+
+  thank_you_path();
+}
+
+
 
 // 여기에 애니메이션 정의 함수 추가
 function initAnimations() {
@@ -518,6 +550,7 @@ function initAnimations() {
   artticle2_ul();
   letActiveHorny();
   letSec4IconVisible();
+  sec5();
 }
 
 // 외부에서 사용할 수 있도록 내보내기

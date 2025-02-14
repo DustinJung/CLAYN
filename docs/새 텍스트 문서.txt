@@ -1,0 +1,63 @@
+🔹 섹션 구성 아이디어
+배경은 미니멀하게 유지
+
+뉴트럴 톤(Off-White 배경) 유지
+텍스트는 **Deep Blue (#005D66) or Warm Gray (#5C5C5C)**로 강조
+스크롤 내릴 때 "Thank You"가 자연스럽게 드로잉 되면서 나타나는 연출
+
+GSAP + ScrollTrigger 활용
+SVG의 stroke-dasharray + stroke-dashoffset을 조절해서 글씨가 서서히 그려지는 효과
+밑에는 살짝 다음 컬렉션 예고
+
+"새로운 이야기를 곧 만나요." or "다음 컬렉션이 곧 공개됩니다."
+텍스트는 부드럽게 페이드인 & 페이드아웃
+메일링 리스트 가입 or 다음 전시 일정 공개 버튼
+
+"CLAYN의 다음 여정을 함께하세요."
+버튼에 살짝 마우스 호버 인터랙션(GSAP scale or underline 효과)
+
+https://youtu.be/dxOmU_1n7wc?si=YUp6nlbgSHT1tOnk
+
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.fromTo(
+  "#thankYouPath",  // 애니메이션을 적용할 대상 (SVG path 요소)
+  { 
+    strokeDasharray: "300",  // 선 길이를 300으로 설정
+    strokeDashoffset: "300"  // 선을 300만큼 밀어서 보이지 않게 함
+  },
+  {
+    strokeDashoffset: "0",  // 0으로 설정해서 선을 점점 그려지도록 함
+    duration: 2,  // 애니메이션 지속 시간 (2초)
+    ease: "power2.out",  // 자연스러운 감속 효과 (느리게 끝남)
+    scrollTrigger: {  // ScrollTrigger 설정 (스크롤에 반응하도록 함)
+      trigger: "#thankYouSection",  // 애니메이션이 시작될 트리거 요소 (이 섹션이 보일 때 실행)
+      start: "top 80%",  // 해당 요소가 **뷰포트 상단에서 80% 지점에 도달하면 실행**
+      toggleActions: "play none none none"  // 스크롤 방향과 관계없이 한 번만 실행됨
+    }
+  }
+);
+
+🖌 SVG path 애니메이션의 핵심 개념
+SVG에서 선(path)을 그릴 때 **strokeDasharray**와 **strokeDashoffset**을 활용하면 손으로 써 내려가는 듯한 효과를 만들 수 있어요.
+
+strokeDasharray → 점선 효과를 줄 때 사용. 여기서는 선의 총 길이를 설정하는 역할
+strokeDashoffset → 선을 앞으로 밀거나 뒤로 빼는 역할
+(초기값을 선 길이만큼 빼서 안 보이게 했다가, 점점 나타나게 조절)
+📌 즉, strokeDashoffset을 300에서 0으로 줄이면, 숨겨진 선이 점점 나타나면서 자연스럽게 그려지는 효과가 나는 거예요!
+
+css로 종이질감 추가
+#thankYouSection {
+  background: url("/public/images/paper-texture.png"), #F8F6F4;
+  background-blend-mode: multiply;
+}
+
+css로 부드러운 광택 효과
+#thankYouSection::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top left, rgba(255,255,255,0.3), transparent);
+  mix-blend-mode: overlay;
+}

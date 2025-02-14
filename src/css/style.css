@@ -307,7 +307,12 @@ body.is-ready #marquee{
     object-fit: cover;
 }
 
-/*section5 about section*/
+/*SEC5 thank you section*/
+#thank_you_section{
+    
+}
+
+/*section6 about section*/
 #about_section{
     display: grid;
 }
