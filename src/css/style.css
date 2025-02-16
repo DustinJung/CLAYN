@@ -1,6 +1,8 @@
 /*main*/
 main{
     padding-top: calc(var(--spacing-fix-4rem) * 3);
+    position: relative;
+    z-index: 2;
 }
 
 .what{
@@ -237,7 +239,7 @@ body.is-ready #marquee{
 }
 .img_float{
     position: absolute;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     top: 50%;
     left: 50%;
@@ -314,7 +316,7 @@ body.is-ready #marquee{
 }
 #thank_you_section_wrapper{
     background: url(../../public/images/main-section/sec05/background.psd)no-repeat 0 0, #F8F6F4;
-    background-size: coverx;
+    background-size: cover;
     background-blend-mode: multiply;
     position: relative;
 }
@@ -394,4 +396,45 @@ body.is-ready #marquee{
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-gap: calc(2 * var(--grid-gutter)) var(--grid-gutter);
+}
+
+#footer-section{
+    width: 100%;
+    height: 100vh;
+}
+#footer-section footer{
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: var(--grid-gutter);
+    overflow: hidden;
+    box-sizing: border-box;
+    z-index:0;
+}
+#footer-bg{
+    position: absolute;
+    inset: 0;
+}
+#footer-bg::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #221E1D;
+    opacity: clamp(0, calc(1 - 3*var(--progress), 0.8));
+}
+#footer-bg video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+    vertical-align: middle;
+}
+#footer-inner{
+    position: static;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    width: 100%;
 }

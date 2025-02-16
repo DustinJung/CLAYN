@@ -611,7 +611,21 @@ function sec6() {
       })
 }
 
+function footerAnimate() {
+  let main = document.querySelector('#main-section');
+  let footer = document.querySelector('#footer-section');
 
+  gsap.to(main, {
+    y: '-100vh',
+    ease: 'none',
+    scrollTrigger: {
+      trigger: main,
+      start: 'bottom top',
+      end: 'bottom top',
+      scrub: true,
+    }
+  })
+}
 
 // 여기에 애니메이션 정의 함수 추가
 function initAnimations() {
@@ -630,6 +644,7 @@ function initAnimations() {
   letSec4IconVisible();
   sec5();
   sec6();
+  //footerAnimate();
 }
 
 // 외부에서 사용할 수 있도록 내보내기
