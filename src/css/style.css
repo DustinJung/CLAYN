@@ -314,8 +314,12 @@ body.is-ready #marquee{
 }
 #thank_you_section_wrapper{
     background: url(../../public/images/main-section/sec05/background.psd)no-repeat 0 0, #F8F6F4;
+    background-size: coverx;
     background-blend-mode: multiply;
     position: relative;
+}
+#thank_you_section .lookup svg{
+    width: 100%;
 }
 #thank_you_section_wrapper::before{
     content: "";
