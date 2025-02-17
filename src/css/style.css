@@ -1,15 +1,11 @@
 /*main*/
+
 main{
     padding-top: calc(var(--spacing-fix-4rem) * 3);
     position: relative;
-    z-index: 2;
+    background: var(--body-bg-clr);
+    z-index: 3;
 }
-
-.what{
-    height: 500000px;
-    background: lightblue;
-}
-
 
 /*marquee 관련*/
 #marquee{
@@ -403,27 +399,28 @@ body.is-ready #marquee{
     height: 100vh;
 }
 #footer-section footer{
-    position: relative;
+    position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     padding: var(--grid-gutter);
     overflow: hidden;
     box-sizing: border-box;
     z-index:0;
 }
-#footer-bg{
+#footer-bg {
     position: absolute;
     inset: 0;
-}
-#footer-bg::before{
+  }
+  
+  #footer-bg::before {
     content: "";
     position: absolute;
     inset: 0;
     background: #221E1D;
-    opacity: clamp(0, calc(1 - 3*var(--progress), 0.8));
-}
+    opacity: clamp(0.2, calc(1 - 2 * var(--progress)), 1);
+  }
 #footer-bg video{
     width: 100%;
     height: 100%;
@@ -432,9 +429,19 @@ body.is-ready #marquee{
     vertical-align: middle;
 }
 #footer-inner{
-    position: static;
+    position: absolute;
     display: flex;
     flex-direction: column;
     min-height: 100%;
     width: 100%;
+    z-index: 1;
+}
+/*footer-headline은 반응형 디자인으로 각 미디어쿼리 css가서 수정해야함*/
+.footer-center{
+    margin: auto;
+    text-align: center;
+}
+#footer-newsletter{
+    width: 100%;
+
 }

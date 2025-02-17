@@ -30,4 +30,9 @@
         margin-left: auto;
     }
 
+
+    /*footer 섹션*/
+    .footer-center{
+        width: 1200px;
+    }
 }

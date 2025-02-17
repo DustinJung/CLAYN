@@ -42,13 +42,14 @@ html,body{
 
 }
 
-    /*cubic bezier*/
+    /*cubic bezier, 그 외 가변값*/
 :root {
     --cubic-x1: 0.215;
     --cubic-y1: 0.61;
     --cubic-x2: 0.355;
     --cubic-y2: 1;
     /*cubic-bezier(var(--cubic-x1), var(--cubic-y1), var(--cubic-x2), var(--cubic-y2));*/
+    --progress: 0;
 }
 
 /*grid 정의*/

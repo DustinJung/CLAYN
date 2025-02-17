@@ -612,19 +612,40 @@ function sec6() {
 }
 
 function footerAnimate() {
-  let main = document.querySelector('#main-section');
+  let main = document.querySelector('main');
   let footer = document.querySelector('#footer-section');
+  let footerBg = document.querySelector("#footer-section");
 
-  gsap.to(main, {
-    y: '-100vh',
-    ease: 'none',
-    scrollTrigger: {
-      trigger: main,
-      start: 'bottom top',
-      end: 'bottom top',
+  function goUpMain() {
+    gsap.to(main, {
+      y: '-100vh',
+      ease: 'none',
+      scrollTrigger: {
+        trigger: main,
+        start: 'bottom top',
+        end: 'bottom top',
+        scrub: true,
+      }
+    })
+  }
+
+  function footerVideoBlacked() {
+    ScrollTrigger.create({
+      trigger: footerBg,
+      start: "top bottom",
+      end: "bottom top",
       scrub: true,
-    }
-  })
+      markers: true,
+      onUpdate: (self) => {
+        let progress = self.progress.toFixed(3);
+        console.log("Scroll Progress:", progress);
+        footerBg.style.setProperty("--progress", progress);
+      },
+    });
+  }
+
+  //goUpMain();
+  footerVideoBlacked();
 }
 
 // 여기에 애니메이션 정의 함수 추가
@@ -644,7 +665,7 @@ function initAnimations() {
   letSec4IconVisible();
   sec5();
   sec6();
-  //footerAnimate();
+  footerAnimate();
 }
 
 // 외부에서 사용할 수 있도록 내보내기
