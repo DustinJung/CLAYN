@@ -58,9 +58,58 @@ window.onload = function () {
       });
     }
 
+    //장바구니 버튼
+    function bucketBtn() {
+      let black_bg = document.querySelector('.bucket-black-bg');
+      let white_bg = document.querySelector('.bucket-white-overlay');
+      let bucket_btn = document.querySelector('.header_bucket');
+      let html = document.querySelector('html');
+      let menuBg = document.getElementById('menu_bg');
+      let mainNav_ul = document.querySelector('#clayn_nav ul');
+      let sns = document.querySelector('.sns_wrapper');
+    
+      //장바구니 버튼
+      function bucket_btn_fn() {
+        bucket_btn.addEventListener('click', () => {
+          if(html.classList.contains('has-menu-bg')){
+            html.classList.toggle('has-menu-bg');
+            menuBg.classList.toggle('hide');
+            mainNav_ul.classList.toggle('on');
+            if(mainNav_ul.classList.contains('on')){
+              sns.classList.add('on');
+            }else{
+              sns.classList.remove('on');
+            }
+          };
+          html.classList.toggle('has-bucket-clicked');
+          if(html.classList.contains('has-bucket-clicked')){
+            lenis.stop();
+          }else{
+            lenis.start();
+          }
+        })
+      }
+
+      //장바구니 버튼 켜져 있는 상태에서 검은 화면
+      function black_bg_fn() {
+        black_bg.addEventListener('click', () => {
+          if(html.classList.contains('has-bucket-clicked')){
+            lenis.start();
+            html.classList.toggle('has-bucket-clicked');
+          }
+        })
+      }
+
+
+      bucket_btn_fn();
+      black_bg_fn();
+    }
+
 
 
     formPD();
+    bucketBtn();
+
   }
 
   //바닐라 자바스크립트 함수

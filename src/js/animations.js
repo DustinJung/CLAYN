@@ -86,6 +86,7 @@ function progressBar() {
 })
 }
 
+// 메뉴버튼관련
 function menuBtn() {
   let clearShit;
   let menuBtn = document.querySelector('.header_menu');
@@ -135,6 +136,21 @@ function menuBtn() {
 
     
   })
+}
+
+//바로 보러가기 버튼
+function letsSee() {
+  let section = document.getElementById('featured_products_section');
+  let btn = section.querySelector('.clayn_btn');
+  let article = document.querySelector('.big_products_swiper_wrapper');
+
+  btn.addEventListener('click', () => {
+    gsap.to(window, {
+        scrollTo: article,
+        duration: 1, // 스크롤 속도 (1초)
+        ease: "power2.inOut" // 부드러운 스크롤 이펙트
+    });
+});
 }
 
 // nav의 a들 skew하는 기능
@@ -441,6 +457,48 @@ function article2_animate() {
 
 }
 
+// se3의 gsap를 이용한 marquee 애니메이션
+function startMarquee() {
+  let article2 = document.querySelector('.sec3_products_marquee2');
+  let article2_ul = article2.querySelectorAll('ul');
+
+  // 각 2개의 marquee를 서로 반대방향으로 흐르게 하기
+  function marquee() {
+    article2_ul.forEach((ul) => {
+      gsap.set(ul, {
+        xPercent: -100,
+      });
+    }); // 2번째 ul의 set값을 -100으로 밀어놓고,
+
+    document.querySelectorAll(".sec3_products_marquee1, .sec3_products_marquee2").forEach((marquee) => {
+      let lists = marquee.querySelectorAll("ul"); // 각 섹션 안의 2개 ul 가져오기
+
+      lists.forEach((ul) => {
+        // 기본 애니메이션 설정 (60초)
+        let tween = gsap.to(ul, {
+          xPercent: marquee.classList.contains("sec3_products_marquee1") ? -100 : 0,
+          duration: 60,
+          repeat: -1,
+          ease: "linear",
+          paused: false,  // paused 상태로 시작
+        });
+
+        // 마우스를 올리면 속도 느리게
+        marquee.addEventListener('mouseenter', () => {
+          tween.timeScale(0.3); // 속도 느리게
+        });
+
+        // 마우스를 떼면 속도 원래대로
+        marquee.addEventListener('mouseleave', () => {
+          tween.timeScale(1); // 속도 원래대로
+        });
+      });
+    });
+  }
+
+  marquee(); // 마르quee 초기화 함수 실행
+}
+
 // article2의 ul의 li들을 순차적으로 보이게 하는 함수
 function artticle2_ul() {
 
@@ -648,7 +706,7 @@ function letSec4IconVisible() {
   gang3();
 }
 
-// sec5의 애니메이션
+// sec5의 애니메이션 ( thank you section 포함 )
 function sec5() {
   const sec5_path = document.querySelector("#thank_you_path");
   const sec5_wrapper = document.querySelector("#thank_you_section");
@@ -675,7 +733,7 @@ function sec5() {
       { strokeDasharray: "4739.13916015625", strokeDashoffset: "4739.13916015625" }, // 시작 상태
       {
         strokeDashoffset: "0", // 최종 상태 (선이 다 나타남)
-        duration: 2.5,
+        duration: 1.6,
         ease: "power2.out",
       }
     );
@@ -774,6 +832,8 @@ function initAnimations() {
   progressBar();
   menuBtn();
   skewTheNav();
+  letsSee();
+  startMarquee();
 }
 
 // 외부에서 사용할 수 있도록 내보내기

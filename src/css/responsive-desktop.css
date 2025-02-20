@@ -35,4 +35,9 @@
     .footer-center{
         width: 1200px;
     }
+
+    /*bucket 섹션*/
+    .bucket-white-overlay{
+        width: 50%;
+    }
 }

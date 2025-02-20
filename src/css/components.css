@@ -133,7 +133,8 @@ html.has-menu-bg .header_nav_btn span:nth-child(3){
     display: flex;
     align-items: center;
     justify-content: center;
-    top: calc(calc(var(--spacing-fix-1rem) + .75rem) + calc(calc(var(--spacing-fix-3rem) * 0.3) / 2))
+    top: calc(calc(var(--spacing-fix-1rem) + .75rem) + calc(calc(var(--spacing-fix-3rem) * 0.3) / 2));
+    z-index: 99902 !important;
 }
 .header_bucket > svg{
     width: 70%;
@@ -145,7 +146,28 @@ html.has-menu-bg .bucket_path{
 .bucket_path.on{
     stroke: var(--body-bg-clr);
 }
-
+.bucket-white-overlay h2{
+    font-size: var(--title-size);
+    font-weight: 700;
+}
+.bucket-content{
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: calc(5 * 1vh) 0;
+}
+.bucket-content .bucket-text{
+    max-width: 24rem;
+}
+.bucket-text h2{
+    line-height: 1.2;
+    font-size: var(--text-effect-size);
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+}
+.bucket-text p{
+    line-height: 1.4;
+    font-size: .75rem;
+}
 
 /*버튼 디자인*/
 :root {

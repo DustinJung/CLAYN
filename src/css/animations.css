@@ -70,3 +70,38 @@
 html.has-menu-bg .menu_bg{
     transform: translate(0%, 0) !important;
 }
+
+/*bucket overlay 관련*/
+.bucket-black-bg{
+    inset: 0;
+    position: fixed;
+    z-index: 99901;
+    background-color: rgba(0, 0, 0, 0.85);
+    transition: opacity .45s cubic-bezier(0.215, 0.61, 0.355, 1);
+    cursor: pointer;
+}
+html:not(.has-bucket-clicked) .bucket-black-bg{
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.bucket-white-overlay{
+    box-sizing: border-box;
+    top: 0;
+    right: -200vw;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    padding: calc(var(--spacing-xl) + var(--spacing-fix-2rem)) var(--grid-gutter) var(--spacing-fix-1rem);
+    background-color: var(--body-bg-clr);
+    overflow: auto;
+    transform: translate(100%, 0);
+    transition: right 0s .3s, transform .3s cubic-bezier(var(--cubic-x1), var(--cubic-y1), var(--cubic-x2), var(--cubic-y2));
+    position: fixed;
+    z-index: 99901;
+}
+html.has-bucket-clicked .bucket-white-overlay{
+    right: 0;
+    transform: translate(0%, 0);
+    transition: transform .45s cubic-bezier(0.38, 0.005, 0.215, 1);
+}

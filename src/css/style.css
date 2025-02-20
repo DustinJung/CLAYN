@@ -181,6 +181,7 @@ html.has-menu-bg .logo_g path{
 }
 #featured_products_section .article1{
     height: 100vh;
+    will-change: height, opacity;
 }
 #featured_products_section .article1 video{
     position: absolute;
@@ -196,6 +197,7 @@ html.has-menu-bg .logo_g path{
     flex-direction: column;
     gap: var(--spacing-md);
     align-items: flex-start;
+    will-change: transform opacity;
 }
 #featured_products_section .article1 .featured_h3{
     font-size: var(--title-size);
@@ -209,11 +211,12 @@ html.has-menu-bg .logo_g path{
     top: 0;
     left: 0;
     width: 100%;
-    height: calc(100vh + 1000px);
+    height: calc(100vh + 600px);
     min-height: 100vh;
     display: flex;
     /*align-items: center;*/
     justify-content: center;
+    will-change: opacity;
 }
 #featured_products_section ul{
     display: flex;
@@ -234,7 +237,7 @@ html.has-menu-bg .logo_g path{
     width: 100%;
     background: /*var(--body-bg-clr);*/ black;
     box-sizing: border-box;
-    margin-top: calc(100vh + 1000px);
+    margin-top: calc(100vh + 600px);
     padding: calc(var(--spacing-fix-1rem) + var(--spacing-fix-half1rem)) 0;
 }
 .big_products_swiper_wrapper{
@@ -243,11 +246,11 @@ html.has-menu-bg .logo_g path{
 }
 .sec3_products_marquee{
     display: flex;
-    overflow: hidden;
     width: 100%;
     display: flex;
     align-items: center;
     gap: var(--spacing-fix-1rem);
+    will-change: transform; /*[Violation] Forced reflow while executing JavaScript took 56ms 오류에 대항하기 위해서, 브라우저에게 이 요소에 대해 변화가 있을 것이라고 미리 알려주는 속성*/
 }
 .sec3_products_marquee ul{
     display: flex;
@@ -256,15 +259,45 @@ html.has-menu-bg .logo_g path{
     gap: var(--spacing-fix-1rem);
 
 }
-.sec3_products_marquee1 ul{
+/*.sec3_products_marquee1 ul{
     animation: img-marquee1 60s linear infinite;
 }
 .sec3_products_marquee2 ul{
     animation: img-marquee2 60s linear infinite;
 }
+.sec3_products_marquee1:hover ul{
+    animation-duration: 120s;
+}
+.sec3_products_marquee2:hover ul{
+    animation: img-marquee2 120s linear infinite;
+}*/
 .sec3_products_marquee ul li{
     width: 378px;
     height: 212px;
+}
+.sec3_products_marquee ul li a{
+    position: relative;
+}
+.sec3_products_marquee ul li a span{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: inline-block;
+    transform: translate(-50%, -50%);
+    padding: var(--btn-padding);
+    background: var(--extra-point-clr);
+    color: var(--body-bg-clr);
+    border-radius: 500px;
+    font-weight: 400;
+    opacity: 0;
+    transition: opacity .3s cubic-bezier(var(--cubic-x1), var(--cubic-y1), var(--cubic-x2), var(--cubic-y2));
+}
+.sec3_products_marquee ul li a:hover span{
+    opacity: 1;
+    transition: opacity .3s cubic-bezier(var(--cubic-x1), var(--cubic-y1), var(--cubic-x2), var(--cubic-y2));
+}
+.sec3_products_marquee ul li a:hover span:hover{
+    opacity: 0.8;
 }
 .sec3_products_marquee ul li img{
     object-fit: cover;
@@ -366,6 +399,9 @@ html.has-menu-bg .logo_g path{
     height: 100%;
     background: radial-gradient(circle at top left, rgba(255,255,255,0.3), transparent);
     mix-blend-mode: overlay;
+}
+#thank_you_section .sec4h2{
+    font-weight: 600 !important;
 }
 
 /*section6 about section*/
@@ -531,14 +567,14 @@ html.has-menu-bg .logo_g path{
 #footer-bottom-logo g path{
     fill: var(--body-clr);
     stroke: none;
-    box-shadow: 0px 0px 1px rgba(255, 255, 255, 0.5);
-    filter: drop-shadow(0px 0px 1px rgba(255, 255, 255, 0.5));
+    /*box-shadow: 0px 0px 1px rgba(255, 255, 255, 0.5);*/
+    filter: drop-shadow(0px 0px 1px rgba(255, 255, 255, 0.3));
 }
 .footer-bottom p{
     font-weight: 700;
     font-size: 14px;
     letter-spacing: .85px;
-    text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.5);
+    text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.3);
 }
 .footer-form-text{
     position: absolute;
@@ -564,5 +600,5 @@ html.has-menu-bg .logo_g path{
 }
 .footer-form-text.-success p{
     letter-spacing: .65px;
-    text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.2);
+    text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.3);
 }
