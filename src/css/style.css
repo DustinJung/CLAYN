@@ -7,6 +7,40 @@ main{
     z-index: 3;
 }
 
+/*프로그레스 바*/
+#progress-bar progress{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 300;
+    overflow: hidden;
+    height: calc(var(--spacing-fix-1rem) - .65rem);
+    width: 100%;
+    background: transparent;
+    border: none;
+    appearance: none;
+}
+#progress-bar progress::-webkit-progress-bar {
+    background: transparent; /* 배경 투명 */
+}
+
+#progress-bar progress::-webkit-progress-value {
+    /*background: linear-gradient(to right, 
+    var(--extra-extra-point-clr),
+    var(--extra-point-clr)
+    ) !important;*/
+    background: var(--point-clr) !important;
+}
+
+#progress-bar progress::-moz-progress-bar {
+    /*background: linear-gradient(to right, 
+    #003F4F,
+    #5C5C5C,
+    #C4A88A 
+    ) !important;*/
+     background: var(--point-clr) !important;
+}
+
 /*marquee 관련*/
 #marquee{
     height: calc(var(--spacing-fix-2rem) - .5rem);
@@ -21,6 +55,7 @@ main{
     left: 0;
     font-size: 1rem;
     transform: translate(0, -100%);
+    z-index: 400;
 }
 body.is-ready #marquee{
     transform: translate(0);
@@ -57,6 +92,9 @@ body.is-ready #marquee{
 }
 .logo_g.on path{
     fill: #F8F6F4;
+}
+html.has-menu-bg .logo_g path{
+    fill: var(--extra-extra-point-clr) !important;
 }
 
 /*MAIN-Sec01 intro-video-section*/
@@ -429,7 +467,7 @@ body.is-ready #marquee{
     vertical-align: middle;
 }
 #footer-inner{
-    position: absolute;
+    position: relative;
     display: flex;
     flex-direction: column;
     min-height: 100%;
@@ -444,12 +482,16 @@ body.is-ready #marquee{
 #footer-newsletter{
     width: 100%;
 }
+.footer-form{
+    position: relative;
+}
 .footer-form-wrapper{
-    max-width: 360px;
+    max-width: 420px;
     display: grid;
     grid-template-columns: 2fr 1fr;
     margin-right: auto;
     margin-left: auto;
+    transition: opacity .5s cubic-bezier(var(--cubic-x1), var(--cubic-y1), var(--cubic-x2), var(--cubic-y2));
 }
 .input-wrapper{
     text-transform: uppercase;
@@ -458,7 +500,69 @@ body.is-ready #marquee{
 }
 #newsletter-email{
     height: 100%;
+    width: 100%;
     border: 1px solid var(--body-clr);
     border-right: 0;
-    padding: .325rem 1rem;
+    padding: .625rem 1rem;
+}
+#newsletter-email::placeholder{
+    color: var(--body-clr);
+    opacity: 1;
+    transition: opacity .3s ease-in-out;
+    font-weight: 600;
+    letter-spacing: .5px;
+}
+#newsletter-email:focus::placeholder{
+    opacity: 0;
+}
+#newsletter-email:focus{
+    outline-offset: 2px; /*요소에 2px떨어뜨려서 위치하겠다. offset의 기능*/
+    outline: 1px auto var(--extra-extra-point-clr); /*outline은 요소의 테두리 바깥쪽에 그려지는 선*/
+}
+.footer-bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+#footer-bottom-logo{
+    width: 135px;
+    display: block;
+}
+#footer-bottom-logo g path{
+    fill: var(--body-clr);
+    stroke: none;
+    box-shadow: 0px 0px 1px rgba(255, 255, 255, 0.5);
+    filter: drop-shadow(0px 0px 1px rgba(255, 255, 255, 0.5));
+}
+.footer-bottom p{
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: .85px;
+    text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.5);
+}
+.footer-form-text{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transition: opacity .5s cubic-bezier(var(--cubic-x1), var(--cubic-y1), var(--cubic-x2), var(--cubic-y2));
+    transform: translateX(-50%)
+}
+.footer-form.is-submitted .footer-form-wrapper{
+    opacity: 0;
+    pointer-events: none;
+    transition: none;
+}
+.footer-form-text.-success{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-column-gap: var(--grid-gutter);
+}
+.footer-form:not(.is-submitted) .footer-form-text.-success{
+    opacity: 0;
+    pointer-events: none;
+    transition: none;   
+}
+.footer-form-text.-success p{
+    letter-spacing: .65px;
+    text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.2);
 }

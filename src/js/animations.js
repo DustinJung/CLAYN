@@ -75,11 +75,101 @@ function initPreloader() {
   });
 }
 
+//프로그레스 바 애니메이션
+function progressBar() {
+  gsap.to("progress", {
+    value: 100,
+    ease: 'none',
+    scrollTrigger: {
+        scrub: .3,
+    }
+})
+}
+
+function menuBtn() {
+  let clearShit;
+  let menuBtn = document.querySelector('.header_menu');
+  let html = document.querySelector('html');
+  let menuBg = document.getElementById('menu_bg');
+  let logo = document.querySelector('.logo-transform');
+  let mainNav_ul = document.querySelector('#clayn_nav ul');
+  let mainNav_li = document.querySelectorAll('#clayn_nav ul .item');
+  let sns = document.querySelector('.sns_wrapper');
+
+  menuBtn.addEventListener('click', () => {
+    menuBg.classList.toggle('hide');
+    html.classList.toggle('has-menu-bg');
+    if(html.classList.contains('has-menu-bg')){
+      lenis.stop();
+      if(logo.classList.contains('not-entered')){
+        gsap.to(logo, {
+          yPercent: 0,
+          scale: 1,
+          duration: .6,
+          ease: 'power2.out',
+        })
+        logo.classList.add('onActive');
+      }
+    }else{
+      lenis.start();
+      if(logo.classList.contains('onActive')){
+        gsap.to(logo, {
+          yPercent: 200,
+          scale: 3,
+          duration: 0.6,
+          ease: 'power2.out',
+        });
+        logo.classList.remove('onActive');
+      }
+
+    }
+    mainNav_ul.classList.toggle('on');
+    clearTimeout(clearShit);
+    setTimeout(function() {
+      if(mainNav_ul.classList.contains('on')){
+        sns.classList.add('on');
+      }else{
+        sns.classList.remove('on');
+      }
+    }, 150);
+
+    
+  })
+}
+
+// nav의 a들 skew하는 기능
+function skewTheNav() {
+  document.querySelectorAll('.menu_bg li span a').forEach((a) => {
+    let lastX = 0;
+    let skewValue = 0;
+    
+    a.addEventListener('mousemove', (e) => {
+      let currentX = e.clientX;
+      let speedX = currentX - lastX; // 마우스 이동 속도 계산
+
+      // 마우스 이동 방향에 따라 skew 값 설정 (반대 방향으로 기울이기)
+      let targetSkew = Math.max(-10, Math.min(10, -speedX * 6)); // 반대로 설정
+
+      // 부드러운 보간 적용
+      gsap.to(a, { skewX: targetSkew, duration: 0.3, ease: "power2.out" });
+  
+      lastX = currentX;
+    });
+  
+    // 마우스가 떠나면 원래 위치로 자연스럽게 복귀
+    a.addEventListener('mouseleave', () => {
+      gsap.to(a, { skewX: 0, duration: 0.6, ease: "power2.out" });
+    });
+  });
+}
+
 // logo translate 애니메이션 추가
 function logoTranslate() {
   const logo = document.querySelector('.logo-transform'); // 로고를 감싼 i태그
 
-  gsap.from(logo, {
+  logo.classList.add('not-entered');
+
+  const logoAnimate = gsap.from(logo, {
     yPercent: 200,  
     scale: 3,       
     duration: 1,
@@ -89,15 +179,26 @@ function logoTranslate() {
       end: '+=80',
       markers: false,
       id: 'logo',
-      scrub: 0.5,  // 0.5로 수정 (숫자 값이므로 괄호 없이 사용)
+      scrub: 0.5,  // 스크럽 효과 적용
+      onUpdate: (self) => {
+        // scrub이 적용되었을 때 scale 값에 따라 클래스를 추가하거나 제거
+        if (self.progress === 0) {
+          logo.classList.add('not-entered');
+        } else if (self.progress === 1) {
+          logo.classList.remove('not-entered');
+        }
+      },
     },
-  })
+  });
+
+  return logoAnimate;
 }
 
 // logo intro section 진입 시 가독성 문제로 fill 값 바꾸게 하는 함수, 스크롤 기준은 밑 introBgVdTxt() 함수와 맞춤.
 function letLogoFillCg() {
   const logoSvg = document.querySelector(".logo_g"); // SVG 선택
   const navMenu = document.querySelectorAll('.header_nav_btn span'); // header_nav_btn span 전부 선택 // 쿼리셀렉터올은 nodeList를 반환하고, 이 객체는 배열처럼 반복 가능하기 때문에 각 span에 반복문을 돌려서 클래스를 추가하거나 제거해야 함.
+  const logoBucket = document.querySelector('.bucket_path');
 
   ScrollTrigger.create({
     trigger: "#intro_video_wrapper",
@@ -108,20 +209,24 @@ function letLogoFillCg() {
     onEnter: () => { 
       logoSvg.classList.add('on');
       navMenu.forEach(span => span.classList.add('on')); // 그래서 forEach를 쓴 것. 각 span에 'on' 클래스 추가, 
+      logoBucket.classList.add('on');
     },
     onLeave: () => {
       gsap.delayedCall(1.5, () => { 
         logoSvg.classList.remove('on');
         navMenu.forEach(span => span.classList.remove('on')); // 각 span에서 'on' 클래스 제거
+        logoBucket.classList.remove('on');
       }); // 1.5초 딜레이 후 클래스 제거
     },
     onEnterBack: () => { 
       logoSvg.classList.add('on');
       navMenu.forEach(span => span.classList.add('on')); // 다시 진입 시 'on' 클래스 추가
+      logoBucket.classList.add('on');
     },
     onLeaveBack: () => { 
       logoSvg.classList.remove('on');
       navMenu.forEach(span => span.classList.remove('on')); // 다시 벗어나면 'on' 클래스 제거
+      logoBucket.classList.remove('on');
     },
   });
 }
@@ -635,10 +740,10 @@ function footerAnimate() {
       start: "top bottom",
       end: "bottom top",
       scrub: true,
-      markers: true,
+      markers: false,
       onUpdate: (self) => {
         let progress = self.progress.toFixed(3);
-        console.log("Scroll Progress:", progress);
+        //console.log("Scroll Progress:", progress);
         footerBg.style.setProperty("--progress", progress);
       },
     });
@@ -666,6 +771,9 @@ function initAnimations() {
   sec5();
   sec6();
   footerAnimate();
+  progressBar();
+  menuBtn();
+  skewTheNav();
 }
 
 // 외부에서 사용할 수 있도록 내보내기

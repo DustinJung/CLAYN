@@ -3,7 +3,8 @@
 /*브랜드 폰트 - 브랜드 로고에 사용, 기록용으로 적어둠*/
 .brand_font{
     font-weight: 600;
-    color: #222222 /*OFF-black*/
+    color: #222222; /*OFF-black*/
+    font-family: var(--manrope-font);
 }
 
 
@@ -21,7 +22,6 @@ body,
 }
 
 /*Manrope 폰트 사용 클래스*/
-.brand_font,
 .point_font,
 .extra_point_font{
     font-family: var(--manrope-font);

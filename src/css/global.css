@@ -73,7 +73,7 @@ html,body{
 }
 .header_fixed{
     position: fixed;
-    z-index: 200;
+    z-index: 99900;
     top: calc(var(--spacing-fix-1rem) + .75rem);
 }
 .text_balance{
@@ -128,6 +128,14 @@ html,body{
     }
     100% {
         transform: translateX(0);
+    }
+}
+@keyframes fadePlaceholder{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
     }
 }
 

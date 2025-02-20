@@ -42,3 +42,31 @@
     pointer-events: none;
     overflow: hidden;
 }
+
+/*menu_bg 관련*/
+#menu_bg{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--extra-point-clr);
+    color: var(--extra-extra-point-clr);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    z-index: 301;
+    overflow: hidden;
+    transition: all .5s cubic-bezier(var(--cubic-x1), var(--cubic-y1), var(--cubic-x2), var(--cubic-y2));
+    transform: translate(-100%, 0);
+}
+.menu_bg.hide{
+    width: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+html.has-menu-bg .menu_bg{
+    transform: translate(0%, 0) !important;
+}
