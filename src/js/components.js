@@ -12,7 +12,7 @@ function initSwiper() {
       prevEl: ".swiper-button-prev",
       },
       slidesPerView: '3', // 자동 크기 조정
-      spaceBetween: 50,      // 슬라이드 간격
+      spaceBetween: 100,      // 슬라이드 간격
       loop: true,            // 무한 루프
       centeredSlides: true, // 센터모드
       effect: 'coverflow',

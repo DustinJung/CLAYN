@@ -244,10 +244,21 @@ html.has-menu-bg .logo_g path{
     display: block;
     transition: transform;
 }
+.swiper_div_btn{
+    display: inline-block;
+    color: var(--body-bg-clr);
+    border-radius: 500px;
+    font-weight: 400;
+    transition: opacity .3s cubic-bezier(var(--cubic-x1), var(--cubic-y1), var(--cubic-x2), var(--cubic-y2));
+    max-width: 100px;
+    margin-left: auto;
+    padding: 1rem .5rem;
+}
 .sec3_products_marquee{
     display: flex;
     width: 100%;
     display: flex;
+    overflow: hidden;
     align-items: center;
     gap: var(--spacing-fix-1rem);
     will-change: transform; /*[Violation] Forced reflow while executing JavaScript took 56ms 오류에 대항하기 위해서, 브라우저에게 이 요소에 대해 변화가 있을 것이라고 미리 알려주는 속성*/
@@ -259,18 +270,6 @@ html.has-menu-bg .logo_g path{
     gap: var(--spacing-fix-1rem);
 
 }
-/*.sec3_products_marquee1 ul{
-    animation: img-marquee1 60s linear infinite;
-}
-.sec3_products_marquee2 ul{
-    animation: img-marquee2 60s linear infinite;
-}
-.sec3_products_marquee1:hover ul{
-    animation-duration: 120s;
-}
-.sec3_products_marquee2:hover ul{
-    animation: img-marquee2 120s linear infinite;
-}*/
 .sec3_products_marquee ul li{
     width: 378px;
     height: 212px;
@@ -283,6 +282,7 @@ html.has-menu-bg .logo_g path{
     top: 50%;
     left: 50%;
     display: inline-block;
+    z-index: 2;
     transform: translate(-50%, -50%);
     padding: var(--btn-padding);
     background: var(--extra-point-clr);
@@ -291,6 +291,20 @@ html.has-menu-bg .logo_g path{
     font-weight: 400;
     opacity: 0;
     transition: opacity .3s cubic-bezier(var(--cubic-x1), var(--cubic-y1), var(--cubic-x2), var(--cubic-y2));
+}
+.sec3_products_marquee ul li a div{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.0);
+    pointer-events: none;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    transition: color .3s cubic-bezier(var(--cubic-x1), var(--cubic-y1), var(--cubic-x2), var(--cubic-y2)) opacity .3s cubic-bezier(var(--cubic-x1), var(--cubic-y1), var(--cubic-x2), var(--cubic-y2));
+}
+.sec3_products_marquee ul li a:hover div{
+    background-color: rgba(0, 0, 0, 0.4);
 }
 .sec3_products_marquee ul li a:hover span{
     opacity: 1;

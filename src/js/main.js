@@ -105,10 +105,33 @@ window.onload = function () {
       black_bg_fn();
     }
 
+    //프로덕트 마키 프리벤스탑
+    function marquee_prevent() {
+      let marquee = document.querySelectorAll('.sec3_products_marquee');
+      marquee.forEach((marquee) => {
+        let a_lists = marquee.querySelectorAll('ul li a');
+        a_lists.forEach((a) => {
+          a.addEventListener('click', (e) => {
+            e.preventDefault();
+          })
+        })
+      })
+    }
 
+    //스와이퍼 a태그 프리벤디폴
+    function swiper_a_prevent() {
+      let a = document.querySelectorAll('#swiper_products_section .swiper-slide a');
+      a.forEach((a) => {
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+        })
+      })
+    }
 
     formPD();
     bucketBtn();
+    marquee_prevent();
+    swiper_a_prevent();
 
   }
 
