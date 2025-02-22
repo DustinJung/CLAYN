@@ -11,7 +11,7 @@ function initSwiper() {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
       },
-      slidesPerView: '3', // 자동 크기 조정
+      slidesPerView: '1.9', // 자동 크기 조정
       spaceBetween: 100,      // 슬라이드 간격
       loop: true,            // 무한 루프
       centeredSlides: true, // 센터모드
@@ -19,7 +19,7 @@ function initSwiper() {
       coverflowEffect: {
         rotate: 0, // 회전 없음
         stretch: 30, // 슬라이드 간 간격
-        depth: 75, // 깊이감
+        depth: 0, // 깊이감
         modifier: 2,
         slideShadows: true, // 그림자
         },

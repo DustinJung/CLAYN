@@ -333,12 +333,12 @@ function brand_introduce_section() {
   ScrollTrigger.create({
     animation: animation,
     trigger: intro_section,
-    start: "36px top",
+    start: "0px top",
     end: '+=8000',
     scrub: .5,
     pin: true,
     anticipatePin: 1,
-    markers: false,  // 마커는 보기 편하게 설정
+    markers: false,
   });
 }
 
@@ -368,8 +368,8 @@ function letFeaturedVisible() {
 
   ScrollTrigger.create({
     trigger: section,
-    start: "top 40%", // 섹션이 화면에 들어오면 시작
-    end: "+=10% 10%", // 섹션이 화면에서 완전히 사라질 때 끝
+    start: "top 60%",
+    end: "+=15% top",
     markers: false,
     onEnter: () => animateIn(element_gutter), // 등장 애니메이션
     onLeave: () => animateOut(element_gutter), // 퇴장 애니메이션
@@ -461,42 +461,59 @@ function article2_animate() {
 function startMarquee() {
   let article2 = document.querySelector('.sec3_products_marquee2');
   let article2_ul = article2.querySelectorAll('ul');
+  let theSection = document.querySelector('#swiper_products_section');
+  let tweenInstances = []; // 애니메이션을 저장할 배열
 
-  // 각 2개의 marquee를 서로 반대방향으로 흐르게 하기
   function marquee() {
     article2_ul.forEach((ul) => {
-      gsap.set(ul, {
-        xPercent: -100,
-      });
-    }); // 2번째 ul의 set값을 -100으로 밀어놓고,
+      gsap.set(ul, { xPercent: -100 });
+    });
 
     document.querySelectorAll(".sec3_products_marquee1, .sec3_products_marquee2").forEach((marquee) => {
-      let lists = marquee.querySelectorAll("ul"); // 각 섹션 안의 2개 ul 가져오기
+      let lists = marquee.querySelectorAll("ul");
 
       lists.forEach((ul) => {
-        // 기본 애니메이션 설정 (60초)
         let tween = gsap.to(ul, {
           xPercent: marquee.classList.contains("sec3_products_marquee1") ? -100 : 0,
           duration: 60,
           repeat: -1,
           ease: "linear",
-          paused: false,  // paused 상태로 시작
+          paused: true, // 처음에는 멈춘 상태
         });
 
-        // 마우스를 올리면 속도 느리게
+        tweenInstances.push(tween); // 트윈 인스턴스를 저장
+
         marquee.addEventListener('mouseenter', () => {
-          tween.timeScale(0.3); // 속도 느리게
+          tween.timeScale(0.3);
         });
 
-        // 마우스를 떼면 속도 원래대로
         marquee.addEventListener('mouseleave', () => {
-          tween.timeScale(1); // 속도 원래대로
+          tween.timeScale(1);
         });
       });
     });
   }
 
-  marquee(); // 마르quee 초기화 함수 실행
+  marquee(); // 마르quee 초기화
+
+  // ScrollTrigger로 섹션이 보일 때만 실행
+  ScrollTrigger.create({
+    trigger: theSection,
+    start: "top 90%", // 섹션이 화면의 90% 위치에서 보일 때 시작
+    end: "bottom 10%", // 섹션이 화면에서 거의 사라질 때까지 유지
+    onEnter: () => {
+      tweenInstances.forEach(tween => tween.play()); // 애니메이션 재생
+    },
+    onLeave: () => {
+      tweenInstances.forEach(tween => tween.pause()); // 애니메이션 일시정지
+    },
+    onEnterBack: () => {
+      tweenInstances.forEach(tween => tween.play()); // 다시 화면에 들어오면 재생
+    },
+    onLeaveBack: () => {
+      tweenInstances.forEach(tween => tween.pause()); // 화면에서 나가면 일시정지
+    },
+  });
 }
 
 // article2의 ul의 li들을 순차적으로 보이게 하는 함수
@@ -536,19 +553,9 @@ function letActiveHorny() {
   let black_left = sec3_swiper.querySelector('.swiper-slide-shadow-left')
   let black_right = sec3_swiper.querySelector('.swiper-slide-shadow-right')
   let img_float = document.querySelector('.img_float img');
-  //let sibal = [swiper_shit, black_left, black_right, swiper_img];////
-  // swiper_img와 .swiper, prev 그리고 next slideShadows의 forEach로 묶어서 한번에 scale값을 조정하는 함수
-    //sibal.forEach((sibal, i) => {
       function gang4() {
         let letHorny2 = gsap.timeline();
   
-        //letHorny2.fromTo(sibal, {
-        //  scale: 5,
-        //}, {
-        //  scale: 1,
-        //  transformOrigin: "center center",
-        //})
-        
         letHorny2.fromTo(sec3_swiper, {
           opacity: 0,
         }, {
@@ -585,7 +592,7 @@ function letActiveHorny() {
         ScrollTrigger.create({
           animation: letHorny2,
           trigger: swiper_div,
-          start: '-40% 50%',
+          start: '-40% 80%',
           end: 'bottom+=25% 5%',
           scrub: true,
           markers: false,
@@ -593,11 +600,9 @@ function letActiveHorny() {
       //})
       };
       
-
-
       gang4();
-      gang3();
-  
+      //gang3();
+      //아니다 이렇게 해보자, swiper섹션에 진입하면 active img를 화면을 덮을 정도로 scale을 키워 놓고, 그 상태에서 배경에 pin을 달아놓고. 몇번의 스크롤에 걸쳐서 img의 scale이 1로(원래 크기로) 돌아가게끔 하는거야. 그리고 1이 되면 사라져있던 양옆 swiper slide들이 보이는거야.
   
 }
 

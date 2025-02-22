@@ -131,12 +131,9 @@ html.has-menu-bg .logo_g path{
     overflow: hidden;
     height: 100vh;
     position: relative;
-    /*background: var(--extra-extra-point-clr);*/
 }
 #brand_introduce_section_inner .number{
     position: absolute;
-    /*top: 60%;*/
-    /*left: 48%;*/
     top: 70vh;
     left: 0;
     padding-left: 60%;
@@ -145,28 +142,19 @@ html.has-menu-bg .logo_g path{
 }
 #brand_introduce_section_inner .person{
     position: absolute;
-    top: 5vh;
+    top:0;
     left: 0;
-    padding-left: 20%;
-    z-index: 80;
-    width: 30%;
-}
-#brand_introduce_section_inner .number:nth-of-type(4){
-    top: 55vh
-}
-#brand_introduce_section_inner .person:nth-of-type(8){
-    top: 30vh;
+    z-index: 40;
+    width: 100%;
 }
 #brand_introduce_section_inner .text{
     position: absolute;
     top: 30vh;
-    right: 0;
-    padding-right: 28%;
+    left: 0;
+    padding-left: 21%;
     z-index: 60;
     font-size: var(--text-size);
-}
-#brand_introduce_section_inner .text:nth-of-type(3){
-    padding-right: 20%;
+    color: var(--body-bg-clr);
 }
 #brand_introduce_section_inner .text h3{
     margin-bottom: var(--spacing-fix-1rem);
@@ -211,7 +199,6 @@ html.has-menu-bg .logo_g path{
     top: 0;
     left: 0;
     width: 100%;
-    height: calc(100vh + 600px);
     min-height: 100vh;
     display: flex;
     /*align-items: center;*/
@@ -235,9 +222,7 @@ html.has-menu-bg .logo_g path{
     z-index: 100;
     /*transform: translateY(-400px);*/
     width: 100%;
-    background: /*var(--body-bg-clr);*/ black;
     box-sizing: border-box;
-    margin-top: calc(100vh + 600px);
     padding: calc(var(--spacing-fix-1rem) + var(--spacing-fix-half1rem)) 0;
 }
 .big_products_swiper_wrapper{
