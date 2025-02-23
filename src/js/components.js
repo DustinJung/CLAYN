@@ -26,18 +26,18 @@ function initSwiper() {
       on: {
         transitionEnd: function() { //slideChange는 실행 중에 함수발생, transitionEnd는 완전히 종료 후.
             //letACtiveHorny안에 조건문으로 false값을 만들어 놓고, 여기서 재실행 return false 이용
-            function updateImageOnSlideChange() {
-              let active_swiper = document.querySelector('.sec3-swiper .swiper-slide-active');
-              let active_img = active_swiper ? active_swiper.querySelector('img') : null;
-              let img_float = document.querySelector('.img_float img');
-          
-              if (active_img && img_float) {
-                // active_img의 src를 img_float의 src에 복사
-                img_float.src = active_img.src;
-              }
-            };
-
-            updateImageOnSlideChange();
+            //function updateImageOnSlideChange() {
+            //  let active_swiper = document.querySelector('.sec3-swiper .swiper-slide-active');
+            //  let active_img = active_swiper ? active_swiper.querySelector('img') : null;
+            //  let img_float = document.querySelector('.img_float img');
+          //
+            //  //if (active_img && img_float) {
+            //  //  // active_img의 src를 img_float의 src에 복사
+            //  //  img_float.src = active_img.src;
+            //  //} 다른 방법으로 가자.
+            //};
+//
+            //updateImageOnSlideChange();
         }
       }
     });

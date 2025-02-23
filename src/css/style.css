@@ -166,6 +166,9 @@ html.has-menu-bg .logo_g path{
     position: relative;
     background: var(--body-bg-clr);
     display: block;
+    padding-bottom: 750px;
+    background: black;
+    z-index: 101;
 }
 #featured_products_section .article1{
     height: 100vh;
@@ -199,7 +202,6 @@ html.has-menu-bg .logo_g path{
     top: 0;
     left: 0;
     width: 100%;
-    min-height: 100vh;
     display: flex;
     /*align-items: center;*/
     justify-content: center;
@@ -224,10 +226,49 @@ html.has-menu-bg .logo_g path{
     width: 100%;
     box-sizing: border-box;
     padding: calc(var(--spacing-fix-1rem) + var(--spacing-fix-half1rem)) 0;
+    background: black;
+}
+.sticky-wrapper{
+    height: 200vh;
+    margin-top: -100vh;
+}
+.sticky-one{
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+    min-height: 506px;
 }
 .big_products_swiper_wrapper{
     display: block;
     transition: transform;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    position: absolute;
+    height: 506px;
+}
+.fill{
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: pink;
+    will-change: transform;
+}
+.fill .art{
+    background-size: cover;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    will-change: transform;
 }
 .swiper_div_btn{
     display: inline-block;

@@ -113,9 +113,9 @@ window.onload = function () {
         a_lists.forEach((a) => {
           a.addEventListener('click', (e) => {
             e.preventDefault();
-          })
-        })
-      })
+          });
+        });
+      });
     }
 
     //스와이퍼 a태그 프리벤디폴

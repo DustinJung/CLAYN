@@ -516,6 +516,7 @@ function startMarquee() {
   });
 }
 
+
 // article2의 ul의 li들을 순차적으로 보이게 하는 함수
 function artticle2_ul() {
 
@@ -545,65 +546,39 @@ liElements.forEach((li, index) => {
 
 // section 3의 active slider의 scale을 크게 해버리기
 function letActiveHorny() {
-  let swiper_div = document.querySelector('.big_products_swiper_wrapper');
-  let active_swiper = swiper_div.querySelector('.swiper-slide-active');
-  let swiper_shit = swiper_div.querySelector('.swiper');
-  let swiper_img = active_swiper.querySelector('img');
-  let sec3_swiper = swiper_div.querySelector('.sec3-swiper');
-  let black_left = sec3_swiper.querySelector('.swiper-slide-shadow-left')
-  let black_right = sec3_swiper.querySelector('.swiper-slide-shadow-right')
-  let img_float = document.querySelector('.img_float img');
-      function gang4() {
-        let letHorny2 = gsap.timeline();
+      let sticky_wrapper = document.querySelector('.sticky-wrapper');
+      let sticky_one = document.querySelector('.sticky-one');
+      let sec3_swiper = document.querySelector('.sec3-swiper');
+      let article2 = document.querySelector('.last_li');
+      let active_article = document.querySelector('.swiper-slide-active');
+      let theSection = document.querySelector('#featured_products_section');
+      let fill = document.querySelector('.swiper-slide.swiper-slide-active .fill');
+      function fillBitch() {
+        function makeFillBig() {
+          let bigFill = gsap.timeline();
   
-        letHorny2.fromTo(sec3_swiper, {
-          opacity: 0,
-        }, {
-          opacity: 1,
-          duration: 1,
-          transformOrigin: "center center",
-        })//
-        ScrollTrigger.create({
-          animation: letHorny2,
-          trigger: swiper_div,
-          start: '10% 70%',
-          end: '-20% 5%',
-          scrub: true,
-          markers: false,
-        })
-      //})
-      };
-
-      function gang3() {
-        let letHorny2 = gsap.timeline();
-
-        letHorny2.fromTo(img_float, {
-          scale: 1,
-          yPercent: -80,
-          zIndex: 80,
-        }, {
-          scale: 0,
-          yPercent: 0,
-          opacity: 0, // yPercent가 0으로 내려오면 opacity를 0으로 변경
-          zIndex: 0,
-        })
-
-
-        ScrollTrigger.create({
-          animation: letHorny2,
-          trigger: swiper_div,
-          start: '-40% 80%',
-          end: 'bottom+=25% 5%',
-          scrub: true,
-          markers: false,
-        })
-      //})
-      };
-      
-      gang4();
-      //gang3();
-      //아니다 이렇게 해보자, swiper섹션에 진입하면 active img를 화면을 덮을 정도로 scale을 키워 놓고, 그 상태에서 배경에 pin을 달아놓고. 몇번의 스크롤에 걸쳐서 img의 scale이 1로(원래 크기로) 돌아가게끔 하는거야. 그리고 1이 되면 사라져있던 양옆 swiper slide들이 보이는거야.
-  
+          bigFill.fromTo(fill, {
+            scaleX: 4.5,
+            scaleY: 4,
+            y: '40%',
+          }, {
+            scaleX: 1,
+            scaleY: 1,
+            y: 0,
+          })//
+          ScrollTrigger.create({
+            animation: bigFill,
+            trigger: theSection,
+            start: 'bottom bottom',
+            end: 'bottom top',
+            scrub: 0.5,
+            markers: true,
+            id: 'sex'
+          })
+        }
+        makeFillBig();
+      }
+      fillBitch();
 }
 
 // sec4의 요소들 순서대로 보이게 하기
@@ -839,6 +814,7 @@ function initAnimations() {
   skewTheNav();
   letsSee();
   startMarquee();
+  letActiveHorny();
 }
 
 // 외부에서 사용할 수 있도록 내보내기
