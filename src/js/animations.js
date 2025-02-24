@@ -543,122 +543,111 @@ liElements.forEach((li, index) => {
 });
 
 }
-
 // section 3의 active slider의 scale을 크게 해버리기
-// active slide 관련 ScrollTrigger들을 저장할 전역 변수
-let activeSlideTriggers = [];
-
-function killActiveSlideTriggers() {
-  activeSlideTriggers.forEach(trigger => trigger.kill());
-  activeSlideTriggers = [];
-}
-
 export function letActiveHorny() {
-  // 이전 active slide 관련 ScrollTrigger들을 제거
-  killActiveSlideTriggers();
-
-  // 최신 DOM 요소들을 재조회합니다.
+  
   let myLack = document.querySelector('#forgiveMyLack');
-  let fill = document.querySelector('.swiper-slide.swiper-slide-active .fill');
-  let notActiveSlide = document.querySelectorAll('.swiper-slide:not(.swiper-slide-active)');
-  let active_article = document.querySelector('.swiper-slide-active');
   let float_div = document.querySelectorAll('.swiper-float-div');
+  //let active_article = document.querySelector('.swiper-slide-active');
+  //let notActiveSlide = document.querySelectorAll('.swiper-slide:not(.swiper-slide-active)');
+  //let fill = document.querySelector('.swiper-slide.swiper-slide-active .fill');
 
-  // 애니메이션 1: fill의 scale을 5 -> 3으로 변경
-  function makeFillBig() {
+  function makeFillBig(fill) {
+    fill = document.querySelector('.swiper-slide.swiper-slide-active .fill');
     let bigFill = gsap.timeline();
+  
     bigFill.fromTo(
       fill,
       { scaleX: 5, scaleY: 3 },
       { scaleX: 3, scaleY: 3 }
     );
-    // 생성한 ScrollTrigger를 배열에 저장
-    activeSlideTriggers.push(
-      ScrollTrigger.create({
-        animation: bigFill,
-        trigger: myLack,
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: 0.5,
-        markers: false,
-        id: 'sex'
-      })
-    );
+  
+    ScrollTrigger.create({
+      animation: bigFill,
+      trigger: myLack,
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: 0.5,
+      markers: false,
+      id: 'sex'
+    });
   }
-  makeFillBig();
-
-  // 애니메이션 2: fill의 scale을 3 -> 1로 변경
-  function makeFillSmall() {
+  
+  function makeFillSmall(fill) {
+    fill = document.querySelector('.swiper-slide.swiper-slide-active .fill');
     let smallFill = gsap.timeline();
+  
     smallFill.fromTo(
       fill,
       { scaleX: 3, scaleY: 3 },
       { scaleX: 1, scaleY: 1 }
     );
-    activeSlideTriggers.push(
-      ScrollTrigger.create({
-        animation: smallFill,
-        trigger: myLack,
-        start: 'bottom top',
-        end: '+=1500',
-        scrub: 0.5,
-        markers: false,
-        id: 'sex2'
-      })
-    );
+  
+    ScrollTrigger.create({
+      animation: smallFill,
+      trigger: myLack,
+      start: 'bottom top',
+      end: '+=1500',
+      scrub: 0.5,
+      markers: false,
+      id: 'sex2'
+    });
   }
-  makeFillSmall();
-
-  // 애니메이션 3: notActiveSlide의 opacity를 0 -> 1로 변경
-  function letSlideVisible() {
+  
+  function letSlideVisible(notActiveSlide) {
+    notActiveSlide = document.querySelectorAll('.swiper-slide:not(.swiper-slide-active)');
     let slideVisible = gsap.timeline();
+  
+  
     notActiveSlide.forEach((slide) => {
-      slideVisible.fromTo(
-        slide,
-        { opacity: 0 },
-        { opacity: 1, duration: 4 }
-      );
-    });
-    activeSlideTriggers.push(
-      ScrollTrigger.create({
-        animation: slideVisible,
-        trigger: myLack,
-        start: 'bottom+=800px top',
-        end: '+=1200',
-        scrub: 0.5,
-        markers: false,
-      })
-    );
+      slideVisible.fromTo(slide,
+        {opacity: 0,},
+        {opacity: 1, duration: 4,}
+      )
+    })
+  
+  
+    ScrollTrigger.create({
+      animation: slideVisible,
+      trigger: myLack,
+      start: 'bottom+=800px top',
+      end: '+=1200',
+      scrub: 0.5,
+      markers: false,
+    })
   }
-  letSlideVisible();
-
-  // 애니메이션 4: float_div의 opacity 변화와 active_article에 hover-enabled 클래스 토글
-  function swiperFloatDivHide() {
-    let swiperFloatDivTimeline = gsap.timeline();
+  
+  function swiperFloatDivHide(active_article) {
+    let swiperFloatDivHide = gsap.timeline();
+  
     float_div.forEach((div) => {
-      swiperFloatDivTimeline.fromTo(
-        div,
+      swiperFloatDivHide.fromTo(div,
         { opacity: 0 },
-        { opacity: 1, duration: 0.1 }
+        { opacity: 1, duration: 0.1,}
       );
     });
-    activeSlideTriggers.push(
-      ScrollTrigger.create({
-        animation: swiperFloatDivTimeline,
-        trigger: myLack,
-        start: 'bottom+=1250px top',
-        markers: false,
-        toggleActions: 'play none none reverse',
-        onEnter: () => {
-          active_article.classList.add('hover-enabled');
-        },
-        onLeaveBack: () => {
-          active_article.classList.remove('hover-enabled');
-        }
-      })
-    );
+  
+    ScrollTrigger.create({
+      animation: swiperFloatDivHide,
+      trigger: myLack,
+      start: 'bottom+=1250px top',
+      markers: false,
+      toggleActions: 'play none none reverse',
+      onEnter: () => {
+        active_article = document.querySelector('.swiper-slide-active');
+        active_article.classList.add('hover-enabled'); // hover 효과를 활성화하는 클래스 추가
+      },
+      onLeaveBack: () => {
+        active_article = document.querySelector('.swiper-slide-active');
+        active_article.classList.remove('hover-enabled'); // 스크롤이 역방향일 때 클래스 제거
+      }
+    });
   }
+
   swiperFloatDivHide();
+  letSlideVisible();
+  makeFillSmall();
+  makeFillBig();
 }
 
 // sec4의 요소들 순서대로 보이게 하기
@@ -875,6 +864,7 @@ function footerAnimate() {
 function initAnimations() {
   // 여기다가 애니메이션 코드 추가하면 됨
 
+  
   initPreloader(); // Preloader 실행
   logoTranslate(); // logoTranslate 실행
   introBgVdTxt(); // logo intro 진입시 색바뀌기 실행
@@ -884,7 +874,6 @@ function initAnimations() {
   letFeaturedVisible();
   article2_animate();
   artticle2_ul();
-  letActiveHorny();
   letSec4IconVisible();
   sec5();
   sec6();

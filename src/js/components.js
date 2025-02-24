@@ -24,16 +24,11 @@ function initSwiper() {
         },
       on: {
         transitionEnd: function() {
-        // 슬라이드 전환 시 letActiveHorny()를 다시 호출하여
-        // 새로운 active slide에 대해 애니메이션을 재적용합니다.
-        ScrollTrigger.refresh();
-        letActiveHorny();
+          letActiveHorny();
         }
       }
     });
   }
-
-
   
   // siwper 함수들 전부 실행
   sec3Swiper();
