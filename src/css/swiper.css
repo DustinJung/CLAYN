@@ -62,7 +62,7 @@
     font-size: var(--text-size);
     pointer-events: all;
 }
-#swiper_products_section .swiper-slide.swiper-slide-active::before{
+#swiper_products_section .swiper-slide.swiper-slide-active.hover-enabled::before{
     content: '';
     position: absolute;
     top: 0;

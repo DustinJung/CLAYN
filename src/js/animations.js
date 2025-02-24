@@ -545,40 +545,120 @@ liElements.forEach((li, index) => {
 }
 
 // section 3의 active slider의 scale을 크게 해버리기
-function letActiveHorny() {
-      let sticky_wrapper = document.querySelector('.sticky-wrapper');
-      let sticky_one = document.querySelector('.sticky-one');
-      let sec3_swiper = document.querySelector('.sec3-swiper');
-      let article2 = document.querySelector('.last_li');
-      let active_article = document.querySelector('.swiper-slide-active');
-      let theSection = document.querySelector('#featured_products_section');
-      let fill = document.querySelector('.swiper-slide.swiper-slide-active .fill');
-      function fillBitch() {
-        function makeFillBig() {
-          let bigFill = gsap.timeline();
-  
-          bigFill.fromTo(fill, {
-            scaleX: 4.5,
-            scaleY: 4,
-            y: '40%',
-          }, {
-            scaleX: 1,
-            scaleY: 1,
-            y: 0,
-          })//
-          ScrollTrigger.create({
-            animation: bigFill,
-            trigger: theSection,
-            start: 'bottom bottom',
-            end: 'bottom top',
-            scrub: 0.5,
-            markers: true,
-            id: 'sex'
-          })
+// active slide 관련 ScrollTrigger들을 저장할 전역 변수
+let activeSlideTriggers = [];
+
+function killActiveSlideTriggers() {
+  activeSlideTriggers.forEach(trigger => trigger.kill());
+  activeSlideTriggers = [];
+}
+
+export function letActiveHorny() {
+  // 이전 active slide 관련 ScrollTrigger들을 제거
+  killActiveSlideTriggers();
+
+  // 최신 DOM 요소들을 재조회합니다.
+  let myLack = document.querySelector('#forgiveMyLack');
+  let fill = document.querySelector('.swiper-slide.swiper-slide-active .fill');
+  let notActiveSlide = document.querySelectorAll('.swiper-slide:not(.swiper-slide-active)');
+  let active_article = document.querySelector('.swiper-slide-active');
+  let float_div = document.querySelectorAll('.swiper-float-div');
+
+  // 애니메이션 1: fill의 scale을 5 -> 3으로 변경
+  function makeFillBig() {
+    let bigFill = gsap.timeline();
+    bigFill.fromTo(
+      fill,
+      { scaleX: 5, scaleY: 3 },
+      { scaleX: 3, scaleY: 3 }
+    );
+    // 생성한 ScrollTrigger를 배열에 저장
+    activeSlideTriggers.push(
+      ScrollTrigger.create({
+        animation: bigFill,
+        trigger: myLack,
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: 0.5,
+        markers: false,
+        id: 'sex'
+      })
+    );
+  }
+  makeFillBig();
+
+  // 애니메이션 2: fill의 scale을 3 -> 1로 변경
+  function makeFillSmall() {
+    let smallFill = gsap.timeline();
+    smallFill.fromTo(
+      fill,
+      { scaleX: 3, scaleY: 3 },
+      { scaleX: 1, scaleY: 1 }
+    );
+    activeSlideTriggers.push(
+      ScrollTrigger.create({
+        animation: smallFill,
+        trigger: myLack,
+        start: 'bottom top',
+        end: '+=1500',
+        scrub: 0.5,
+        markers: false,
+        id: 'sex2'
+      })
+    );
+  }
+  makeFillSmall();
+
+  // 애니메이션 3: notActiveSlide의 opacity를 0 -> 1로 변경
+  function letSlideVisible() {
+    let slideVisible = gsap.timeline();
+    notActiveSlide.forEach((slide) => {
+      slideVisible.fromTo(
+        slide,
+        { opacity: 0 },
+        { opacity: 1, duration: 4 }
+      );
+    });
+    activeSlideTriggers.push(
+      ScrollTrigger.create({
+        animation: slideVisible,
+        trigger: myLack,
+        start: 'bottom+=800px top',
+        end: '+=1200',
+        scrub: 0.5,
+        markers: false,
+      })
+    );
+  }
+  letSlideVisible();
+
+  // 애니메이션 4: float_div의 opacity 변화와 active_article에 hover-enabled 클래스 토글
+  function swiperFloatDivHide() {
+    let swiperFloatDivTimeline = gsap.timeline();
+    float_div.forEach((div) => {
+      swiperFloatDivTimeline.fromTo(
+        div,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.1 }
+      );
+    });
+    activeSlideTriggers.push(
+      ScrollTrigger.create({
+        animation: swiperFloatDivTimeline,
+        trigger: myLack,
+        start: 'bottom+=1250px top',
+        markers: false,
+        toggleActions: 'play none none reverse',
+        onEnter: () => {
+          active_article.classList.add('hover-enabled');
+        },
+        onLeaveBack: () => {
+          active_article.classList.remove('hover-enabled');
         }
-        makeFillBig();
-      }
-      fillBitch();
+      })
+    );
+  }
+  swiperFloatDivHide();
 }
 
 // sec4의 요소들 순서대로 보이게 하기

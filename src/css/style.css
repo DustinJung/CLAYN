@@ -168,7 +168,7 @@ html.has-menu-bg .logo_g path{
     display: block;
     padding-bottom: 750px;
     background: black;
-    z-index: 101;
+    z-index: 102;
 }
 #featured_products_section .article1{
     height: 100vh;
@@ -218,6 +218,25 @@ html.has-menu-bg .logo_g path{
     margin-top: var(--spacing-fix-5rem);
 }
 
+/*forgivemylack*/
+#forgiveMyLack{
+    width: 100%;
+    position: relative;
+    z-index: 101;
+    background: black;
+    height: 100vh;
+}
+.garigae{
+    position: absolute;
+    touch-action: none;
+    visibility: hidden;
+    background: transparent;
+    width: 100%;
+    height: 100vh;
+    bottom: 0;
+    left: 0;
+}
+
 /*MAIN SEC-03-b, swiper-products-section*/
 #swiper_products_section{
     position: relative;
@@ -229,8 +248,9 @@ html.has-menu-bg .logo_g path{
     background: black;
 }
 .sticky-wrapper{
-    height: 200vh;
+    height: calc(200vh + 1500px);
     margin-top: -100vh;
+    position: relative;
 }
 .sticky-one{
     position: sticky;
