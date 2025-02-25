@@ -239,66 +239,52 @@ function introBgVdTxt() {
   });
 }
 
-// brand_introduce_section 애니메이션
+// ✅ 현재 화면 방향 감지하여 활성화할 요소 가져오기
+function getActivePersons() {
+  return window.matchMedia("(orientation: portrait)").matches 
+      ? gsap.utils.toArray('#brand_introduce_section .personB')  // Portrait 모드에서는 personB만 선택
+      : gsap.utils.toArray('#brand_introduce_section .personA'); // Landscape 모드에서는 personA만 선택
+}
+
+// ✅ brand_introduce_section 애니메이션 실행 함수
 function brand_introduce_section() {
   const intro_section = document.querySelector('#brand_introduce_section');
 
+  // ✅ 기존 애니메이션 초기화 (중복 실행 방지)
+  gsap.killTweensOf("#brand_introduce_section .person, #brand_introduce_section .number, #brand_introduce_section .text");
 
-  // GSAP 타임라인 설정
-  const animation = gsap.timeline();
-  
-  //number 애니메이션 추가
-  const number = gsap.utils.toArray('#brand_introduce_section .number');
-  number.forEach((number, i) => {
-    // Number 애니메이션
-    animation.fromTo(
-      number,
-      { x: '2000px', opacity: 0, },  // 처음에는 오른쪽 바깥에 위치
-      { x: 0, duration: 1, ease: "power3.out", opacity: 1, },
-      i * 3  // 각 애니메이션 시작 시간 설정
-    ).to(
-      number,
-      { x: '-2000px', duration: 1, opacity: 0, ease: 'power.in' },  // 이동 애니메이션
-      i * 3 + 1.5
-    );
-  
-    // Person 애니메이션 추가
-    const person = gsap.utils.toArray('#brand_introduce_section .person');
-    animation.fromTo(
-      person[i],  // i번째 person에 대해서
-      { x: '-2000px', opacity: 0, },  // 처음에는 오른쪽 바깥에 위치
-      { x: 0, duration: 1, ease: "power3.out", opacity: 1, },
-      i * 3  // 각 애니메이션 시작 시간 설정
-    ).to(
-      person[i],  // i번째 person에 대해서
-      { x: '2000px', duration: 1, opacity: 0, ease: 'power.in' },  // 이동 애니메이션
-      i * 3 + 1.5
-    );
+  // ✅ ScrollTrigger도 초기화 (새로운 방향에 맞게 적용)
+  ScrollTrigger.getAll().forEach(trigger => trigger.kill());
 
-    // text 애니메이션 추가
-    const text = gsap.utils.toArray('#brand_introduce_section .text');
-    animation.fromTo(
-      text[i],  // i번째 person에 대해서
-      { x: '-2000px', opacity: 0, },  // 처음에는 오른쪽 바깥에 위치
-      { x: 0, duration: 1, ease: "power3.out", opacity: 1, },
-      i * 3  // 각 애니메이션 시작 시간 설정
-    ).to(
-      text[i],  // i번째 person에 대해서
-      { x: '-2000px', duration: 1, opacity: 0, ease: 'power.in' },  // 이동 애니메이션
-      i * 3 + 1.5
-    );
+  // ✅ GSAP ScrollTrigger와 연결된 타임라인 생성
+  const animation = gsap.timeline({
+      scrollTrigger: {
+          trigger: intro_section,
+          start: "0px top",
+          end: '+=8000',
+          scrub: 0.5,
+          pin: true,
+          anticipatePin: 1,
+          markers: false, // ✅ 개발 끝나면 false
+      }
   });
 
-  // ScrollTrigger 애니메이션 설정
-  ScrollTrigger.create({
-    animation: animation,
-    trigger: intro_section,
-    start: "0px top",
-    end: '+=8000',
-    scrub: .5,
-    pin: true,
-    anticipatePin: 1,
-    markers: false,
+  // ✅ 요소 선택
+  const numbers = gsap.utils.toArray('#brand_introduce_section .number');
+  const persons = getActivePersons(); // ✅ 현재 orientation에 따라 personA 또는 personB 선택
+  const texts = gsap.utils.toArray('#brand_introduce_section .text');
+
+  // ✅ 같은 인덱스끼리 동시에 등장 → 사라짐 → 다음 요소 등장
+  numbers.forEach((_, i) => {
+      animation
+          .fromTo(numbers[i], { x: '2000px', opacity: 0 }, { x: 0, opacity: 1, duration: 1, ease: "power3.out" }, i * 3)
+          .to(numbers[i], { x: '-2000px', opacity: 0, duration: 1, ease: 'power.in' }, i * 3 + 1.5)
+
+          .fromTo(persons[i], { x: '-2000px', opacity: 0 }, { x: 0, opacity: 1, duration: 1, ease: "power3.out" }, i * 3)
+          .to(persons[i], { x: '2000px', opacity: 0, duration: 1, ease: 'power.in' }, i * 3 + 1.5)
+
+          .fromTo(texts[i], { x: '-2000px', opacity: 0 }, { x: 0, opacity: 1, duration: 1, ease: "power3.out" }, i * 3)
+          .to(texts[i], { x: '-2000px', opacity: 0, duration: 1, ease: 'power.in' }, i * 3 + 1.5);
   });
 }
 

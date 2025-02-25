@@ -46,7 +46,7 @@ window.onload = function () {
       if (newWidth !== lastWidth) { // ✅ 너비 변경 시에만 실행 (세로 변경 무시)
         clearTimeout(timer);
         timer = setTimeout(() => {
-          //updateLenisDuration(); // ✅ Lenis duration 업데이트
+          location.reload();
         }, delay);
 
         lastWidth = newWidth; // 현재 너비 업데이트
