@@ -1,6 +1,6 @@
 // animations.js (GSAP 애니메이션 관리)
 
-import { lenis } from "./lenis.js"; // Lenis 모듈 가져오기
+//import { lenis } from "./lenis.js"; // Lenis 모듈 가져오기
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -24,13 +24,13 @@ gsap.registerPlugin(ScrollTrigger);
 
 
 // Lenis와 ScrollTrigger 동기화
-lenis.on("scroll", ScrollTrigger.update);
-// Lenis의 "scroll" 이벤트가 발생할 때마다 ScrollTrigger를 업데이트함.
-// 즉, Lenis의 스크롤이 변하면 GSAP ScrollTrigger도 자동으로 반응하게 됨.
-
-// ScrollTrigger 새로고침
-ScrollTrigger.addEventListener("refresh", () => lenis.raf()); //  ScrollTrigger가 새로고침될 때 Lenis의 애니메이션 루프를 강제로 실행하여 동기화가 깨지는 문제를 방지함
-ScrollTrigger.refresh(); // GSAP ScrollTrigger가 초기화되면서, Lenis와의 연동을 보장함.
+//lenis.on("scroll", ScrollTrigger.update);
+//// Lenis의 "scroll" 이벤트가 발생할 때마다 ScrollTrigger를 업데이트함.
+//// 즉, Lenis의 스크롤이 변하면 GSAP ScrollTrigger도 자동으로 반응하게 됨.
+//
+//// ScrollTrigger 새로고침
+//ScrollTrigger.addEventListener("refresh", () => lenis.raf()); //  ScrollTrigger가 새로고침될 때 Lenis의 애니메이션 루프를 강제로 실행하여 동기화가 깨지는 문제를 방지함
+//ScrollTrigger.refresh(); // GSAP ScrollTrigger가 초기화되면서, Lenis와의 연동을 보장함.
 
 
 // preloader 애니메이션 추가
@@ -892,4 +892,4 @@ function initAnimations() {
 }
 
 // 외부에서 사용할 수 있도록 내보내기
-export { initAnimations, lenis };
+export { initAnimations };

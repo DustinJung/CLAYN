@@ -1,13 +1,13 @@
 // main.js (메인 실행 파일)
 
-import { lenis, getLenisDuration } from "./lenis.js"; // ✅ Lenis 가져오기
+//import { lenis, getLenisDuration } from "./lenis.js"; // ✅ Lenis 가져오기
 import { initAnimations } from "./animations.js";
 import { initUIComponents } from "./components.js"; // ✅ UI 기능 모듈 가져오기
 
 
 window.onload = function () {
   try {
-    lenis.stop();
+    //lenis.stop();
 
     // UI 기능 초기화 (슬라이더, 모달 등)
     initUIComponents();
@@ -19,9 +19,9 @@ window.onload = function () {
 
     // ✅ Preloader 종료 후 Lenis 실행 (3.5초 후)
     setTimeout(() => {
-      lenis.start();
+      //lenis.start();
       document.querySelector('body').classList.add('is-ready');
-      console.log(`Lenis 시작됨, lenis duration 값 : ${lenis.options.duration}`);
+      //console.log(`Lenis 시작됨, lenis duration 값 : ${lenis.options.duration}`);
     }, 3350); // Preloader 종료 되면서, marquee 내려올 수 있도록 준비
   } catch (error) {
     console.error("초기화 중 오류 발생:", error);
@@ -46,7 +46,7 @@ function updateLenisDuration() {
       if (newWidth !== lastWidth) { // ✅ 너비 변경 시에만 실행 (세로 변경 무시)
         clearTimeout(timer);
         timer = setTimeout(() => {
-          updateLenisDuration(); // ✅ Lenis duration 업데이트
+          //updateLenisDuration(); // ✅ Lenis duration 업데이트
         }, delay);
 
         lastWidth = newWidth; // 현재 너비 업데이트
