@@ -28,10 +28,10 @@ window.onload = function () {
   }
 
   // ✅ Lenis duration 업데이트 함수 (main.js에서 관리)
-function updateLenisDuration() {
-  lenis.options.duration = getLenisDuration();
-  console.log(`🔄 Lenis duration 업데이트됨: ${lenis.options.duration}`);
-}
+//function updateLenisDuration() {
+//  lenis.options.duration = getLenisDuration();
+//  console.log(`🔄 Lenis duration 업데이트됨: ${lenis.options.duration}`);
+//}
 
   // ✅ Resize 이벤트 뭉치
   function windowResizeEvent() {
@@ -109,11 +109,6 @@ function updateLenisDuration() {
             }
           };
           html.classList.toggle('has-bucket-clicked');
-          if(html.classList.contains('has-bucket-clicked')){
-            lenis.stop();
-          }else{
-            lenis.start();
-          }
         })
       }
 
@@ -121,7 +116,6 @@ function updateLenisDuration() {
       function black_bg_fn() {
         black_bg.addEventListener('click', () => {
           if(html.classList.contains('has-bucket-clicked')){
-            lenis.start();
             html.classList.toggle('has-bucket-clicked');
           }
         })

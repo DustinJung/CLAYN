@@ -1,37 +1,7 @@
 // animations.js (GSAP 애니메이션 관리)
 
-//import { lenis } from "./lenis.js"; // Lenis 모듈 가져오기
 
 gsap.registerPlugin(ScrollTrigger);
-
-// GSAP ScrollTrigger와 Lenis 연결
-//ScrollTrigger.scrollerProxy(document.body, { // ScrollTrigger.scrollerProxy()를 사용하여 ScrollTrigger가 Lenis의 스크롤 값을 대신 사용하도록 설정
-// scrollTop(value) { // lenis.scrollTo(value); → ScrollTrigger가 강제로 특정 위치로 스크롤할 때 Lenis의 scrollTo() 메서드를 사용함.
-//   if (arguments.length) {
-//     lenis.scrollTo(value); // scrollTo 메서드를 사용해 스크롤 값 설정
-//   }
-//   return lenis.scroll; // return lenis.scroll; → 현재 스크롤 위치를 Lenis에서 가져옴.
-// },
-// getBoundingClientRect() { // getBoundingClientRect()를 써서 스크롤 위치를 항상 0 기준으로 설정하여 GSAP이 Lenis의 스크롤을 기반으로 동작하도록 함
-//   return {
-//     top: 0,
-//     left: 0,
-//     width: window.innerWidth,
-//     height: window.innerHeight,
-//   };
-// },
-//});
-
-
-// Lenis와 ScrollTrigger 동기화
-//lenis.on("scroll", ScrollTrigger.update);
-//// Lenis의 "scroll" 이벤트가 발생할 때마다 ScrollTrigger를 업데이트함.
-//// 즉, Lenis의 스크롤이 변하면 GSAP ScrollTrigger도 자동으로 반응하게 됨.
-//
-//// ScrollTrigger 새로고침
-//ScrollTrigger.addEventListener("refresh", () => lenis.raf()); //  ScrollTrigger가 새로고침될 때 Lenis의 애니메이션 루프를 강제로 실행하여 동기화가 깨지는 문제를 방지함
-//ScrollTrigger.refresh(); // GSAP ScrollTrigger가 초기화되면서, Lenis와의 연동을 보장함.
-
 
 // preloader 애니메이션 추가
 function initPreloader() {
@@ -93,7 +63,6 @@ function menuBtn() {
     menuBg.classList.toggle('hide');
     html.classList.toggle('has-menu-bg');
     if(html.classList.contains('has-menu-bg')){
-      lenis.stop();
       if(logo.classList.contains('not-entered')){
         gsap.to(logo, {
           yPercent: 0,
@@ -104,7 +73,6 @@ function menuBtn() {
         logo.classList.add('onActive');
       }
     }else{
-      lenis.start();
       if(logo.classList.contains('onActive')){
         gsap.to(logo, {
           yPercent: 200,
