@@ -253,12 +253,14 @@ function brand_introduce_section() {
   // ✅ 기존 애니메이션 초기화 (중복 실행 방지)
   gsap.killTweensOf("#brand_introduce_section .person, #brand_introduce_section .number, #brand_introduce_section .text");
 
-  // ✅ ScrollTrigger도 초기화 (새로운 방향에 맞게 적용)
-  ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+  // ✅ 해당 섹션의 ScrollTrigger만 제거
+  let existingTrigger = ScrollTrigger.getById("brandIntroduceTrigger");
+  if (existingTrigger) existingTrigger.kill();
 
   // ✅ GSAP ScrollTrigger와 연결된 타임라인 생성
   const animation = gsap.timeline({
       scrollTrigger: {
+          id: "brandIntroduceTrigger", // 특정 ID 부여 (제거할 때 활용)
           trigger: intro_section,
           start: "0px top",
           end: '+=8000',
@@ -287,6 +289,7 @@ function brand_introduce_section() {
           .to(texts[i], { x: '-2000px', opacity: 0, duration: 1, ease: 'power.in' }, i * 3 + 1.5);
   });
 }
+
 
 //** featured section의 article1과 article2의 pin을 통한 배경 parallax
 function article_animate() {
