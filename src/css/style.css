@@ -100,7 +100,18 @@ html.has-menu-bg .logo_g path{
 /*MAIN-Sec01 intro-video-section*/
 #intro_video_wrapper{
     position: relative;
-    display: block;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    height: 100vh;
+    width: 100%;
+}
+#intro_video_wrapper video{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }
 .black_bg{
     width: 100%;
@@ -142,10 +153,14 @@ html.has-menu-bg .logo_g path{
 }
 #brand_introduce_section_inner .person{
     position: absolute;
-    top:0;
-    left: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 40;
     width: 100%;
+    max-width: 100%; 
+    max-height: 100%;
+    object-fit: contain;
 }
 #brand_introduce_section_inner .text{
     position: absolute;
@@ -555,6 +570,7 @@ html.has-menu-bg .logo_g path{
     bottom: 0;
     left: 0;
     width: 100%;
+    max-width: 100vw;
     height: 100vh;
     padding: var(--grid-gutter);
     overflow: hidden;
@@ -564,17 +580,17 @@ html.has-menu-bg .logo_g path{
 #footer-bg {
     position: absolute;
     inset: 0;
-  }
-  
-  #footer-bg::before {
+}
+#footer-bg::before {
     content: "";
     position: absolute;
     inset: 0;
     background: #221E1D;
     opacity: clamp(0.2, calc(1 - 2 * var(--progress)), 1);
-  }
+}
 #footer-bg video{
     width: 100%;
+    max-width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: 50% 50%;

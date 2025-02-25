@@ -493,7 +493,7 @@ liElements.forEach((li, index) => {
 
 }
 // section 3의 active slider의 scale을 크게 해버리기
-export function letActiveHorny() {
+function letActiveHorny() {
   
   let myLack = document.querySelector('#forgiveMyLack');
   let float_div = document.querySelectorAll('.swiper-float-div');

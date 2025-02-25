@@ -42,18 +42,10 @@
             flex-direction: column;
             gap: 3rem;
         }
-        #brand_introduce_section_inner .person{
-            width: 100%;
-            top: 50%;
-            transform: translateY(-50%);
-        }
 
         /**/
         #featured_products_section ul{
             width: 80%;
-        }
-        #intro_video_wrapper{
-            background: black;
         }
         #featured_products_section .article1 .element_gutter{
             margin-top: 0;
@@ -78,29 +70,11 @@
 }
 /* ✅ 태블릿 세로 모드 (Portrait) */
 @media (min-width: 769px) and (max-width: 1279px) and (orientation: portrait) {
-    #intro_video_wrapper{
-        width: 100%;
-        height: 100vh;
-    }
-    #intro_video_wrapper video{
-        width: 100%;
-        position: relative;
-        top: 50%;
-        transform: translateY(-50%);
-        }
+
 }
 
 /* ✅ 태블릿 가로 모드 (Landscape) */
 @media (min-width: 769px) and (max-width: 1279px) and (orientation: landscape) {
-    #intro_video_wrapper{
-        width: 100%;
-        height: 100vh;
-    }
-    #intro_video_wrapper video{
-    width: 100%;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    }
+
 
 }
