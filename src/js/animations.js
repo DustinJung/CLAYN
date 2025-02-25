@@ -5,22 +5,22 @@ import { lenis } from "./lenis.js"; // Lenis 모듈 가져오기
 gsap.registerPlugin(ScrollTrigger);
 
 // GSAP ScrollTrigger와 Lenis 연결
-ScrollTrigger.scrollerProxy(document.body, { // ScrollTrigger.scrollerProxy()를 사용하여 ScrollTrigger가 Lenis의 스크롤 값을 대신 사용하도록 설정
- scrollTop(value) { // lenis.scrollTo(value); → ScrollTrigger가 강제로 특정 위치로 스크롤할 때 Lenis의 scrollTo() 메서드를 사용함.
-   if (arguments.length) {
-     lenis.scrollTo(value); // scrollTo 메서드를 사용해 스크롤 값 설정
-   }
-   return lenis.scroll; // return lenis.scroll; → 현재 스크롤 위치를 Lenis에서 가져옴.
- },
- getBoundingClientRect() { // getBoundingClientRect()를 써서 스크롤 위치를 항상 0 기준으로 설정하여 GSAP이 Lenis의 스크롤을 기반으로 동작하도록 함
-   return {
-     top: 0,
-     left: 0,
-     width: window.innerWidth,
-     height: window.innerHeight,
-   };
- },
-});
+//ScrollTrigger.scrollerProxy(document.body, { // ScrollTrigger.scrollerProxy()를 사용하여 ScrollTrigger가 Lenis의 스크롤 값을 대신 사용하도록 설정
+// scrollTop(value) { // lenis.scrollTo(value); → ScrollTrigger가 강제로 특정 위치로 스크롤할 때 Lenis의 scrollTo() 메서드를 사용함.
+//   if (arguments.length) {
+//     lenis.scrollTo(value); // scrollTo 메서드를 사용해 스크롤 값 설정
+//   }
+//   return lenis.scroll; // return lenis.scroll; → 현재 스크롤 위치를 Lenis에서 가져옴.
+// },
+// getBoundingClientRect() { // getBoundingClientRect()를 써서 스크롤 위치를 항상 0 기준으로 설정하여 GSAP이 Lenis의 스크롤을 기반으로 동작하도록 함
+//   return {
+//     top: 0,
+//     left: 0,
+//     width: window.innerWidth,
+//     height: window.innerHeight,
+//   };
+// },
+//});
 
 
 // Lenis와 ScrollTrigger 동기화
