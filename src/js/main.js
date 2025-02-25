@@ -1,6 +1,6 @@
 // main.js (메인 실행 파일)
 
-import { lenis } from "./animations.js"; // ✅ Lenis 가져오기
+import { lenis, getLenisDuration } from "./lenis.js"; // ✅ Lenis 가져오기
 import { initAnimations } from "./animations.js";
 import { initUIComponents } from "./components.js"; // ✅ UI 기능 모듈 가져오기
 
@@ -21,12 +21,39 @@ window.onload = function () {
     setTimeout(() => {
       lenis.start();
       document.querySelector('body').classList.add('is-ready');
-      console.log("Lenis 시작됨");
+      console.log(`Lenis 시작됨, lenis duration 값 : ${lenis.options.duration}`);
     }, 3350); // Preloader 종료 되면서, marquee 내려올 수 있도록 준비
   } catch (error) {
     console.error("초기화 중 오류 발생:", error);
   }
 
+  // ✅ Lenis duration 업데이트 함수 (main.js에서 관리)
+function updateLenisDuration() {
+  lenis.options.duration = getLenisDuration();
+  console.log(`🔄 Lenis duration 업데이트됨: ${lenis.options.duration}`);
+}
+
+  // ✅ Resize 이벤트 뭉치
+  function windowResizeEvent() {
+        // ✅ 화면 크기(너비) 변경 감지 및 최적화된 리사이징 처리
+    let delay = 400;
+    let timer = null;
+    let lastWidth = window.innerWidth;
+
+    window.addEventListener("resize", function () {
+      let newWidth = window.innerWidth;
+
+      if (newWidth !== lastWidth) { // ✅ 너비 변경 시에만 실행 (세로 변경 무시)
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          updateLenisDuration(); // ✅ Lenis duration 업데이트
+        }, delay);
+
+        lastWidth = newWidth; // 현재 너비 업데이트
+      }
+    });
+  }
+  windowResizeEvent();
 
   //여기서부터 애니메이션 외 순수 자바스크립트 모음
   function VanilaJavaScript() {

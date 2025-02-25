@@ -29,8 +29,25 @@
         margin-right: auto;
         margin-left: auto;
     }
+    /*데스크탑 전용 스타일 부분도 필히 다른 곳에서 따로 적어둬야 함*/
 
 
+    /**/
+    #featured_products_section ul{
+        width: 1200px;
+    }
+    .sec3_products_marquee_wrapper{
+        margin-top: -5vh;
+    }
+    #about_section{
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-row-gap: calc(15 * var(--vh, 1vh)); /*--vh는 모바일이나 태블릿에서만 쓴다*/
+        grid-column-gap: var(--grid-gutter);
+    }
+
+
+    /*여기서부터는 style.css에 안적은것들. 이 부분은 필히 따로 mobile, tablet에서 적어야 함*/
     /*footer 섹션*/
     .footer-center{
         width: 1200px;

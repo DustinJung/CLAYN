@@ -1,5 +1,5 @@
 // 슬라이더, 모달 등 UI 기능
-import { letActiveHorny } from './animations.js';
+// import { letActiveHorny } from './animations.js';
 gsap.registerPlugin(ScrollTrigger);
 // Swiper.js 초기화 함수
 function initSwiper() {
@@ -18,6 +18,19 @@ function initSwiper() {
         modifier: 2,
         slideShadows: true, // 그림자
         },
+
+    // ✅ 반응형 Breakpoints (미디어쿼리 적용)
+      breakpoints: {
+        1280: {
+          slidesPerView: 1.9, // 1280px 이상 (기본값)
+        },
+        769: {
+          slidesPerView: 1.4, // 769px ~ 1279px (태블릿)
+        },
+        0: {
+          slidesPerView: 1.2, // 768px 이하 (모바일)
+        }
+      },
       on: {
         transitionEnd: function() {
         }

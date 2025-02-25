@@ -7,7 +7,75 @@
         --spacing-xs: 0.5rem;  /* 작은 간격 */
         --spacing-sm: 1.25rem; /* 기본 간격 */
         --spacing-md: 2rem;    /* 중간 간격 */
-        --spacing-lg: 3.5rem;  /* 넉넉한 간격 */
+        --spacing-lg: 3rem;  /* 넉넉한 간격 */
         --spacing-xl: 5rem;    /* 아주 큰 간격 */
+        
+        /*폰트 사이즈 변수*/
+        --title-size : calc((var(--spacing-fix-2rem)) + (var(--spacing-fix-half1rem)));
+        --text-effect-size : calc((var(--spacing-fix-1rem)) + (var(--spacing-fix-half1rem)));
+        --text-size : var(--spacing-fix-1rem);
+    }
+        /*gutter class*/
+        .with-gutter{
+            box-sizing: border-box;
+            padding: 0 var(--grid-gutter);
+        }
+        .element_gutter{
+            width: 80%;
+            box-sizing: border-box;
+            padding: 0 var(--grid-gutter);
+            margin-top: 25vh;
+        }
+        /*header_nav_btn*/
+        .header_nav_btn:hover span:first-of-type{
+            transform: scale(0.75, 1);
+        }
+        .non-parallax-section{
+            width: 100%;
+            margin-right: auto;
+            margin-left: auto;
+            box-sizing: border-box;
+            padding: 0 1rem;
+        }
+        #about_section{
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+        #brand_introduce_section_inner .person{
+            height: 100vh;
+        }
+
+        /**/
+        #featured_products_section ul{
+            width: 80%;
+        }
+        #intro_video_wrapper{
+            background: black;
+        }
+        #intro_video_wrapper video{
+            height: 100vh;
+            width: 100%;
+
+        }
+        #featured_products_section .article1 .element_gutter{
+            margin-top: 0;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+
+
+    /*여기서부터는 style.css에 안적은것들. 이 부분은 필히 따로 mobile, desktop에서 적어야 함*/
+    /*footer 섹션*/
+    .footer-center{
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 var(--grid-gutter);
+    }
+
+    /*bucket 섹션*/
+    .bucket-white-overlay{
+        width: 75%;
     }
 }
