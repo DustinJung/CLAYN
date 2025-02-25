@@ -6,10 +6,6 @@ function initSwiper() {
   // ✅ Swiper 설정 추가
   function sec3Swiper() {
     var swiper = new Swiper(".sec3-swiper", {
-      navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-      },
       slidesPerView: '1.9', // 자동 크기 조정
       spaceBetween: 100,      // 슬라이드 간격
       loop: true,            // 무한 루프
@@ -24,7 +20,6 @@ function initSwiper() {
         },
       on: {
         transitionEnd: function() {
-          letActiveHorny();
         }
       }
     });

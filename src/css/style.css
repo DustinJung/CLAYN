@@ -290,6 +290,24 @@ html.has-menu-bg .logo_g path{
     left: 0;
     will-change: transform;
 }
+.lackness{
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: pink;
+    will-change: transform;
+    z-index: 2;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    will-change: transform;
+}
+.swiper-slide:not(.swiper-slide-active) .lackness{
+    display: none;
+}
 .swiper_div_btn{
     display: inline-block;
     color: var(--body-bg-clr);
@@ -299,6 +317,12 @@ html.has-menu-bg .logo_g path{
     max-width: 100px;
     margin-left: auto;
     padding: 1rem .5rem;
+}
+.sec3_products_marquee_wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: -5vh;
 }
 .sec3_products_marquee{
     display: flex;

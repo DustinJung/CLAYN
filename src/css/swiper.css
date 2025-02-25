@@ -4,8 +4,20 @@
     width: 100%;
     height: 100%;
 }
+#swiper_products_section .swiper-wrapper{
+    z-index: 3;
+}
 .sec3-swiper{
     overflow: unset;
+}
+.swiper-gimmick{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100000px;
+    height: 100%;
+    z-index: 0;
+    background: black;
 }
 
 .swiper-slide {

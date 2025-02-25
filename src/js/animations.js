@@ -548,16 +548,18 @@ export function letActiveHorny() {
   
   let myLack = document.querySelector('#forgiveMyLack');
   let float_div = document.querySelectorAll('.swiper-float-div');
-  //let active_article = document.querySelector('.swiper-slide-active');
-  //let notActiveSlide = document.querySelectorAll('.swiper-slide:not(.swiper-slide-active)');
-  //let fill = document.querySelector('.swiper-slide.swiper-slide-active .fill');
+  let active_article = document.querySelector('.swiper-slide-active');
+  let notActiveSlide = document.querySelectorAll('.swiper-slide:not(.swiper-slide-active)');
+  let fill = document.querySelector('.swiper-slide.swiper-slide-active .fill');
+  let lack = document.querySelectorAll('.lackness');
+  let gimmick = document.querySelector('.swiper-gimmick');
+  let marquees = document.querySelector('.sec3_products_marquee_wrapper');
 
-  function makeFillBig(fill) {
-    fill = document.querySelector('.swiper-slide.swiper-slide-active .fill');
+  function makeFillBig() {
     let bigFill = gsap.timeline();
   
     bigFill.fromTo(
-      fill,
+      lack,
       { scaleX: 5, scaleY: 3 },
       { scaleX: 3, scaleY: 3 }
     );
@@ -573,12 +575,11 @@ export function letActiveHorny() {
     });
   }
   
-  function makeFillSmall(fill) {
-    fill = document.querySelector('.swiper-slide.swiper-slide-active .fill');
+  function makeFillSmall() {
     let smallFill = gsap.timeline();
   
     smallFill.fromTo(
-      fill,
+      lack,
       { scaleX: 3, scaleY: 3 },
       { scaleX: 1, scaleY: 1 }
     );
@@ -594,18 +595,14 @@ export function letActiveHorny() {
     });
   }
   
-  function letSlideVisible(notActiveSlide) {
-    notActiveSlide = document.querySelectorAll('.swiper-slide:not(.swiper-slide-active)');
+  function letSlideVisible() {
     let slideVisible = gsap.timeline();
   
-  
-    notActiveSlide.forEach((slide) => {
-      slideVisible.fromTo(slide,
-        {opacity: 0,},
-        {opacity: 1, duration: 4,}
-      )
-    })
-  
+    slideVisible.fromTo(
+      gimmick,
+      { opacity: 1 },
+      { opacity: 0,}
+    );
   
     ScrollTrigger.create({
       animation: slideVisible,
@@ -614,18 +611,16 @@ export function letActiveHorny() {
       end: '+=1200',
       scrub: 0.5,
       markers: false,
-    })
+    });
   }
   
-  function swiperFloatDivHide(active_article) {
+  function swiperFloatDivHide() {
     let swiperFloatDivHide = gsap.timeline();
   
-    float_div.forEach((div) => {
-      swiperFloatDivHide.fromTo(div,
+      swiperFloatDivHide.fromTo(float_div,
         { opacity: 0 },
         { opacity: 1, duration: 0.1,}
-      );
-    });
+    );
   
     ScrollTrigger.create({
       animation: swiperFloatDivHide,
@@ -644,10 +639,28 @@ export function letActiveHorny() {
     });
   }
 
+  function marqueeDivHide() {
+    let swiperFloatDivHide = gsap.timeline();
+  
+      swiperFloatDivHide.fromTo(marquees,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.8,}
+    );
+  
+    ScrollTrigger.create({
+      animation: swiperFloatDivHide,
+      trigger: myLack,
+      start: 'bottom+=1600px top',
+      markers: false,
+      toggleActions: 'play none none reverse',
+    });
+  }
+
   swiperFloatDivHide();
   letSlideVisible();
   makeFillSmall();
   makeFillBig();
+  marqueeDivHide();
 }
 
 // sec4의 요소들 순서대로 보이게 하기
