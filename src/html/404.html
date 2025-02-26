@@ -3,9 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, follow"> <!--noindex로 검색엔진 허용 x 그러나 follow로 링크는 인식-->
     <title>Document</title>
+    <style>
+body {
+    background-color: #F8F6F4; /* CLAYN 배경색 */
+    color: #5C5C5C; /* 기본 텍스트 색상 */
+    font-family: 'Manrope', sans-serif;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.error-container {
+    max-width: 500px;
+}
+
+h1.error-text {
+    font-size: 6rem;
+    font-weight: bold;
+    color: #C4A88A; /* 포인트 컬러 */
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #005D66; /* Extra Point Color */
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #003D44;
+}      
+    </style>
 </head>
 <body>
+    <!--
+        ✔ 404 페이지의 핵심 목표 → 사용자가 길을 잃었을 때 빠르게 돌아오도록 유도
+        ✔ CLAYN의 브랜드 감성을 유지하면서도 미니멀하고 직관적인 디자인 필요
+        ✔ GSAP을 활용한 감성적인 애니메이션 추가 가능
+        ✔ SEO 최적화(meta robots)와 자동 리디렉션 기능 고려
+        ✔ 반응형 디자인을 적용하여 모바일에서도 깔끔한 UX 제공
+    -->
+    <div class="error-container">
+        <h1 class="error-text">404</h1>
+        <p>찾으시는 페이지가 사라졌거나 깨진 도자기처럼 흩어졌습니다.</p>
+        <a href="/" class="btn">홈으로 돌아가기</a>
+    </div>
+
+    <svg id="broken-pottery" width="300" height="300" viewBox="0 0 300 300">
+        <!-- 도자기 조각들 (각각의 path가 개별 조각) -->
+        <path class="shard" d="M50,150 L100,120 L90,180 Z" fill="#C4A88A"/>
+        <path class="shard" d="M100,120 L150,100 L140,160 Z" fill="#C4A88A"/>
+        <path class="shard" d="M90,180 L140,160 L130,220 Z" fill="#C4A88A"/>
+        <path class="shard" d="M140,160 L190,140 L180,200 Z" fill="#C4A88A"/>
+        <path class="shard" d="M130,220 L180,200 L170,260 Z" fill="#C4A88A"/>
+    </svg>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        gsap.from(".error-text", { opacity: 0, y: -50, duration: 1 });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    let shards = document.querySelectorAll(".shard");
+
+    gsap.fromTo(shards, 
+        { opacity: 1, x: 0, y: 0, rotation: 0 }, 
+        { 
+            opacity: 0, 
+            x: () => gsap.utils.random(-100, 100), // 랜덤한 방향으로 이동
+            y: () => gsap.utils.random(-100, 100),
+            rotation: () => gsap.utils.random(-45, 45), // 랜덤한 회전
+            duration: 2, 
+            ease: "power2.out",
+            stagger: 0.1 // 순차적 애니메이션
+        }
+    );
+});
+
+    </script>
+    <script>
+        setTimeout(() => {
+            window.location.href = "/";
+        }, 20000); // 20초 후 홈으로 이동, 
+    </script>
     
 </body>
 </html>

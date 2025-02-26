@@ -82,6 +82,15 @@ body.is-ready{
     .footer-video-landscape{
         display: none;
     }
+    .sticky-one{
+        min-height: 280px;
+    }
+    .big_products_swiper_wrapper{
+        height: 280px;
+    }
+    #swiper_products_section .swiper-slide{
+        height: 280px;
+    } /*swiper.css에서 관리중인 class*/
 }
 
 /* ✅ 가로 모드 (Landscape) */
@@ -98,6 +107,15 @@ body.is-ready{
     .footer-video-portrait{
         display: none;
     }
+    .sticky-one{
+        min-height: 506px;
+    }
+    .big_products_swiper_wrapper{
+        height: 506px;
+    }
+    #swiper_products_section .swiper-slide{
+        height: 506px;
+    } /*swiper.css에서 관리중인 class*/
 }
 .o {
     --dl-columns: calc(1 / 3 * 100% - 2 / 3 * var(--grid-gutter)) auto;

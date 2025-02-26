@@ -270,7 +270,7 @@ html.has-menu-bg .logo_g path{
     top: 0;
     height: 100vh;
     overflow: hidden;
-    min-height: 506px;
+    /*min-height: 506px;*/
 }
 .big_products_swiper_wrapper{
     display: block;
@@ -280,7 +280,7 @@ html.has-menu-bg .logo_g path{
     width: 100%;
     transform: translateY(-50%);
     position: absolute;
-    height: 506px;
+    /*height: 506px;*/
 }
 .fill{
     overflow: hidden;

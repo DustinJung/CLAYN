@@ -58,6 +58,9 @@
     
     
         /*여기서부터는 style.css에 안적은것들. 이 부분은 필히 따로 mobile, desktop에서 적어야 함*/
+        #swiper_products_section .swiper-slide .swiper-float-div {
+            padding: 1rem;
+        }
         .sec3_products_marquee_wrapper{
             gap: 0.625rem;
         }
