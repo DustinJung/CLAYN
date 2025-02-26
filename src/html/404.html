@@ -4,97 +4,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, follow"> <!--noindex로 검색엔진 허용 x 그러나 follow로 링크는 인식-->
-    <title>Document</title>
-    <style>
-body {
-    background-color: #F8F6F4; /* CLAYN 배경색 */
-    color: #5C5C5C; /* 기본 텍스트 색상 */
-    font-family: 'Manrope', sans-serif;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
+    <title>404 | 도자기가 부서지듯, 이 페이지도 사라졌습니다.</title>
 
-.error-container {
-    max-width: 500px;
-}
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/spoqa/spoqa-han-sans@2.1/SpoqaHanSansNeo.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
 
-h1.error-text {
-    font-size: 6rem;
-    font-weight: bold;
-    color: #C4A88A; /* 포인트 컬러 */
-}
+    <!-- 파비콘 설정 -->
+    <!-- 기본 파비콘 (최신 브라우저) -->
+    <link rel="icon" href="../../public/icons/favicon-light.svg" type="image/svg+xml"
+        media="(prefers-color-scheme: light)">
+    <!-- 다크 모드용 파비콘 -->
+    <link rel="icon" href="../../public/icons/favicon-dark.svg" type="image/svg+xml"
+        media="(prefers-color-scheme: dark)">
 
-.btn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #005D66; /* Extra Point Color */
-    color: white;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: 0.3s;
-}
+    <!-- 대체 파비콘 (구형 브라우저, 일부 모바일 지원) -->
+    <link rel="icon" href="../../public/icons/favicon-light.png" type="image/png" media="(prefers-color-scheme: light)">
+    <link rel="icon" href="../../public/icons/favicon-dark.png" type="image/png" media="(prefers-color-scheme: dark)">
 
-.btn:hover {
-    background-color: #003D44;
-}      
-    </style>
+    <!-- 최후의 보루 (옛날 브라우저 지원) -->
+    <link rel="icon" href="../../public/icons/favicon.ico" type="image/x-icon">
+
+    <!-- 애플 홈 화면 아이콘 (아이폰 & 아이패드, 다크 모드 전환) -->
+    <!-- 라이트 모드 아이콘 -->
+    <link rel="apple-touch-icon" href="../../public/icons/apple-touch-icon-light-180.png" sizes="180x180" media="(prefers-color-scheme: light)"> <!--180x180 px: 가장 중요한 사이즈. iPhone 및 iPad의 홈 화면에서 사용됩니다.-->
+    <link rel="apple-touch-icon" href="../../public/icons/apple-touch-icon-light-167.png" sizes="167x167" media="(prefers-color-scheme: light)"> <!--167x167 px: iPad Pro에서 사용됩니다.-->
+    <link rel="apple-touch-icon" href="../../public/icons/apple-touch-icon-light-152.png" sizes="152x152" media="(prefers-color-scheme: light)"> <!--152x152 px: iPad에서 사용됩니다.-->
+    <link rel="apple-touch-icon" href="../../public/icons/apple-touch-icon-light-120.png" sizes="120x120" media="(prefers-color-scheme: light)"> <!--120x120 px: iPhone 6, 7, 8 등 구형 기기에서 사용됩니다.-->
+
+    <!-- 다크 모드 아이콘 -->
+    <link rel="apple-touch-icon" href="../../public/icons/apple-touch-icon-dark-180.png" sizes="180x180" media="(prefers-color-scheme: dark)"> <!--180x180 px: 가장 중요한 사이즈. iPhone 및 iPad의 홈 화면에서 사용됩니다.-->
+    <link rel="apple-touch-icon" href="../../public/icons/apple-touch-icon-dark-167.png" sizes="167x167" media="(prefers-color-scheme: dark)"> <!--167x167 px: iPad Pro에서 사용됩니다.-->
+    <link rel="apple-touch-icon" href="../../public/icons/apple-touch-icon-dark-152.png" sizes="152x152" media="(prefers-color-scheme: dark)"> <!--152x152 px: iPad에서 사용됩니다.-->
+    <link rel="apple-touch-icon" href="../../public/icons/apple-touch-icon-dark-120.png" sizes="120x120" media="(prefers-color-scheme: dark)"> <!--120x120 px: iPhone 6, 7, 8 등 구형 기기에서 사용됩니다.-->
+
+    <!--노멀라이즈 CSS(내 공용)-->
+    <link href="../css/dustinnormalize.css" rel="stylesheet">
+
+    <!-- Global Styles -->
+    <link href="../css/global.css" rel="stylesheet">
+
+    <!-- Font & Color Definitions -->
+    <link rel="stylesheet" href="../css/font-style.css">
+
+    <!-- 404 전용 스타일 시트 -->
+    <link rel="stylesheet" href="../for404/css/style-404.css">
 </head>
-<body>
-    <!--
-        ✔ 404 페이지의 핵심 목표 → 사용자가 길을 잃었을 때 빠르게 돌아오도록 유도
-        ✔ CLAYN의 브랜드 감성을 유지하면서도 미니멀하고 직관적인 디자인 필요
-        ✔ GSAP을 활용한 감성적인 애니메이션 추가 가능
-        ✔ SEO 최적화(meta robots)와 자동 리디렉션 기능 고려
-        ✔ 반응형 디자인을 적용하여 모바일에서도 깔끔한 UX 제공
-    -->
+<body class="is-ready">
+    <!--안녕하세요, 404페이지입니다.-->
     <div class="error-container">
-        <h1 class="error-text">404</h1>
-        <p>찾으시는 페이지가 사라졌거나 깨진 도자기처럼 흩어졌습니다.</p>
-        <a href="/" class="btn">홈으로 돌아가기</a>
+        <h1 class="error-text brand_font">404</h1>
+        <h3 class="text_balance uppercase brand_font error-text">이 페이지는 산산조각이 났습니다</h3>
+        <p class="text_balance uppercase">찾으시는 페이지가 사라졌거나 깨진 도자기처럼 흩어졌습니다. <br>페이지가 붕괴하기 전에 어서 도망치세요.<br>
+            <span id="countdown" class="text_balance uppercase">25</span>초 남음
+        </p>
+        <a href="../html/mainPage.html" class="btn">메인페이지로 가기</a>
+        <a href="/" class="btn">홈으로 가기</a>
     </div>
 
-    <svg id="broken-pottery" width="300" height="300" viewBox="0 0 300 300">
-        <!-- 도자기 조각들 (각각의 path가 개별 조각) -->
-        <path class="shard" d="M50,150 L100,120 L90,180 Z" fill="#C4A88A"/>
-        <path class="shard" d="M100,120 L150,100 L140,160 Z" fill="#C4A88A"/>
-        <path class="shard" d="M90,180 L140,160 L130,220 Z" fill="#C4A88A"/>
-        <path class="shard" d="M140,160 L190,140 L180,200 Z" fill="#C4A88A"/>
-        <path class="shard" d="M130,220 L180,200 L170,260 Z" fill="#C4A88A"/>
+    <?xml version="1.0" encoding="utf-8"?>
+    <!-- Generator: Adobe Illustrator 24.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+    <svg version="1.1" id="broken-pottery" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+        y="0px" viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve" width="300" height="300">
+    <style type="text/css">
+        .st0{fill:#F7C9CA;}
+    </style>
+    <path class="fragile" d="M267,193.71c30.19,2.01,114.21-75.97,169.35-130.82c-49.67,5.38-106.39,8.31-166.81,8.31
+        c-10.15,0-20.2-0.09-30.14-0.26C236.63,123.58,238.57,191.81,267,193.71z"/>
+    <path class="fragile" d="M97.41,359.9c14.38,13.48,30.1,25.12,46.89,34.58c0,0-20.72,8.29-20.72,28.13s20.72,28.13,20.72,28.13v0.3H221
+        c10.49-13.98,21.18-29.07,29-42.09C265.9,382.48,156.9,366.54,97.41,359.9z"/>
+    <path class="fragile" d="M143.13,245.89c0-53.33-4.53-124.51-8.84-180.1c-30.43-2.55-58.74-5.93-84.23-10.02
+        c-1.23-0.69-2.54-1.36-3.75-2.05c-9.18-1.48-17.76-2.96-26.05-4.74c-8.29,28.72-13.32,59.51-13.32,91.48
+        c0,73.12,23.99,139.6,63.26,189.67C110.9,310.59,143.13,283.3,143.13,245.89z"/>
+    <path class="fragile" d="M481.86,225.29c-75.13,23.78-194.15,64.35-220.89,90.48c-26.82,26.21,40.14,93.92,86.62,135.25h7.81v-0.14
+        c1.65-0.7,20.41-9.02,20.41-27.99s-18.76-27.29-20.41-27.99v-0.27C415.26,361.04,461.58,299.9,481.86,225.29z"/>
+    <path class="fragile" d="M202.61,377.14c32.36,8.1,55.29,18.65,47.39,31.79c-7.82,13.01-18.52,28.11-29,42.09h126.59
+        c-45.13-40.14-109.57-105.14-88.7-132.87l-29.05-9.35C229.84,308.81,217.35,340.59,202.61,377.14z"/>
+    <path class="fragile" d="M241.21,149.44c-3.4-23.56-3.16-52.88-1.81-78.5c-36.95-0.63-72.27-2.4-105.11-5.15
+        c1.55,20.05,3.13,42.12,4.52,64.66l60.06,77.72L241.21,149.44z"/>
+    <path class="fragile" d="M142.65,253.6c-4.09,33.48-34.6,58.36-72.45,76.52c8.4,10.71,17.5,20.66,27.21,29.77
+        c12.98,1.45,28.32,3.34,44.21,5.69l40.73-76.91L142.65,253.6z"/>
+    <path class="fragile" d="M493.06,140.46c0-29.61-4.15-58.32-11.25-84.97c-7.4,0.89-14.8,2.07-22.5,2.96c-1.41,0.83-2.8,1.45-4.21,2.25
+        c-6.12,0.77-12.39,1.49-18.75,2.18c-34.62,34.44-80.62,77.99-117.53,105.14L272.68,250l50.89,31.61
+        c47.91-20.26,111.58-41.53,158.29-56.32C489.14,198.53,493.06,170.04,493.06,140.46z"/>
+    <path class="fragile" d="M318.82,168.03c-21.89,16.1-40.58,26.43-51.82,25.68c-14.59-0.97-22.21-19.42-25.79-44.27l-42.34,58.72
+        l-60.06-77.72c2.46,39.95,4.31,81.35,4.31,115.44c0,2.62-0.17,5.19-0.48,7.72l39.71,35.08l-40.73,76.91
+        c20.75,3.07,42.42,6.91,60.99,11.56c14.74-36.56,27.23-68.34,27.23-68.34l29.05,9.35c0.62-0.83,1.31-1.62,2.09-2.38
+        c10.12-9.89,33.44-21.84,62.6-34.17L272.68,250L318.82,168.03z"/>
     </svg>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script>
-        gsap.from(".error-text", { opacity: 0, y: -50, duration: 1 });
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-    let shards = document.querySelectorAll(".shard");
-
-    gsap.fromTo(shards, 
-        { opacity: 1, x: 0, y: 0, rotation: 0 }, 
-        { 
-            opacity: 0, 
-            x: () => gsap.utils.random(-100, 100), // 랜덤한 방향으로 이동
-            y: () => gsap.utils.random(-100, 100),
-            rotation: () => gsap.utils.random(-45, 45), // 랜덤한 회전
-            duration: 2, 
-            ease: "power2.out",
-            stagger: 0.1 // 순차적 애니메이션
-        }
-    );
-});
-
-    </script>
-    <script>
-        setTimeout(() => {
-            window.location.href = "/";
-        }, 20000); // 20초 후 홈으로 이동, 
-    </script>
     
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/ScrollToPlugin.min.js" defer></script>
+    <script src="../for404/js/main-404.js" defer></script>
+<!--    
+    <script>
+    //    setTimeout(() => {
+    //        window.location.href = "mainPage.html";
+    //    }, 20000); // 20초 후 홈으로 이동, 
+    </script>
+    -->
 </body>
 </html>

@@ -1,0 +1,97 @@
+body{
+    background-color: var(--body-bg-clr);
+    color: var(--body-clr);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    width: 100%;
+    flex-direction: column;
+}
+.btn {
+    width: 60%;
+    display: block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: var(--extra-point-clr);
+    color: var(--extra-extra-point-clr);
+    border-radius: 6px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.btn:hover {
+    background-color: #003D44;
+}  
+.error-container {
+    max-width: 500px;
+}
+h1.error-text {
+    font-size: 6rem;
+    font-weight: bold;
+    color: var(--body-clr);
+    opacity: 0;
+    animation: fadeMove 1s cubic-bezier(0.25, 1, 0.5, 1) forwards; 
+}
+h3.error-text {
+    font-size: 3rem;
+    color: var(--body-clr);
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+    will-change: opacity;
+}
+.error-container > p {
+    opacity: 0;
+    transition: .5s;
+    will-change: opacity;
+    margin-top: 10px;
+    line-height: 1.2;
+}
+#broken-pottery{
+    order: -1;
+    max-width: 500px;
+    width: 80%;
+    height: auto;
+    fill: var(--extra-extra-point-clr);
+}
+#countdown{
+    color: var(--extra-point-clr);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeMove {
+    from {
+        opacity: 0;
+        transform: translateY(-50%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    h1.error-text {
+        font-size: 4rem;
+    }
+    h3.error-text {
+        font-size: 2rem;
+    }
+    .btn {
+        width: 40%;
+        display: inline-block;
+        font-size: 10px;
+    }
+    .btn:hover {
+        background-color: var(--extra-point-clr);
+        cursor: default;
+    }  
+}

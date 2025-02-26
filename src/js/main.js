@@ -108,6 +108,7 @@ window.onload = function () {
       //장바구니 버튼
       function bucket_btn_fn() {
         bucket_btn.addEventListener('click', () => {
+          bucket_btn.classList.toggle('fill-on');
           if(html.classList.contains('has-menu-bg')){
             html.classList.toggle('has-menu-bg');
             menuBg.classList.toggle('hide');
@@ -125,6 +126,7 @@ window.onload = function () {
       //장바구니 버튼 켜져 있는 상태에서 검은 화면
       function black_bg_fn() {
         black_bg.addEventListener('click', () => {
+          bucket_btn.classList.toggle('fill-on');
           if(html.classList.contains('has-bucket-clicked')){
             html.classList.toggle('has-bucket-clicked');
           }
