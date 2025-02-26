@@ -1,38 +1,48 @@
 // main.js (메인 실행 파일)
+import { initPreloader, initAnimations } from "./animations.js";
+import { initUIComponents } from "./components.js";
 
-//import { lenis, getLenisDuration } from "./lenis.js"; // ✅ Lenis 가져오기
-import { initAnimations } from "./animations.js";
-import { initUIComponents } from "./components.js"; // ✅ UI 기능 모듈 가져오기
+console.log("🗿 main.js 실행(총괄 js파일)");
 
-
-window.onload = function () {
+// ✅ `startApp()` 실행하여 UI 및 애니메이션 초기화 후 Preloader 제거
+function startApp() {
   try {
-    //lenis.stop();
+    console.log("🗿 startApp()실행 try, 스크립트 동기화 실행");
 
     // UI 기능 초기화 (슬라이더, 모달 등)
     initUIComponents();
 
-    // 애니메이션 초기화 (gsap를 이용한)
+    // 애니메이션 초기화 (GSAP 활용)
     initAnimations();
 
-    console.log("웹페이지가 로드되었습니다."); // 페이지 로딩 후 로그 출력
+    console.log("🗿 컴포넌트, 애니메이션 관련 스크립트 동기화 완료");
 
-    // ✅ Preloader 종료 후 Lenis 실행 (3.5초 후)
+    // ✅ 모든 초기화가 끝난 후 Preloader 제거
     setTimeout(() => {
-      //lenis.start();
-      document.querySelector('body').classList.add('is-ready');
-      //console.log(`Lenis 시작됨, lenis duration 값 : ${lenis.options.duration}`);
-    }, 3350); // Preloader 종료 되면서, marquee 내려올 수 있도록 준비
+      console.log("🗿 Preloader 장막 올라가기 시작");
+      const preloader = document.querySelector(".pre-loader");
+      gsap.to(preloader, {
+        y: "-100%",
+        duration: 1,
+        ease: "power4.inOut",
+        onComplete: () => {
+          console.log("🗿 GSAP onComplete 실행, is-ready 추가시도");
+          preloader.classList.add("hide");
+          document.body.classList.add("is-ready");
+          console.log("🗿 is-ready가 추가 ->:", document.body.classList.contains("is-ready"));
+        },
+      });
+    }, 500); // ✅ 0.5초 딜레이 후 Preloader 제거
   } catch (error) {
-    console.error("초기화 중 오류 발생:", error);
+    console.error("🗿? 초기화 중 오류 발생 :", error);
   }
+}
 
-  // ✅ Lenis duration 업데이트 함수 (main.js에서 관리)
-//function updateLenisDuration() {
-//  lenis.options.duration = getLenisDuration();
-//  console.log(`🔄 Lenis duration 업데이트됨: ${lenis.options.duration}`);
-//}
+// ✅ Preloader가 끝난 후 `startApp()` 실행
+initPreloader(startApp);
 
+
+window.onload = function () {
   // ✅ Resize 이벤트 뭉치
   function windowResizeEvent() {
         // ✅ 화면 크기(너비) 변경 감지 및 최적화된 리사이징 처리

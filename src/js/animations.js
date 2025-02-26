@@ -1,40 +1,71 @@
 // animations.js (GSAP 애니메이션 관리)
-
-
 gsap.registerPlugin(ScrollTrigger);
 
-// preloader 애니메이션 추가
-function initPreloader() {
-  const preloader = document.querySelector(".pre-loader");
-  const progressText = document.querySelector(".pre-loader-counter"); // 퍼센트 텍스트
-  const preloader_img = document.querySelector('.pre-loader-img'); // 프리 로더 img
+// ✅ Preloader 애니메이션 (이제 `startApp()` 실행 후에 `is-ready` 추가)
+function initPreloader(callback) {
+  console.log("🗿 initPreloader() 실행 시작");
 
-  if (!preloader || !progressText) return; // 요소가 없으면 종료
+  const preloader = document.querySelector(".pre-loader");
+  const progressText = document.querySelector(".pre-loader-counter");
+  const preloader_img = document.querySelector(".pre-loader-img");
+
+  if (!preloader || !progressText) {
+    console.log("🗿? preloader 요소가 없음");
+    callback(); // ✅ Preloader 없이 바로 실행
+    return;
+  }
 
   let progress = { value: 0 };
+  let images = document.querySelectorAll("img");
+  let totalImages = images.length;
+  let imagesLoaded = 0;
 
-  preloader_img.classList.add('on')
-  progressText.classList.add('on')
+  preloader_img.classList.add("on");
+  progressText.classList.add("on");
 
-  gsap.to(progress, {
-    value: 100,
-    delay: .5,
-    duration: 2,
-    ease: "power2.out",
-    onUpdate: () => {
-      progressText.textContent = `${Math.round(progress.value)}%`; // 퍼센트 업데이트
-    },
+  console.log(`🗿 총 이미지 개수: ${totalImages}`);
+
+  function updateProgress() {
+    let percent = Math.round((imagesLoaded / totalImages) * 100);
+    //console.log(`🗿 로딩 진행도: ${percent}% (로드된 이미지: ${imagesLoaded}/${totalImages})`);
+
+    gsap.to(progress, {
+      value: percent,
+      duration: 0.5,
+      ease: "power2.out",
+      onUpdate: () => {
+        progressText.textContent = `${Math.round(progress.value)}%`;
+      },
+    });
+
+    if (percent >= 100) {
+      console.log("🗿 Preloader 완료, startApp() 실행 준비 시작");
+      callback(); // startApp() 실행 콜백
+    }
+  }
+
+  images.forEach((img) => {
+    if (img.complete) {
+      imagesLoaded++;
+      updateProgress();
+    } else {
+      img.onload = () => {
+        imagesLoaded++;
+        updateProgress();
+      };
+      img.onerror = () => {
+        console.warn(`❌ 이미지 로드 실패: ${img.src}`);
+        imagesLoaded++; // error가 있어도 계속해서 로딩을 시킴
+        updateProgress();
+      };
+    }
   });
 
-  gsap.to(preloader, {
-    y: "-100%", // 위로 사라지게
-    duration: 1,
-    delay: 2.5, // 로딩 후 3초 뒤 사라지게
-    ease: "power4.inOut",
-    onComplete: () => {
-      preloader.classList.add('hide'); // 완전히 숨기기
-    },
-  });
+  // 만약 이미지 개수가 0이라면 즉시 `callback()` 실행
+  if (totalImages === 0) {
+    console.log("⚠️ 이미지 없음, Preloader 즉시 종료");
+    callback(); // startApp() 실행 콜백
+  }
 }
 
 //프로그레스 바 애니메이션
@@ -839,10 +870,9 @@ function footerAnimate() {
 
 // 여기에 애니메이션 정의 함수 추가
 function initAnimations() {
-  // 여기다가 애니메이션 코드 추가하면 됨
-
   
-  initPreloader(); // Preloader 실행
+  // 여기다가 애니메이션 코드 추가하면 됨
+  console.log("📢 initAnimations() 실행됨!"); // ✅ initAnimations() 실행 확인
   logoTranslate(); // logoTranslate 실행
   introBgVdTxt(); // logo intro 진입시 색바뀌기 실행
   letLogoFillCg(); // intro video section scroll trigger 실행
@@ -864,4 +894,4 @@ function initAnimations() {
 }
 
 // 외부에서 사용할 수 있도록 내보내기
-export { initAnimations };
+export { initAnimations, initPreloader };
