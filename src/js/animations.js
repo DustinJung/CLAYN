@@ -493,8 +493,7 @@ liElements.forEach((li, index) => {
 
 }
 // section 3의 active slider의 scale을 크게 해버리기
-function letActiveHorny() {
-  
+function letActiveHorny() { 
   let myLack = document.querySelector('#forgiveMyLack');
   let float_div = document.querySelectorAll('.swiper-float-div');
   let active_article = document.querySelector('.swiper-slide-active');
@@ -504,44 +503,43 @@ function letActiveHorny() {
   let gimmick = document.querySelector('.swiper-gimmick');
   let marquees = document.querySelector('.sec3_products_marquee_wrapper');
 
-  function makeFillBig() {
-    let bigFill = gsap.timeline();
+  function animateFill() {
+    // 5 → 3
+    let bigToSmall = gsap.timeline({
+      scrollTrigger: {
+        trigger: myLack,
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: 0.5,
+        markers: true,
+        id: 'BigToSmall'
+      }
+    });
   
-    bigFill.fromTo(
+    bigToSmall.fromTo(
       lack,
       { scaleX: 5, scaleY: 3 },
       { scaleX: 3, scaleY: 3 }
     );
   
-    ScrollTrigger.create({
-      animation: bigFill,
-      trigger: myLack,
-      start: 'top bottom',
-      end: 'bottom top',
-      scrub: 0.5,
-      markers: false,
-      id: 'sex'
+    // 3 → 1
+    let smallToNormal = gsap.timeline({
+      scrollTrigger: {
+        trigger: myLack,
+        start: 'bottom+=10px top',
+        end: '+=1500',
+        scrub: 0.5,
+        markers: true,
+        id: 'SmallToNormal'
+      }
     });
-  }
   
-  function makeFillSmall() {
-    let smallFill = gsap.timeline();
-  
-    smallFill.fromTo(
+    // 여기서 시작값을 강제로 지정 (이전 애니메이션의 종료 값을 기반으로)
+    smallToNormal.fromTo(
       lack,
-      { scaleX: 3, scaleY: 3 },
+      { scaleX: 3, scaleY: 3 }, // 3에서 시작하도록 고정
       { scaleX: 1, scaleY: 1 }
     );
-  
-    ScrollTrigger.create({
-      animation: smallFill,
-      trigger: myLack,
-      start: 'bottom top',
-      end: '+=1500',
-      scrub: 0.5,
-      markers: false,
-      id: 'sex2'
-    });
   }
   
   function letSlideVisible() {
@@ -607,8 +605,7 @@ function letActiveHorny() {
 
   swiperFloatDivHide();
   letSlideVisible();
-  makeFillSmall();
-  makeFillBig();
+  animateFill();
   marqueeDivHide();
 }
 
