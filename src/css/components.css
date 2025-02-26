@@ -245,6 +245,7 @@ html.has-menu-bg .bucket_path{
     display: block;
     z-index: 0;
     font-weight: 600;
+    color: var(--body-clr);
 }
 .footer-submit-btn::before{
     content: '';

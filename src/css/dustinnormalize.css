@@ -56,6 +56,7 @@ button, input[type="submit"], input[type="button"] {
     cursor: pointer;
     appearance: none;
     -webkit-appearance: none;
+    color: inherit; /*color는 '명확하게' 따로 css에서 제공할 것.*/
 }
 
 /* iOS에서 검색 인풋의 기본 X 버튼 제거 */

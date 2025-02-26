@@ -185,8 +185,8 @@
 
             <!--Sec01 - intro-video-section-->
             <section id="intro_video_wrapper">
-                <video src="../../public/videos/intro/intro.mp4" autoplay muted loop preload="auto" width="100%" height="auto" class="intro-video-landscape"></video>
-                <video src="../../public/videos/intro/intro-portrait.mp4" autoplay muted loop preload="auto" width="100%" height="auto" class="intro-video intro-video-portrait"></video>
+                <video src="../../public/videos/intro/intro.mp4" autoplay muted loop preload="auto" width="100%" height="auto" playsinline webkit-playsinline class="intro-video-landscape"></video>
+                <video src="../../public/videos/intro/intro-portrait.mp4" autoplay muted loop preload="auto" width="100%" height="auto" playsinline webkit-playsinline class="intro-video intro-video-portrait"></video>
                 <div class="black_bg"></div>
                 <div class="black_bg"></div>
                 <div class="black_bg"></div>
@@ -888,8 +888,8 @@
         <footer>
             <!-- 푸터, 저작권, 연락처 정보 등 -->
             <div id="footer-bg">
-                <video src="../../public/videos/footer/pexels-pottery.mp4" autoplay muted loop preload="auto" class="footer-video footer-video-landscape"></video>
-                <video src="../../public/videos/footer/pexels-pottery-portrait.mp4" autoplay muted loop preload="auto" class="footer-video footer-video-portrait"></video>
+                <video src="../../public/videos/footer/pexels-pottery.mp4" autoplay muted loop playsinline webkit-playsinline preload="auto" class="footer-video footer-video-landscape"></video>
+                <video src="../../public/videos/footer/pexels-pottery-portrait.mp4" autoplay muted loop playsinline webkit-playsinline preload="auto" class="footer-video footer-video-portrait"></video>
             </div>
 
             <div id="footer-inner">
@@ -1039,7 +1039,9 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
 
     <!-- Custom Scripts -->
-    <script type="module" src="../js/main.js" defer></script>
+    <script tpye="module" src="../js/dustinNormalize.js" defer></script> <!--최적화-->
+    <script type="module" src="../js/main.js" defer></script>   <!--모든 스크립트 window.onload로 관리-->
+
 
 </body>
 
