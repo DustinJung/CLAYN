@@ -502,6 +502,7 @@ function letActiveHorny() {
   let lack = document.querySelectorAll('.lackness');
   let gimmick = document.querySelector('.swiper-gimmick');
   let marquees = document.querySelector('.sec3_products_marquee_wrapper');
+  let goDownArticle = document.querySelector('.big_products_swiper_wrapper');
 
   function animateFill() {
     // 5 → 3
@@ -511,7 +512,7 @@ function letActiveHorny() {
         start: 'top bottom',
         end: 'bottom top',
         scrub: 0.5,
-        markers: true,
+        markers: false,
         id: 'BigToSmall'
       }
     });
@@ -529,17 +530,34 @@ function letActiveHorny() {
         start: 'bottom+=10px top',
         end: '+=1500',
         scrub: 0.5,
-        markers: true,
+        markers: false,
         id: 'SmallToNormal'
       }
     });
-  
-    // 여기서 시작값을 강제로 지정 (이전 애니메이션의 종료 값을 기반으로)
+
     smallToNormal.fromTo(
       lack,
-      { scaleX: 3, scaleY: 3 }, // 3에서 시작하도록 고정
+      { scaleX: 3, scaleY: 3 }, 
       { scaleX: 1, scaleY: 1 }
     );
+
+    // transform
+    let goDownFill = gsap.timeline({
+      scrollTrigger: {
+        trigger: myLack,
+        start: 'bottom+=1450 top',
+        end: '+=100',
+        scrub: 0.5,
+        markers: true,
+        id: 'goDownFill',
+      }
+    });
+
+    goDownFill.to(goDownArticle, {
+      top: '75%',
+      yPercent: -75, //gsap에서는 yPersent를 쓰면 자기 자신 크기 기준으로 퍼센트란 뜻.
+      ease: 'none',
+    })
   }
   
   function letSlideVisible() {
@@ -591,7 +609,7 @@ function letActiveHorny() {
   
       swiperFloatDivHide.fromTo(marquees,
         { opacity: 0 },
-        { opacity: 1, duration: 0.8,}
+        { opacity: 1, duration: 1.5,}
     );
   
     ScrollTrigger.create({
