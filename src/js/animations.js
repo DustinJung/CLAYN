@@ -548,7 +548,7 @@ function letActiveHorny() {
         start: 'bottom+=1450 top',
         end: '+=100',
         scrub: 0.5,
-        markers: true,
+        markers: false,
         id: 'goDownFill',
       }
     });

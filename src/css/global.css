@@ -4,7 +4,11 @@ html,body{
     width: 100%;
 }
 body{
-    overflow-x: hidden; /* 가로 스크롤 방지 */
+    overflow: hidden;
+}
+body.is-ready{
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 /*변수*/
 
@@ -66,15 +70,33 @@ body{
 /* 기본적으로 두 개의 이미지 모두 표시 */
 /* ✅ 세로 모드 (Portrait) */
 @media (orientation: portrait) {
+    .person{
+        object-fit: contain !important;
+    }
     .personA {
-        display: none; /* `b` 숨김 */
+        display: none;
+    }
+    .intro-video-landscape{
+        display: none;
+    }
+    .footer-video-landscape{
+        display: none;
     }
 }
 
 /* ✅ 가로 모드 (Landscape) */
 @media (orientation: landscape) {
+    .person{
+        object-fit: cover !important;
+    }
     .personB {
-        display: none; /* `a` 숨김 */
+        display: none;
+    }
+    .intro-video-portrait{
+        display: none;
+    }
+    .footer-video-portrait{
+        display: none;
     }
 }
 .o {

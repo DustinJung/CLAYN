@@ -146,8 +146,7 @@ html.has-menu-bg .logo_g path{
 #brand_introduce_section_inner .number{
     position: absolute;
     top: 70vh;
-    left: 0;
-    padding-left: 60%;
+    left: 60vw;
     z-index: 100;
     width: calc(var(--spacing-xl) + var(--spacing-fix-1rem));
 }
@@ -385,16 +384,6 @@ html.has-menu-bg .logo_g path{
     left: 0;
     top: 0;
     transition: color .3s cubic-bezier(var(--cubic-x1), var(--cubic-y1), var(--cubic-x2), var(--cubic-y2)) opacity .3s cubic-bezier(var(--cubic-x1), var(--cubic-y1), var(--cubic-x2), var(--cubic-y2));
-}
-.sec3_products_marquee ul li a:hover div{
-    background-color: rgba(0, 0, 0, 0.4);
-}
-.sec3_products_marquee ul li a:hover span{
-    opacity: 1;
-    transition: opacity .3s cubic-bezier(var(--cubic-x1), var(--cubic-y1), var(--cubic-x2), var(--cubic-y2));
-}
-.sec3_products_marquee ul li a:hover span:hover{
-    opacity: 0.8;
 }
 .sec3_products_marquee ul li img{
     object-fit: cover;
@@ -647,7 +636,7 @@ html.has-menu-bg .logo_g path{
 }
 #newsletter-email:focus{
     outline-offset: 2px; /*요소에 2px떨어뜨려서 위치하겠다. offset의 기능*/
-    outline: 1px auto var(--extra-extra-point-clr); /*outline은 요소의 테두리 바깥쪽에 그려지는 선*/
+    outline: 1px solid var(--extra-extra-point-clr); /*outline은 요소의 테두리 바깥쪽에 그려지는 선, 원래 auto로 썼다가 ios에 대응하기 위해 solid로 변경*/
 }
 .footer-bottom{
     display: flex;

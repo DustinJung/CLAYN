@@ -57,4 +57,83 @@
     .bucket-white-overlay{
         width: 50%;
     }
+
+
+
+
+
+
+    /*hover만 모아놓음, hover는 데스크탑에서만 적용할 것*/
+
+    /*전역 style.css*/
+    .sec3_products_marquee ul li a:hover div{
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+    .sec3_products_marquee ul li a:hover span{
+        opacity: 1;
+        transition: opacity .3s cubic-bezier(var(--cubic-x1), var(--cubic-y1), var(--cubic-x2), var(--cubic-y2));
+    }
+    .sec3_products_marquee ul li a:hover span:hover{
+        opacity: 0.8;
+    }
+
+    /*swiper.css*/
+    #swiper_products_section .swiper-slide.swiper-slide-active.hover-enabled::before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index:1;
+        width: 100%;
+        height: 100%;
+        transition: opacity .3s ease;
+    }
+    #swiper_products_section .swiper-slide.swiper-slide-active:hover::before{
+        backdrop-filter: blur(.5px);
+        background: rgba(0, 0, 0, 0.1);
+    }
+    #swiper_products_section .swiper-slide.swiper-slide-active:hover .swiper-float-div a:hover{
+        animation-name: jelly;
+        animation-duration: .5s;
+        pointer-events: all;
+    }
+
+    /*components.css*/
+    #clayn_nav ul li span a:hover{
+        opacity: .7;
+    }
+    .sns_wrapper li a:hover{
+        opacity: .7;
+        transform: skewX(-10deg);
+    }
+    .clayn_btn:hover{
+        animation-name: jelly;
+        animation-duration: .5s;
+    }
+    .CTA_wrapper > div:hover::before{
+        backdrop-filter: blur(10px); /* 흐림 효과 */
+        background: rgba(0, 0, 0, 0.5);
+    }
+    .CTA_wrapper > div:hover img{
+        transform: scale(1.1);
+    }
+    /* 호버시 버튼 활성화 */
+    .CTA_wrapper > div:hover .clayn_btn {
+        /*background: var(--extra-point-clr) !important;*/
+        pointer-events: all; /* 버튼 클릭 가능 */
+        transform: translate(-50%, -50%); /* 버튼 위치 유지 */
+    }
+    /* 버튼 호버 시 Jelly 애니메이션 */
+    .CTA_wrapper > div:hover .clayn_btn:hover {
+        animation-name: jelly2;
+        animation-duration: .5s;
+    }
+    .footer-submit-btn:hover{
+        color: var(--extra-extra-point-clr);
+    }
+    .footer-submit-btn:hover::before{
+        transform: scale(1);
+    }
 }

@@ -1,31 +1,82 @@
-*{
-    margin:0; 
-    padding:0;
+/* 기본 스타일 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* ✅ 모든 요소에 border-box 적용 */
 }
-ul,ol{
-    list-style: none !important;
+
+/* iOS 폰트 자동 조정 방지 */
+html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%; /* ✅ iOS에서 텍스트 자동 확대 방지 */
 }
-a{
+
+/* 리스트 스타일 제거 */
+ul, ol {
+    list-style: none;
+}
+
+/* a 태그 기본 스타일 제거 */
+a {
     text-decoration: none;
     display: block;
     color: inherit;
 }
-img{
+
+/* 이미지 스타일 초기화 */
+img {
     vertical-align: top;
+    max-width: 100%; /* ✅ 반응형 이미지 설정 */
+    height: auto; /* ✅ 원본 비율 유지 */
 }
-body, input, textarea, button{
+
+/* input, textarea, button 기본 스타일 제거 */
+body, input, textarea, button {
     border: none;
     outline: none;
-    box-sizing: border-box;
+    font-family: inherit; /* ✅ 시스템 폰트가 강제로 적용되지 않도록 설정 */
 }
-input, textarea, button{
+
+/* 모든 폼 요소의 기본 스타일 제거, IOS 대응 */
+input, textarea, button {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     background: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+    border-radius: 0;
+    /*outline, border는 바로 위에서 body랑 묶음*/
 }
-button{
+
+
+/* 버튼과 submit 버튼의 기본 스타일 제거 */
+button, input[type="submit"], input[type="button"] {
     cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
 }
-.label_hidden{
-	clip: rect(0 0 0 0);
+
+/* iOS에서 검색 인풋의 기본 X 버튼 제거 */
+input[type="search"]::-webkit-search-decoration {
+    display: none;
+}
+
+/* iOS에서 버튼 포커스 시 기본 그림자 제거 */
+input:focus, textarea:focus, button:focus {
+    box-shadow: none;
+}
+
+/* placeholder 스타일 초기화 */
+::placeholder {
+    color: inherit; /* ✅ 기본 글자색과 동일하게 */
+    opacity: 1; /* ✅ 흐려지는 효과 방지 */
+}
+
+/* 라벨 숨기기 (접근성 유지) */
+.label_hidden {
+    clip: rect(0 0 0 0);
     border: 0;
     height: 1px;
     margin: -1px;

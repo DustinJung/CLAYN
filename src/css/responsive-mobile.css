@@ -13,7 +13,7 @@
         /*폰트 사이즈 변수*/
         --title-size : calc((var(--spacing-fix-1rem)) + (var(--spacing-fix-half1rem)));
         --text-effect-size : calc((var(--spacing-fix-1rem)));
-        --text-size : var(--spacing-fix-1rem);
+        --text-size : 14px;
     }
 
             /*gutter class*/
@@ -26,10 +26,6 @@
                 box-sizing: border-box;
                 padding: 0 var(--grid-gutter);
                 margin-top: 25vh;
-            }
-            /*header_nav_btn*/
-            .header_nav_btn:hover span:first-of-type{
-                transform: scale(0.75, 1);
             }
             .non-parallax-section{
                 width: 100%;
@@ -62,11 +58,45 @@
     
     
         /*여기서부터는 style.css에 안적은것들. 이 부분은 필히 따로 mobile, desktop에서 적어야 함*/
+        #about_section .o-dl_row{
+            grid-template-columns: repeat(2, minmax(0, 1fr)); /*2열, 각 열의 크기 최소0 최대1fr 균등분배.*/
+        }
+        .mobile-font-small{
+            font-size: 10.5px;
+        }
+        #about_section blockquote{
+            font-size: 1rem;
+        }
+        #about_section figcaption p{
+            left: calc(1 / 3* 100% + 1 / 3* var(--spacing-fix-5rem));
+        }
+        #about_section .about_col{
+            grid-template-columns: auto;
+        }
         /*footer 섹션*/
         .footer-center{
             width: 100%;
             box-sizing: border-box;
             padding: 0 var(--grid-gutter);
+        }
+        .footer-bottom{
+            flex-wrap: wrap;
+        }
+        .footer-bottom > p{
+            max-width: 50%;
+            text-align: center;
+        }
+        .footer-bottom > a{
+            order: -1;
+            width: 100%;
+            margin-bottom: var(--grid-gutter);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .figcaptionSvg{
+            position: relative;
+            left: -25%;
         }
     
         /*bucket 섹션*/

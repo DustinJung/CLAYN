@@ -27,9 +27,6 @@
             margin-top: 25vh;
         }
         /*header_nav_btn*/
-        .header_nav_btn:hover span:first-of-type{
-            transform: scale(0.75, 1);
-        }
         .non-parallax-section{
             width: 100%;
             margin-right: auto;
@@ -56,6 +53,9 @@
 
 
     /*여기서부터는 style.css에 안적은것들. 이 부분은 필히 따로 mobile, desktop에서 적어야 함*/
+    #about_section .o-dl_row{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
     /*footer 섹션*/
     .footer-center{
         width: 100%;
