@@ -161,11 +161,22 @@ window.onload = function () {
       })
     }  
 
+    //anytime section button 3개 누르면 404로 href 이동 시키기
+    function getTo404Page() {
+      let theBtns = document.querySelectorAll('.getTo404');
+
+      theBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          window.location.href = '404.html';
+        })
+      })
+    }
+
     formPD();
     bucketBtn();
     marquee_prevent();
     swiper_a_prevent();
-
+    getTo404Page();
   }
 
   //바닐라 자바스크립트 함수
