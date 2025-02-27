@@ -203,11 +203,16 @@ function logoTranslate() {
 
 // logo intro section 진입 시 가독성 문제로 fill 값 바꾸게 하는 함수, 스크롤 기준은 밑 introBgVdTxt() 함수와 맞춤.
 function letLogoFillCg() {
-  const logoSvg = document.querySelector(".logo_g"); // SVG 선택
-  const navMenu = document.querySelectorAll('.header_nav_btn span'); // header_nav_btn span 전부 선택 // 쿼리셀렉터올은 nodeList를 반환하고, 이 객체는 배열처럼 반복 가능하기 때문에 각 span에 반복문을 돌려서 클래스를 추가하거나 제거해야 함.
+  const logoSvg = document.querySelector(".logo_g");
+  const navMenu = document.querySelectorAll('.header_nav_btn span');
   const logoBucket = document.querySelector('.bucket_path');
 
+  // 기존 ScrollTrigger 제거 (중복 실행 방지)
+  let existingTrigger = ScrollTrigger.getById("logoFillTrigger");
+  if (existingTrigger) existingTrigger.kill(); 
+
   ScrollTrigger.create({
+    id: "logoFillTrigger", // ID 부여해서 중복 생성 방지
     trigger: "#intro_video_wrapper",
     start: "-40px top",
     end: "+=6000",
@@ -215,28 +220,29 @@ function letLogoFillCg() {
     scrub: true,
     onEnter: () => { 
       logoSvg.classList.add('on');
-      navMenu.forEach(span => span.classList.add('on')); // 그래서 forEach를 쓴 것. 각 span에 'on' 클래스 추가, 
+      navMenu.forEach(span => span.classList.add('on'));
       logoBucket.classList.add('on');
     },
     onLeave: () => {
       gsap.delayedCall(1.5, () => { 
         logoSvg.classList.remove('on');
-        navMenu.forEach(span => span.classList.remove('on')); // 각 span에서 'on' 클래스 제거
+        navMenu.forEach(span => span.classList.remove('on'));
         logoBucket.classList.remove('on');
-      }); // 1.5초 딜레이 후 클래스 제거
+      });
     },
     onEnterBack: () => { 
       logoSvg.classList.add('on');
-      navMenu.forEach(span => span.classList.add('on')); // 다시 진입 시 'on' 클래스 추가
+      navMenu.forEach(span => span.classList.add('on'));
       logoBucket.classList.add('on');
     },
     onLeaveBack: () => { 
       logoSvg.classList.remove('on');
-      navMenu.forEach(span => span.classList.remove('on')); // 다시 벗어나면 'on' 클래스 제거
+      navMenu.forEach(span => span.classList.remove('on'));
       logoBucket.classList.remove('on');
     },
   });
 }
+
 
 // intro video section 위에서 도예 quote가 떠오르는 script.
 function introBgVdTxt() {
@@ -270,35 +276,35 @@ function introBgVdTxt() {
   });
 }
 
-// ✅ 현재 화면 방향 감지하여 활성화할 요소 가져오기
+// 현재 화면 방향 감지하여 활성화할 요소 가져오기
 function getActivePersons() {
   return window.matchMedia("(orientation: portrait)").matches 
       ? gsap.utils.toArray('#brand_introduce_section .personB')  // Portrait 모드에서는 personB만 선택
       : gsap.utils.toArray('#brand_introduce_section .personA'); // Landscape 모드에서는 personA만 선택
 }
 
-// ✅ brand_introduce_section 애니메이션 실행 함수
+// brand_introduce_section 애니메이션 실행 함수
 function brand_introduce_section() {
   const intro_section = document.querySelector('#brand_introduce_section');
 
-  // ✅ 기존 애니메이션 초기화 (중복 실행 방지)
+  // 중복 애니메이션 방지 기능, scrub일 경우, 스크롤을 빠르게 위아래로 반복하면 애니메이션 중첩으로 인한 문제 발생 가능. 그래서 kill 함
   gsap.killTweensOf("#brand_introduce_section .person, #brand_introduce_section .number, #brand_introduce_section .text");
 
-  // ✅ 해당 섹션의 ScrollTrigger만 제거
+  // 해당 섹션의 ScrollTrigger만 제거하는 기능, 화면 리사이징, pin:true 속성 등으로 인해 트리거 중첩 문제가 있을 수 있음.
   let existingTrigger = ScrollTrigger.getById("brandIntroduceTrigger");
   if (existingTrigger) existingTrigger.kill();
 
-  // ✅ GSAP ScrollTrigger와 연결된 타임라인 생성
   const animation = gsap.timeline({
       scrollTrigger: {
-          id: "brandIntroduceTrigger", // 특정 ID 부여 (제거할 때 활용)
+          id: "brandIntroduceTrigger",
           trigger: intro_section,
           start: "0px top",
           end: '+=8000',
           scrub: 0.5,
           pin: true,
           anticipatePin: 1,
-          markers: false, // ✅ 개발 끝나면 false
+          markers: false,
+          lazy: false,
       }
   });
 
@@ -310,17 +316,19 @@ function brand_introduce_section() {
   // ✅ 같은 인덱스끼리 동시에 등장 → 사라짐 → 다음 요소 등장
   numbers.forEach((_, i) => {
       animation
-          .fromTo(numbers[i], { x: '2000px', opacity: 0 }, { x: 0, opacity: 1, duration: 1, ease: "power3.out" }, i * 3)
-          .to(numbers[i], { x: '-2000px', opacity: 0, duration: 1, ease: 'power.in' }, i * 3 + 1.5)
+          .fromTo(numbers[i], { x: '2000px', opacity: 0 }, { x: 0, opacity: 1, duration: 1, ease: "linear" }, i * 3) 
+          .to(numbers[i], { x: '-2000px', opacity: 0, duration: 1, ease: 'linear' }, i * 3 + 3)
 
-          .fromTo(persons[i], { x: '-2000px', opacity: 0 }, { x: 0, opacity: 1, duration: 1, ease: "power3.out" }, i * 3)
-          .to(persons[i], { x: '2000px', opacity: 0, duration: 1, ease: 'power.in' }, i * 3 + 1.5)
+          .fromTo(persons[i], { x: '-2000px', opacity: 0 }, { x: 0, opacity: 1, duration: 1, ease: "linear" }, i * 3)
+          .to(persons[i], { x: '2000px', opacity: 0, duration: 1, ease: 'linear' }, i * 3 + 3)
 
-          .fromTo(texts[i], { x: '-2000px', opacity: 0 }, { x: 0, opacity: 1, duration: 1, ease: "power3.out" }, i * 3)
-          .to(texts[i], { x: '-2000px', opacity: 0, duration: 1, ease: 'power.in' }, i * 3 + 1.5);
+          .fromTo(texts[i], { x: '-2000px', opacity: 0 }, { x: 0, opacity: 1, duration: 1, ease: "linear" }, i * 3)
+          .to(texts[i], { x: '-2000px', opacity: 0, duration: 1, ease: 'linear' }, i * 3 + 3);
+          //i * 3 => 등장 간격
+          // i * 3 + number => duration값만큼 등장 후 number만큼 있음.
+          // 여기선 3초 간격마다 등장 후, 등장 후3초만큼 있겟다는 소리. 물론 duration 1의 영향을 받음. duration1이니까 1초 후 등장 완료
   });
 }
-
 
 //** featured section의 article1과 article2의 pin을 통한 배경 parallax
 function article_animate() {
@@ -344,38 +352,22 @@ function letFeaturedVisible() {
   const element_gutter = document.querySelector("#featured_products_section .article1 .element_gutter");
 
   // 처음에는 숨겨진 상태로 설정
-  gsap.set(element_gutter, { autoAlpha: 0, y: 50 });
+  gsap.set(element_gutter, { autoAlpha: 0, y: 50, willChange: 'transform, opacity' });
 
-  ScrollTrigger.create({
-    trigger: section,
-    start: "top 60%",
-    end: "+=15% top",
-    markers: false,
-    onEnter: () => animateIn(element_gutter), // 등장 애니메이션
-    onLeave: () => animateOut(element_gutter), // 퇴장 애니메이션
-    onEnterBack: () => animateIn(element_gutter), // 다시 올라올 때 등장
-    onLeaveBack: () => animateOut(element_gutter), // 다시 내려갈 때 퇴장
+  gsap.to(element_gutter, {
+    autoAlpha: 1,
+    y: 0,
+    duration: 1.5,
+    ease: "expo.out",
+    scrollTrigger: {
+      trigger: section,
+      start: "top 60%",
+      end: "+=10% top",
+      toggleActions: "play none none reverse",
+      markers: false,
+      id: 'element_gutter_trigger',
+    }
   });
-
-  // 등장 애니메이션 (아래에서 올라오면서 나타남)
-  function animateIn(element) {
-    gsap.to(element, {
-      autoAlpha: 1,
-      y: 0,
-      duration: 0.75,
-      ease: "expo.out",
-    });
-  }
-
-  // 퇴장 애니메이션 (다시 아래로 사라짐)
-  function animateOut(element) {
-    gsap.to(element, {
-      autoAlpha: 0,
-      y: 50,
-      duration: 1.75,
-      ease: "expo.inOut",
-    });
-  }
 }
 
 // featured section의 article2 관련 함수
@@ -496,13 +488,14 @@ function startMarquee() {
   });
 }
 
-
 // article2의 ul의 li들을 순차적으로 보이게 하는 함수
 function artticle2_ul() {
 
 const liElements = gsap.utils.toArray('#featured_products_section ul li');
 
 liElements.forEach((li, index) => {
+  gsap.set(li, {willChange: 'transform, opacity'});
+
   gsap.fromTo(
     li,
     { autoAlpha: 0, y: 50 }, // 처음에는 투명하고 아래에 위치
@@ -517,9 +510,20 @@ liElements.forEach((li, index) => {
         //toggleActions: 'play none none reverse', // 처음엔 이거로 하려 했는데 scrub이 좋다 걍.. reverse는 완전히 돌아와야지만 되는 문제가 있음
         scrub: .5,
         markers: false,
+        onEnter: () => {
+          li.style.willChange = "transform, opacity"; 
+        },
+        onEnterBack: () => {
+          li.style.willChange = "transform, opacity"; 
+        },
+        onLeave: () => {
+          li.style.removeProperty("will-change"); 
+        },
+        onLeaveBack: () => {
+          li.style.removeProperty("will-change"); 
       },
     }
-  );
+  });
 });
 
 }
@@ -535,6 +539,15 @@ function letActiveHorny() {
   let marquees = document.querySelector('.sec3_products_marquee_wrapper');
   let goDownArticle = document.querySelector('.big_products_swiper_wrapper');
 
+  // scrub을 사용하고, swiper를 연동해서 쓰기 때문에, 적어 놓은 대상들에게 kill로 중첩 방지.
+  gsap.killTweensOf(".swiper-slide, .lackness, .big_products_swiper_wrapper, .swiper-float-div, .swiper-gimmick, .sec3_products_marquee_wrapper");
+
+  // swiper 될 때 마다 스크롤 트리거 위치가 바뀔 염려가 있으므로, 스크롤 트리거 중첩 방지를 위해 kill함.
+  ["BigToSmall", "SmallToNormal", "goDownFill"].forEach(id => {
+    let trigger = ScrollTrigger.getById(id);
+    if (trigger) trigger.kill();
+  });
+
   function animateFill() {
     // 5 → 3
     let bigToSmall = gsap.timeline({
@@ -544,7 +557,8 @@ function letActiveHorny() {
         end: 'bottom top',
         scrub: 0.5,
         markers: false,
-        id: 'BigToSmall'
+        id: 'BigToSmall',
+        lazy: false,
       }
     });
   
@@ -562,7 +576,8 @@ function letActiveHorny() {
         end: '+=1500',
         scrub: 0.5,
         markers: false,
-        id: 'SmallToNormal'
+        id: 'SmallToNormal',
+        lazy: false,
       }
     });
 
@@ -581,6 +596,7 @@ function letActiveHorny() {
         scrub: 0.5,
         markers: false,
         id: 'goDownFill',
+        lazy: false,
       }
     });
 
@@ -872,7 +888,7 @@ function footerAnimate() {
 function initAnimations() {
   
   // 여기다가 애니메이션 코드 추가하면 됨
-  console.log("📢 initAnimations() 실행됨!"); // ✅ initAnimations() 실행 확인
+  console.log("🗿 initAnimations() 실행됨!"); // initAnimations() 실행 확인
   logoTranslate(); // logoTranslate 실행
   introBgVdTxt(); // logo intro 진입시 색바뀌기 실행
   letLogoFillCg(); // intro video section scroll trigger 실행

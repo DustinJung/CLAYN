@@ -316,7 +316,6 @@ html.has-menu-bg .logo_g path{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom;
-    will-change: transform;
 }
 .swiper-slide:not(.swiper-slide-active) .lackness{
     display: none;
@@ -335,6 +334,7 @@ html.has-menu-bg .logo_g path{
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    will-change: opacity;
 }
 .sec3_products_marquee{
     display: flex;
@@ -435,6 +435,7 @@ html.has-menu-bg .logo_g path{
     display: flex;
     flex-direction: column;
     text-align: center;
+    will-change: opacity;
 }
 .icon-wrapper img{
     width: 130px;
@@ -454,6 +455,7 @@ html.has-menu-bg .logo_g path{
 .CTA_wrapper > div {
     position: relative;
     overflow: hidden;
+    will-change: opacity;
 }
 .CTA_wrapper img{
     width: 100%;
@@ -488,6 +490,7 @@ html.has-menu-bg .logo_g path{
 }
 #thank_you_section .sec4h2{
     font-weight: 600 !important;
+    will-change: opacity;
 }
 
 /*section6 about section*/
