@@ -326,7 +326,7 @@ html.has-menu-bg .logo_g path{
     border-radius: 500px;
     font-weight: 400;
     transition: opacity .3s cubic-bezier(var(--cubic-x1), var(--cubic-y1), var(--cubic-x2), var(--cubic-y2));
-    max-width: 100px;
+    max-width: 140px;
     margin-left: auto;
     padding: 1rem .5rem;
 }
