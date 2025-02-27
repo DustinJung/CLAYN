@@ -389,6 +389,7 @@ html.has-menu-bg .logo_g path{
     object-fit: cover;
     width: 100%;
     height: auto;
+    aspect-ratio: 1200 / 673;
 }
 .img_float{
     position: absolute;
@@ -462,6 +463,7 @@ html.has-menu-bg .logo_g path{
     height: auto;
     transition: transform .3s ease;
     object-fit: cover;
+    aspect-ratio: 1530 / 526;
 }
 
 /*SEC5 thank you section*/
@@ -470,7 +472,7 @@ html.has-menu-bg .logo_g path{
     padding: 1.5rem 0;
 }
 #thank_you_section_wrapper{
-    background: url(../../public/images/main-section/sec05/background.psd)no-repeat 0 0, #F8F6F4;
+    background: url(../../public/images/main-section/sec05/background.avif)no-repeat 0 0, #F8F6F4;
     background-size: cover;
     background-blend-mode: multiply;
     position: relative;
