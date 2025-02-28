@@ -5,6 +5,11 @@
     box-sizing: border-box; /* ✅ 모든 요소에 border-box 적용 */
 }
 
+/*FOUT, FOIT 방지*/
+html, body {
+    font-family: system-ui, sans-serif;
+}
+
 /* iOS 폰트 자동 조정 방지 */
 html {
     font-size: 16px;

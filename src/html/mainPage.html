@@ -7,8 +7,8 @@
     <title>CLAYN - 감성적인 미니멀 도자기</title>
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="preconnect">
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="preconnect">
+    <link rel="preconnect" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" >
     <link rel="preconnect" href="https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css">
     <link rel="preconnect" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
 
@@ -141,11 +141,11 @@
             </a>
 
             <!--메뉴 바-->
-            <button aria-label="CLAY-menu-Toggle-Button" class="header_fixed header_nav_btn header_menu">
-                <span aria-label="hidden"></span>
-                <span aria-label="hidden"></span>
-                <span aria-label="hidden"></span>
-                <span aria-label="hidden"></span>
+            <button aria-label="CLAYN 네비게이션 토글 버튼" class="header_fixed header_nav_btn header_menu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
             </button>
         </header>
     </section>
@@ -1024,7 +1024,7 @@
     </div>
 
     <!-- CDN Scripts -->
-    <!--<script src="https://code.jquery.com/jquery-4.0.0-beta.2.min.js" defer></script> 제이쿼리 사용 안했음 -->
+    <!--<script src="https://code.jquery.com/jquery-4.0.0-beta.2.min.js"></script> 제이쿼리 사용 안했음 -->
     <!--<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@latest/dist/lenis.min.js"></script> lenis 사용 안하기로 함-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
@@ -1034,7 +1034,7 @@
 
     <!-- Custom Scripts -->
     <script type="module" src="../js/dustinNormalize.js" defer></script> <!--최적화-->
-    <script type="module" src="../js/main.js" defer></script>   <!--모든 스크립트 window.onload로 관리-->
+    <script type="module" src="../js/main.js" defer></script>   <!--import와 자체 함수들로 모든 스크립트를 총괄 -->
 
 
 </body>
