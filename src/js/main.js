@@ -4,7 +4,7 @@ import { initUIComponents } from "./components.js";
 
 console.log("🗿 main.js 실행(총괄 js파일)");
 
-// ✅ `startApp()` 실행하여 UI 및 애니메이션 초기화 후 Preloader 제거
+// `startApp()` 실행하여 UI 및 애니메이션 초기화 후 Preloader 제거
 function startApp() {
   try {
     console.log("🗿 startApp()실행 try, 스크립트 동기화 실행");
@@ -17,7 +17,7 @@ function startApp() {
 
     console.log("🗿 컴포넌트, 애니메이션 관련 스크립트 동기화 완료");
 
-    // ✅ 모든 초기화가 끝난 후 Preloader 제거
+    // 모든 초기화가 끝난 후 Preloader 제거
     setTimeout(() => {
       console.log("🗿 Preloader 장막 올라가기 시작");
       const preloader = document.querySelector(".pre-loader");
@@ -32,13 +32,13 @@ function startApp() {
           console.log("🗿 is-ready가 추가 ->:", document.body.classList.contains("is-ready"));
         },
       });
-    }, 500); // ✅ 0.5초 딜레이 후 Preloader 제거
+    }, 500); // 0.5초 딜레이 후 Preloader 제거
   } catch (error) {
     console.error("🗿? 초기화 중 오류 발생 :", error);
   }
 }
 
-// ✅ Preloader가 끝난 후 `startApp()` 실행
+// Preloader가 끝난 후 `startApp()` 실행
 initPreloader(startApp);
 
 

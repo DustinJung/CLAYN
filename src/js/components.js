@@ -1,6 +1,5 @@
 // 슬라이더, 모달 등 UI 기능
 // import { letActiveHorny } from './animations.js';
-gsap.registerPlugin(ScrollTrigger);
 // Swiper.js 초기화 함수
 function initSwiper() {
   // ✅ Swiper 설정 추가
