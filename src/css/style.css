@@ -545,6 +545,7 @@ html.has-menu-bg .logo_g path{
 #about_section .o-dl_desc{
     display: flex;
     flex-direction: column;
+    gap: 0.325rem;
 }
 #about_section .o-body-text{
     line-height: 1.2;
