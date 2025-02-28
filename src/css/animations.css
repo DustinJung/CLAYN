@@ -22,6 +22,7 @@
     transform-origin: top; /* 위에서 아래로 */
     transition: transform 0.5s ease-in-out; /* transform에 transition 적용 */
     opacity: 0; /* 초기 상태에서 보이지 않도록 설정 */
+    aspect-ratio: 240 / 30;
 }
 .pre-loader-counter{
     opacity: 0;
