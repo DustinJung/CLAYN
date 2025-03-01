@@ -30,6 +30,7 @@
 #clayn_nav ul.on span{
     transform: translate(0);
     transition: transform .45s cubic-bezier(0.38, 0.005, 0.215, 1) var(--header-nav-label-delay);
+    padding: 3px;
 }
 #clayn_nav ul .item:nth-child(1) {
     --header-nav-label-delay: 0.23333s;

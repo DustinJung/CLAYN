@@ -42,10 +42,11 @@ function startApp() {
 initPreloader(startApp);
 
 
+
 window.onload = function () {
-  // ✅ Resize 이벤트 뭉치
+  //  Resize 이벤트 뭉치
   function windowResizeEvent() {
-        // ✅ 화면 크기(너비) 변경 감지 및 최적화된 리사이징 처리
+        //  화면 크기(너비) 변경 감지 및 최적화된 리사이징 처리
     let delay = 400;
     let timer = null;
     let lastWidth = window.innerWidth;
@@ -53,7 +54,7 @@ window.onload = function () {
     window.addEventListener("resize", function () {
       let newWidth = window.innerWidth;
 
-      if (newWidth !== lastWidth) { // ✅ 너비 변경 시에만 실행 (세로 변경 무시)
+      if (newWidth !== lastWidth) { //  너비 변경 시에만 실행 (세로 변경 무시)
         clearTimeout(timer);
         timer = setTimeout(() => {
           location.reload();
@@ -95,48 +96,57 @@ window.onload = function () {
       });
     }
 
-    //장바구니 버튼
-    function bucketBtn() {
-      let black_bg = document.querySelector('.bucket-black-bg');
-      let white_bg = document.querySelector('.bucket-white-overlay');
-      let bucket_btn = document.querySelector('.header_bucket');
-      let html = document.querySelector('html');  
-      let menuBg = document.getElementById('menu_bg');
-      let mainNav_ul = document.querySelector('#clayn_nav ul');
-      let sns = document.querySelector('.sns_wrapper');
-    
-      //장바구니 버튼
-      function bucket_btn_fn() {
-        bucket_btn.addEventListener('click', () => {
-          bucket_btn.classList.toggle('fill-on');
-          if(html.classList.contains('has-menu-bg')){
-            html.classList.toggle('has-menu-bg');
-            menuBg.classList.toggle('hide');
-            mainNav_ul.classList.toggle('on');
-            if(mainNav_ul.classList.contains('on')){
-              sns.classList.add('on');
-            }else{
-              sns.classList.remove('on');
-            }
-          };
-          html.classList.toggle('has-bucket-clicked');
-        })
-      }
+  // 장바구니 버튼
+  function bucketBtn() {
+    let black_bg = document.querySelector('.bucket-black-bg');
+    let white_bg = document.querySelector('.bucket-white-overlay');
+    let bucket_btn = document.querySelector('.header_bucket');
+    let html = document.querySelector('html');  
+    let menuBg = document.getElementById('menu_bg');
+    let mainNav_ul = document.querySelector('#clayn_nav ul');
+    let sns = document.querySelector('.sns_wrapper');
 
-      //장바구니 버튼 켜져 있는 상태에서 검은 화면
-      function black_bg_fn() {
-        black_bg.addEventListener('click', () => {
-          bucket_btn.classList.toggle('fill-on');
-          if(html.classList.contains('has-bucket-clicked')){
-            html.classList.toggle('has-bucket-clicked');
+    function bucket_btn_fn() {
+      bucket_btn.addEventListener('click', () => {
+        bucket_btn.classList.toggle('fill-on');
+
+        if(html.classList.contains('has-menu-bg')){
+          html.classList.toggle('has-menu-bg');
+          menuBg.classList.toggle('hide');
+          mainNav_ul.classList.toggle('on');
+          if(mainNav_ul.classList.contains('on')){
+            sns.classList.add('on');
+          } else {
+            sns.classList.remove('on');
           }
-        })
-      }
-
-
-      bucket_btn_fn();
-      black_bg_fn();
+        };
+        html.classList.toggle('has-bucket-clicked');
+      });
     }
+
+    function black_bg_fn() {
+      black_bg.addEventListener('click', () => {
+        bucket_btn.classList.toggle('fill-on');
+        if(html.classList.contains('has-bucket-clicked')){
+          html.classList.toggle('has-bucket-clicked');
+        }
+      });
+    }
+
+    // ESC 키를 누르면 장바구니 닫힘
+    function escCloseBucket(event) {
+      if (event.key === "Escape" && html.classList.contains("has-bucket-clicked")) {
+        html.classList.remove("has-bucket-clicked");
+        bucket_btn.classList.remove("fill-on");
+      }
+    }
+
+    document.addEventListener("keydown", escCloseBucket); // ESC 이벤트 리스너 추가
+
+    bucket_btn_fn();
+    black_bg_fn();
+  }
+
 
     //프로덕트 마키 프리벤스탑
     function marquee_prevent() {
@@ -172,11 +182,35 @@ window.onload = function () {
       })
     }
 
+    function MenuBtnTabCycle() {
+      document.addEventListener("keydown", function(event) {
+        let html = document.querySelector('html');
+        let menuBtn = document.querySelector('.header_menu'); // ✅ 메뉴 버튼 추가
+      
+        if (html.classList.contains("has-menu-bg") && event.key === "Tab") {
+          let focusableElements = Array.from(document.querySelectorAll("#clayn_nav .item a, .sns_wrapper a"));
+          focusableElements.unshift(menuBtn); // ✅ menuBtn을 리스트의 첫 번째 요소로 추가
+          let firstElement = focusableElements[0];
+          let lastElement = focusableElements[focusableElements.length - 1];
+      
+          if (event.shiftKey && document.activeElement === firstElement) {
+            lastElement.focus();
+            event.preventDefault();
+          } else if (!event.shiftKey && document.activeElement === lastElement) {
+            firstElement.focus();
+            event.preventDefault();
+          }
+        }
+      });
+      
+    }
+
     formPD();
     bucketBtn();
     marquee_prevent();
     swiper_a_prevent();
     getTo404Page();
+    MenuBtnTabCycle();              
   }
 
   //바닐라 자바스크립트 함수

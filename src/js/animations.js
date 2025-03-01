@@ -1,7 +1,7 @@
 // animations.js (GSAP 애니메이션 관리)
 gsap.registerPlugin(ScrollTrigger);
 
-// ✅ Preloader 애니메이션 (이제 `startApp()` 실행 후에 `is-ready` 추가)
+// Preloader 애니메이션 (이제 `startApp()` 실행 후에 `is-ready` 추가)
 function initPreloader(callback) {
   let ctx = gsap.context(() => {
     console.log("🗿 initPreloader() 실행 시작");
@@ -65,7 +65,7 @@ function initPreloader(callback) {
 
     // 만약 이미지 개수가 0이라면 즉시 `callback()` 실행
     if (totalImages === 0) {
-      console.log("⚠️ 이미지 없음, Preloader 즉시 종료");
+      console.log("이미지 없음, Preloader 즉시 종료");
       callback(); // startApp() 실행 콜백
     }
   });
@@ -102,18 +102,19 @@ function menuBtn() {
     menuBtn.addEventListener('click', () => {
       menuBg.classList.toggle('hide');
       html.classList.toggle('has-menu-bg');
-      if(html.classList.contains('has-menu-bg')){
-        if(logo.classList.contains('not-entered')){
+
+      if (html.classList.contains('has-menu-bg')) {
+        if (logo.classList.contains('not-entered')) {
           gsap.to(logo, {
             yPercent: 0,
             scale: 1,
             duration: .6,
             ease: 'power2.out',
-          })
+          });
           logo.classList.add('onActive');
         }
-      }else{
-        if(logo.classList.contains('onActive')){
+      } else {
+        if (logo.classList.contains('onActive')) {
           gsap.to(logo, {
             yPercent: 200,
             scale: 3,
@@ -122,22 +123,32 @@ function menuBtn() {
           });
           logo.classList.remove('onActive');
         }
-
       }
+
       mainNav_ul.classList.toggle('on');
+
       clearTimeout(clearShit);
-      setTimeout(function() {
-        if(mainNav_ul.classList.contains('on')){
+      clearShit = setTimeout(function () {
+        if (mainNav_ul.classList.contains('on')) {
           sns.classList.add('on');
-        }else{
+        } else {
           sns.classList.remove('on');
         }
       }, 150);
+    });
+
+    //  ESC 키로 메뉴 닫기 기능 추가 (기존 코드 유지)
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && html.classList.contains("has-menu-bg")) {
+        menuBtn.click();
+      }
     });
   });
 
   return () => ctx.revert();
 }
+
+
 
 //바로 보러가기 버튼
 function letsSee() {
