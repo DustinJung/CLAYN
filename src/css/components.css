@@ -182,18 +182,18 @@ html.has-menu-bg .bucket_path{
 
 @keyframes jelly {
     25% {
-      transform: scale(0.9, 1.1);
+        transform: scale(0.9, 1.1);
     }
-  
+
     50% {
-      transform: scale(1.1, 0.9);
+        transform: scale(1.1, 0.9);
     }
-  
+
     75% {
-      transform: scale(0.95, 1.05);
+        transform: scale(0.95, 1.05);
     }
-  }
-  @keyframes jelly2 {
+}
+@keyframes jelly2 {
     25% {
     transform: scale(0.9, 1.1) translate(-50%, -50%);
 }
