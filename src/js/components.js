@@ -2,7 +2,7 @@
 // import { letActiveHorny } from './animations.js';
 // Swiper.js 초기화 함수
 function initSwiper() {
-  // ✅ Swiper 설정 추가
+  //  Swiper 설정 추가
   function sec3Swiper() {
     var swiper = new Swiper(".sec3-swiper", {
       slidesPerView: '1.9', // 자동 크기 조정
@@ -18,7 +18,7 @@ function initSwiper() {
         slideShadows: true, // 그림자
         },
 
-    // ✅ 반응형 Breakpoints (미디어쿼리 적용)
+    //  반응형 Breakpoints (미디어쿼리 적용)
       breakpoints: {
         1280: {
           slidesPerView: 1.9, // 1280px 이상 (기본값)
