@@ -46,7 +46,6 @@ body.is-ready{
     --spacing-fix-3rem: 3rem; /*변하지 않는 3rem*/
     --spacing-fix-4rem: 4rem; /*변하지 않는 4rem*/
     --spacing-fix-5rem: 5rem; /*변하지 않는 5rem*/
-
 }
 
     /*cubic bezier, 그 외 가변값*/
