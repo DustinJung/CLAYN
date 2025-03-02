@@ -23,7 +23,8 @@ body,
 
 /*Manrope 폰트 사용 클래스*/
 .point_font,
-.extra_point_font{
+.extra_point_font,
+.text_font{
     font-family: var(--manrope-font);
 }
 
@@ -32,6 +33,9 @@ body,
 .title_font,
 .point_font {
     font-weight: 700;
+}
+.text_font {
+    font-weight: 400;
 }
 
 
