@@ -12,7 +12,7 @@
         flex-direction: column;
         gap: 1rem;
     }
-    #section-wrapper .h2_wrapper h2{
+    #section-wrapper .h2_wrapper li{
         width: 25%;
     }
 }

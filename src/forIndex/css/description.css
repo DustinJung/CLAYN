@@ -72,7 +72,11 @@ main #imsi{
     z-index: 7;
 }
 .emphasize {
-    color: var(--extra-point-clr);
+    color: var(--extra-extra-point-clr);
+    background: var(--extra-point-clr);
+    padding: .325rem;
+    border-radius: 3px;
+    margin: 0 .25rem;
 }
 
 /*intro-section*/
@@ -83,7 +87,6 @@ main #imsi{
     height: 200vh;
     margin-top: -100vh;
     background: var(--body-bg-clr);
-    border-bottom: 1px solid var(--body-clr);
 }
 #intro-section .contents{
     display: flex;
@@ -109,25 +112,53 @@ main #imsi{
 
 /*section-wrapper*/
 #section-wrapper .h2_wrapper{
+    width: 800px;
     display: flex;
     flex-wrap: wrap;
-    border-bottom: 1px solid var(--body-clr);
+    /* border: 1px solid var(--body-clr); */
     margin-bottom: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    /* border-top: none; */
 }
-#section-wrapper .h2_wrapper h2{
+#section-wrapper .h2_wrapper li{
     text-align: center;
     padding: 2.25rem 0;
     cursor: pointer;
     color: var(--warm-gray);
     transition: color .3s ease, background-color .3s ease;
     will-change: color, background-color;
+    position: relative;
+}
+#section-wrapper .h2_wrapper li:before{
+    content: '';
+    background-color: #D89A9E;
+    height: 2px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    will-change: width;
+    transition: width 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+}
+#section-wrapper .h2_wrapper li:not(.on):after{
+    content: '';
+    background-color: var(--extra-extra-point-clr);
+    height: 2px;
+    width: 85%;
+    position: absolute;
+    left: 0;
+    top: -1px;
 }
 .smaller {
     font-size: 14px;
 }
-#section-wrapper .h2_wrapper h2.on{
+#section-wrapper .h2_wrapper li.on{
     color: var(--extra-extra-point-clr);
     background: var(--extra-point-clr);
+}
+#section-wrapper .h2_wrapper li:not(.on):hover:before {
+    width: 85%;
 }
 .section {
     width: 100vw;
@@ -135,8 +166,8 @@ main #imsi{
     flex-direction: column;
     align-items: center;
     text-align: center;
-    height: calc(100vh);
-    max-height: calc(100vh);
+    padding: 4rem 0 0;
+    min-height: 100vh;
     transition: opacity .5s linear;
     opacity: 0;
     touch-action: none;
@@ -155,6 +186,8 @@ main #imsi{
 }
 .section-wrapper2 {
     position: relative;
+    background: var(--body-bg-clr);
+    z-index: 6;
 }
 .section-wrapper2 .theCurtain {
     position: absolute;
@@ -168,10 +201,10 @@ main #imsi{
     transform-origin: left;
 }
 .section-wrapper2 .theCurtain.curtainOn{
-    animation: theCurtain 2000ms both cubic-bezier(var(--cubic-x1), var(--cubic-y1), var(--cubic-x2), var(--cubic-y2));
+    animation: theCurtain 2000ms both cubic-bezier(0.77, 0, 0.175, 1);
 }
 .section-wrapper2 .theCurtain.curtainOn.on{
-    animation: theCurtain_reset 2000ms both cubic-bezier(var(--cubic-x1), var(--cubic-y1), var(--cubic-x2), var(--cubic-y2));
+    animation: theCurtain_reset 2000ms both cubic-bezier(0.77, 0, 0.175, 1);
 
 }
 @keyframes theCurtain {
@@ -194,6 +227,71 @@ main #imsi{
         transform-origin: left;
     }
 }
-.section-wrapper2 .theCurtain.on {
+.theTextsWrapper > h3{
+    font-size: 2rem;
 }
-
+.i-wrapper {
+    display: flex;
+    gap: 10px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.i-wrapper i{
+    font-size: 80px;
+}
+.for-example{
+    display: flex;
+    flex-direction: column;
+}
+.gray-bg {
+    background: var(--warm-gray);
+    color: var(--body-bg-clr);
+    padding: .325rem;
+    border-radius: 3px;
+    margin: 0 .25rem;
+}
+#link-section {
+    width: 100%;
+    min-height: 200vh;
+    margin-top: -100vh;
+    z-index: 5;
+}
+#link-section ul{
+    display: flex;
+    flex-direction: column;
+    gap: 1.625rem;
+    font-size: 1.25rem;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+#link-section ul li{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+#link-section ul li a{
+    color: var(--extra-point-clr);
+    transition: color .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    position: relative;
+}
+#link-section ul li a:before{
+    content: '';
+    bottom: 1px;
+    width: 100%;
+    position: absolute;
+    background: rgb(0, 0, 0);
+    height: 1px;
+    left: 0;
+}
+#link-section ul li a:visited{
+    color: #032a2d;
+}
+#link-section ul li a:hover {
+    color: var(--extra-extra-point-clr);
+    padding: 0 0 2px 0;
+}
+#link-section ul li a:active {
+    color: #ce0e2d;
+}

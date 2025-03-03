@@ -144,6 +144,10 @@ body.is-ready{
 .article_margin_top{
     margin-top: calc(var(--spacing-fix-1rem) + var(--spacing-fix-half1rem));
 }
+.large_top_mg_gutter{
+    margin-top: var(--spacing-fix-3rem);
+    margin-bottom: 1rem;
+}
 .element_gutter{
     left: 50%;
     transform: translateX(-50%);
