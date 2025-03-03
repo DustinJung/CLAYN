@@ -1,0 +1,199 @@
+/*description page 전용 css*/
+main #imsi{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--extra-point-clr);
+    color: var(--extra-extra-point-clr);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    height: 100vh;
+    z-index: 10;
+}
+#imsi > a{
+    margin-bottom: .325rem;
+    font-size: calc(var(--spacing-fix-2rem) - var(--spacing-fix-half1rem));
+}
+#imsi > p {
+    color: var(--extra-extra-point-clr);
+    will-change: opacity, color;
+    animation: gangster 1.5s infinite linear;
+    transition: opacity .3s ease, color .3s ease;
+}
+@keyframes gangster {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+/*description section*/
+#description-section {
+    width: 100%;
+    position: relative;
+}
+#description-section .for_sticky {
+    height: 200vh;
+    margin-top: -100vh;
+    width: 100%;
+    position: relative;
+}
+.sticky-one{
+    height: 100vh;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+#description-section > .for_sticky > .sticky-one {
+    background: var(--extra-extra-point-clr);
+    z-index: 9;
+}
+.sticky-one > h1{
+    font-size: var(--title-size);
+}
+/*section*/
+.heightSec {
+    width: 100%;
+    height: 200vh;
+    position: relative;
+    margin-top: -100vh;
+    z-index: 7;
+}
+.emphasize {
+    color: var(--extra-point-clr);
+}
+
+/*intro-section*/
+#intro-section{
+    position: relative;
+    z-index: 8;
+    width: 100%;
+    height: 200vh;
+    margin-top: -100vh;
+    background: var(--body-bg-clr);
+    border-bottom: 1px solid var(--body-clr);
+}
+#intro-section .contents{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 8;
+}
+#intro-section .contents > h2 {
+    font-size: var(--title-size);
+    margin-bottom: 2rem;
+}
+
+/*contents1*/
+.eachSec {
+    position: relative;
+}
+
+/*section-wrapper*/
+#section-wrapper .h2_wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--body-clr);
+    margin-bottom: 3rem;
+}
+#section-wrapper .h2_wrapper h2{
+    text-align: center;
+    padding: 2.25rem 0;
+    cursor: pointer;
+    color: var(--warm-gray);
+    transition: color .3s ease, background-color .3s ease;
+    will-change: color, background-color;
+}
+.smaller {
+    font-size: 14px;
+}
+#section-wrapper .h2_wrapper h2.on{
+    color: var(--extra-extra-point-clr);
+    background: var(--extra-point-clr);
+}
+.section {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: calc(100vh);
+    max-height: calc(100vh);
+    transition: opacity .5s linear;
+    opacity: 0;
+    touch-action: none;
+    visibility: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 5;
+    will-change: opacity;
+}
+.section.on{
+    opacity: 1;
+    touch-action: auto;
+    visibility: visible;
+    position: relative;
+}
+.section-wrapper2 {
+    position: relative;
+}
+.section-wrapper2 .theCurtain {
+    position: absolute;
+    will-change: transform;
+    width: 150%;
+    left: -25%;
+    top: 0;
+    height: 100%;
+    background: var(--extra-point-clr);
+    z-index: 6;
+    transform-origin: left;
+}
+.section-wrapper2 .theCurtain.curtainOn{
+    animation: theCurtain 2000ms both cubic-bezier(var(--cubic-x1), var(--cubic-y1), var(--cubic-x2), var(--cubic-y2));
+}
+.section-wrapper2 .theCurtain.curtainOn.on{
+    animation: theCurtain_reset 2000ms both cubic-bezier(var(--cubic-x1), var(--cubic-y1), var(--cubic-x2), var(--cubic-y2));
+
+}
+@keyframes theCurtain {
+    0% {
+        transform: scaleX(1) skewX(30deg);
+        transform-origin: left;
+    }
+    100% {
+        transform: scaleX(0) skewX(30deg);
+        transform-origin: left;
+    }
+}
+@keyframes theCurtain_reset {
+    0% {
+        transform: scaleX(0) skewX(20deg);
+        transform-origin: left;
+    }
+    100% {
+        transform: scaleX(1) skewX(20deg);
+        transform-origin: left;
+    }
+}
+.section-wrapper2 .theCurtain.on {
+}
+

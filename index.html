@@ -23,10 +23,10 @@
     <title>CLAYN - 감성적인 미니멀 도자기</title>
     
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/spoqa/spoqa-han-sans@2.1/SpoqaHanSansNeo.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap">
+    <link rel="preconnect" href="https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
 
     <!-- 파비콘 설정 -->
     <!-- 기본 파비콘 (최신 브라우저) -->
@@ -54,35 +54,25 @@
     <link rel="apple-touch-icon" href="public/icons/apple-touch-icon-dark-152.png" sizes="152x152" media="(prefers-color-scheme: dark)">
     <link rel="apple-touch-icon" href="public/icons/apple-touch-icon-dark-120.png" sizes="120x120" media="(prefers-color-scheme: dark)">
         
+    <!--노멀라이즈 CSS(내 공용)-->
+    <link href="src/css/dustinnormalize.css" rel="stylesheet">
+
     <!-- Global Styles -->
     <link href="src/css/global.css" rel="stylesheet">
 
     <!-- Font & Color Definitions -->
     <link rel="stylesheet" href="src/css/font-style.css">
-    
-    <!--노멀라이즈 CSS(내 공용)-->
-    <link href="src/css/dustinnormalize.css" rel="stylesheet">
 
     <!--전역 스타일-->
-    <link href="src/css/description.css" rel="stylesheet">
+    <link href="src/forIndex/css/description.css" rel="stylesheet">
 
     <!-- 반응형 스타일 시트 -->
-    <link rel="stylesheet" href="src/css/responsive-mobile.css">
-    <link rel="stylesheet" href="src/css/responsive-tablet.css">
-    <link rel="stylesheet" href="src/css/responsive-desktop.css">
+    <link rel="stylesheet" href="src/forIndex/css/responsive-desktop.css">
+    <link rel="stylesheet" href="src/forIndex/css/responsive-tablet.css">
+    <link rel="stylesheet" href="src/forIndex/css/responsive-mobile.css">
 
 </head>
-<body>
-    <!-- Pre-loader Section -->
-    <section id="pre-loader-section">
-        <!-- 로딩 화면 등 미리 보여줄 내용 -->
-        <div class="pre-loader">
-            <p class="pre-loader-counter">0%</p>
-            <img src="public/icons/pre-loader-svg.svg" alt="프리로더 전용 이미지" width="180" height="72">
-            <img src="public/images/pre-loader/pre-loader-under-text.svg" width="240" height="30" alt="프리 로더 밑에 깔리는 이미지" class="pre-loader-img">
-        </div>
-    </section>
-
+<body class="is-ready">
     <!-- Header Section -->
     <section id="header-section">
         <header>
@@ -98,6 +88,76 @@
                 <a href="src/html/mainPage.html" target="blank">메인페이지 바로 가기 클릭!</a>
                 <img src="public/icons/pre-loader-img.png" alt="프리로더 전용 이미지">
                 <img src="public/images/pre-loader/pre-loader-under-text.png" alt="프리 로더 밑에 깔리는 이미지">
+                <p class="text_balance brand_font">아래로 스크롤하시면 설명페이지가 나옵니다.</p>
+            </section>
+
+            <section id="description-section">
+                <div class="for_sticky">
+                    <div class="sticky-one">
+                        <h1 class="text_balance brand_font extra_point_clr">Project: CLAYN</h1>
+                        <p class="text_balance extra_point_clr">CLAYN의 설명페이지입니다.</p>
+                        <p class="text_balance extra_point_clr">해당 프로젝트의 개요, 기술 스택, 구현하고자 하는 것 등</p>
+                        <p class="text_balance extra_point_clr">필요한 설명을 담고 있습니다.</p>
+                    </div>
+                </div>
+
+                <section id="intro-section">
+                    <article class="contents">
+                            <h2 class="text_balance brand_font">Contents</h2>
+                            <p class="text_balance title_font">1. 프로젝트 개요 (Project Overview)</p>
+                            <p class="text_balance title_font">2. 사용한 기술 스택 (Tech Stack)</p>
+                            <p class="text_balance title_font">3. 개발 과정 (Development Process)</p>
+                            <p class="text_balance title_font">4. 결과 및 개선점 (Lessons Learned & Future Improvements)</p>
+                            <p class="text_balance title_font">5. 프로젝트 관련 링크 (Project Links)</p>
+                    </article>
+                </section>
+                
+                <section id="section-wrapper">
+                    <div class="h2_wrapper">
+                        <h2 class="text_balance brand_font on">1. 프로젝트 개요<br><span class="smaller">(Project Overview)</span></h2>
+                        <h2 class="text_balance brand_font">2. 사용한 기술 스택<br><span class="smaller">(Tech Stack)</span></h2>
+                        <h2 class="text_balance brand_font">3. 개발 과정<br><span class="smaller">(Development Process)</span></h2>
+                        <h2 class="text_balance brand_font">4. 결과 및 개선점<br><span class="smaller">(Lessons Learned & Future Improvements)</span></h2>
+                    </div>
+
+                    <article class="section-wrapper2">
+                        <div class="theCurtain curtainOn"></div>
+                        <section id="contents1" class="eachSec section text_balance on">
+                            <article class="theTextsWrapper">
+                                <h3 class="text_balance brand_font section_top_mg_gutter">*프로젝트 명 : CLAYN</h3>
+                                <div class="text_wrapper title_font article_margin_top">
+                                    <p>감성적이면서도 미니멀한 도자기 브랜드의 원페이지 랜딩 페이지를 제작하는 것을 목표로 한 프로젝트.</p>
+                                    <p><span class="emphasize">인터랙티브 애니메이션과 패럴랙스 기능을 조화롭게 적용</span>하는 것이 핵심 목표.</p>
+                                </div>
+
+                                <h3 class="text_balance section_top_mg_gutter">*주요 개발 방향</h3>
+                                <div class="text_wrapper title_font article_margin_top">
+                                    <p><span class=emphasize>100% 개인 프로젝트</span>로 진행.</p>
+                                    <p>단순한 인터랙션 구현이 아니라, <span class="emphasize">애니메이션이 사용자의 몰입도를 높이고, UX적으로도 자연스럽게 작동</span>하도록 설계.</p>
+                                    <p>페이지 구성과 애니메이션 흐름을 매끄럽게 연결하면서도 <span class="emphasize">UX를 고려한 최적의 설계</span>를 목표로 함.</p>
+                                </div>
+                            </article>
+                        </section>
+
+                        <section id="contents2" class="eachSec section text_balance">
+                            <article class="theTextsWrapper">
+                                <h3 class="text_balance brand_font section_top_mg_gutter">*프론트엔드 기술</h3>
+                                <div class="text_wrapper title_font article_margin_top">
+                                    <p>HTML5 / CSS3 / Vanilla JavaScript</p>
+                                    <p><span class="emphasize">GSAP & GSAP ScrollTrigger</span> (애니메이션 및 스크롤 트리거 활용)</p>
+                                    <p>Swiper.js</p>
+                                </div>
+
+                                <h3 class="text_balance section_top_mg_gutter">*주요 개발 방향</h3>
+                                <div class="text_wrapper title_font article_margin_top">
+                                    <p><span class=emphasize>100% 개인 프로젝트</span>로 진행.</p>
+                                    <p>단순한 인터랙션 구현이 아니라, <span class="emphasize">애니메이션이 사용자의 몰입도를 높이고, UX적으로도 자연스럽게 작동</span>하도록 설계.</p>
+                                    <p>페이지 구성과 애니메이션 흐름을 매끄럽게 연결하면서도 <span class="emphasize">UX를 고려한 최적의 설계</span>를 목표로 함.</p>
+                                </div>
+                            </article>
+                        </section>
+                    </article>
+                </section>
             </section>
         </main>
     </section>
@@ -118,6 +178,6 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js" defer></script>
     
     <!-- Custom Scripts -->
-    <script type="module" src="src/js/main.js" defer></script>
+    <script type="module" src="src/forIndex/js/main.js" defer></script>
 </body>
 </html>
