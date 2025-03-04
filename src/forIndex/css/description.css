@@ -37,6 +37,7 @@ main #imsi{
 #description-section {
     width: 100%;
     position: relative;
+    text-align: center;
 }
 #description-section .for_sticky {
     height: 200vh;
@@ -99,6 +100,7 @@ main #imsi{
     top: 0;
     left: 0;
     z-index: 8;
+    text-align: center;
 }
 #intro-section .contents > h2 {
     font-size: var(--title-size);
