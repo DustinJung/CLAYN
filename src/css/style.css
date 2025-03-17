@@ -699,3 +699,9 @@ button:focus-visible{
     letter-spacing: .65px;
     text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.3);
 }
+
+.intro-video-landscape,
+.intro-video-portrait {
+    width: 100%;
+    height: auto;
+}

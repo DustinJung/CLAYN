@@ -78,7 +78,7 @@
         media="(prefers-color-scheme: dark)"> <!--120x120 px: iPhone 6, 7, 8 등 구형 기기에서 사용됩니다.-->
 
     <!--swiper Css-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="stylesheet" href="../css/swiper.css">
 
     <!--노멀라이즈 CSS(내 공용)-->
@@ -109,6 +109,7 @@
 <body>
     <!-- Pre-loader Section -->
     <section id="pre-loader-section">
+        <h2 class="label_hidden">프리로더 섹션입니다</h2>
         <!-- 로딩 화면 등 미리 보여줄 내용 -->
         <div class="pre-loader">
             <p class="pre-loader-counter">0%</p>
@@ -141,6 +142,7 @@
 
     <!-- Header Section -->
     <section id="header-section">
+        <h2 class="label_hidden">헤더 섹션입니다</h2>
         <header>
             <!-- 상단 네비게이션, 로고, 메뉴 등 -->
             <a href="mainPage.html" class="logo_wrapper header_fixed">
@@ -180,8 +182,7 @@
     </section>
 
     <!-- Main Content Section -->
-    <section id="main-section">
-        <main>
+    <main id="main-section">
             <!--marquee, 상단 Scrolling-Text-->
             <div id="marquee" tabindex="-1">
                 <div class="marquee_inner_wrapper">
@@ -213,8 +214,8 @@
 
             <!--Sec01 - intro-video-section-->
             <section id="intro_video_wrapper" tabindex="0">
-                <video src="../../public/videos/intro/intro.mp4" autoplay muted loop preload="auto" width="100%" height="auto" playsinline webkit-playsinline class="intro-video-landscape" role="presentation" aria-hidden="true"></video>
-                <video src="../../public/videos/intro/intro-portrait.mp4" autoplay muted loop preload="auto" width="100%" height="auto" playsinline webkit-playsinline class="intro-video intro-video-portrait" role="presentation" aria-hidden="true"></video>
+                <video src="../../public/videos/intro/intro.mp4" autoplay muted loop preload="auto" width="1920" height="1080" playsinline data-webkit-playsinline class="intro-video-landscape" tabindex="-1" aria-hidden="true"></video>
+                <video src="../../public/videos/intro/intro-portrait.mp4" autoplay muted loop preload="auto" width="1080" height="1920" playsinline data-webkit-playsinline class="intro-video intro-video-portrait" tabindex="-1" aria-hidden="true"></video>
                 <div class="black_bg"></div>
                 <div class="black_bg"></div>
                 <div class="black_bg"></div>
@@ -901,8 +902,7 @@
                         </div>
                     </article>
             </section>
-        </main>
-    </section>
+    </main>
 
     <!-- Footer Section -->
     <section id="footer-section">

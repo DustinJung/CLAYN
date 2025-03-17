@@ -12,7 +12,7 @@ function initPreloader(callback) {
 
     if (!preloader || !progressText) {
       console.log("🗿? preloader 요소가 없음");
-      callback(); // ✅ Preloader 없이 바로 실행
+      callback(); // Preloader 없이 바로 실행
       return;
     }
 
