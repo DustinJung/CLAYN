@@ -381,7 +381,8 @@ html.has-menu-bg .logo_g path{
     z-index: 1;
     left: 0;
     top: 0;
-    transition: color .3s cubic-bezier(var(--cubic-x1), var(--cubic-y1), var(--cubic-x2), var(--cubic-y2)) opacity .3s cubic-bezier(var(--cubic-x1), var(--cubic-y1), var(--cubic-x2), var(--cubic-y2));
+    transition: color 0.3s cubic-bezier(var(--cubic-x1, 0.215), var(--cubic-y1, 0.61), var(--cubic-x2, 0.355), var(--cubic-y2, 1)),
+            opacity 0.3s cubic-bezier(var(--cubic-x1, 0.215), var(--cubic-y1, 0.61), var(--cubic-x2, 0.355), var(--cubic-y2, 1));
 }
 .sec3_products_marquee ul li img{
     object-fit: cover;

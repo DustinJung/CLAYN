@@ -31,12 +31,12 @@
     transition: transform 0.5s ease-in-out;
 }
 .pre-loader-img.on{
-    transform: scaleY(1); /* 요소가 위로 확장되면서 보이게 됨 */
+    transform: scaleY(1.0); /* 요소가 위로 확장되면서 보이게 됨 */
     opacity: 1; /* 이미지가 보이게 됨 */
 }
 .pre-loader-counter.on{
     opacity: 1;
-    transform: scaleY(1); /* 요소가 위로 확장되면서 보이게 됨 */
+    transform: scaleY(1.0); /* 요소가 위로 확장되면서 보이게 됨 */
 }
 .pre-loader.hide {
     height: 0;
