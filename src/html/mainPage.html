@@ -109,7 +109,7 @@
 <body>
     <!-- Pre-loader Section -->
     <section id="pre-loader-section">
-        <h2 class="label_hidden">프리로더 섹션입니다</h2>
+        <h2 class="label_hidden" tabindex="-1">프리로더 섹션입니다</h2>
         <!-- 로딩 화면 등 미리 보여줄 내용 -->
         <div class="pre-loader">
             <p class="pre-loader-counter">0%</p>
@@ -142,7 +142,7 @@
 
     <!-- Header Section -->
     <section id="header-section">
-        <h2 class="label_hidden">헤더 섹션입니다</h2>
+        <h2 class="label_hidden" tabindex="-1">헤더 섹션입니다</h2>
         <header>
             <!-- 상단 네비게이션, 로고, 메뉴 등 -->
             <a href="mainPage.html" class="logo_wrapper header_fixed">
@@ -168,7 +168,7 @@
                         </g>
                     </svg>
                 </i>
-                <span class="label_hidden">CLAYN 로고 - 홈 버튼 기능을 함</span>
+                <span class="label_hidden" tabindex="-1">CLAYN 로고 - 홈 버튼 기능을 함</span>
             </a>
 
             <!--메뉴 바-->
@@ -214,7 +214,7 @@
 
             <!--Sec01 - intro-video-section-->
             <section id="intro_video_wrapper" tabindex="0">
-                <h2 class="label_hidden">인트로 비디오 wrapper 섹션입니다.</h2>
+                <h2 class="label_hidden" tabindex="-1">인트로 비디오 wrapper 섹션입니다.</h2>
                 <video src="../../public/videos/intro/intro.mp4" autoplay muted loop preload="auto" width="1920" height="1080" playsinline data-webkit-playsinline class="intro-video-landscape" tabindex="-1" aria-hidden="true"></video>
                 <video src="../../public/videos/intro/intro-portrait.mp4" autoplay muted loop preload="auto" width="1080" height="1920" playsinline data-webkit-playsinline class="intro-video intro-video-portrait" tabindex="-1" aria-hidden="true"></video>
                 <div class="black_bg"></div>
@@ -231,7 +231,7 @@
 
             <!--Sec02 - brand-introduce-section-->
             <section id="brand_introduce_section" class="section_top_mg_gutter" tabindex="0">
-                <h2 class="label_hidden">브랜드 인트로듀스 섹션입니다</h2>
+                <h2 class="label_hidden" tabindex="-1">브랜드 인트로듀스 섹션입니다</h2>
                 <article id="brand_introduce_section_inner">
                     <img class="number" src="../../public/images/main-section/introduce_brand_section/number_01.svg" alt="넘버 01">
                     <img class="number" src="../../public/images/main-section/introduce_brand_section/number_02.svg" alt="넘버 02">
@@ -278,7 +278,7 @@
 
             <!--Sec03 - "Featured Products" (대표 제품) section-->
             <section id="featured_products_section" class="section_top_mg_gutter" tabindex="0">
-                <h2 class="label_hidden">대표상품 섹션입니다</h2>
+                <h2 class="label_hidden" tabindex="-1">대표상품 섹션입니다</h2>
                 <!--text article-->
                 <article class="article1">
                     <!--<div class="black-wall"></div>-->
@@ -292,6 +292,7 @@
 
                 <!--products slide article-->
                 <article class="featured_article article2">
+                    <h2 class="label_hidden" tabindex="-1">대표상품 아티클입니다.</h2>
                     <ul class="title_font text_balance off-white_clr">
                         <li>정교한 디자인과 자연스러운 균형이 만나 탄생한 특별한 컬렉션</li>
                         <li>미니멀한 곡선과 깊이 있는 색감, 당신의 공간에 따뜻한 터치를 더하세요</li>
@@ -302,17 +303,18 @@
             </section>
             <!--스크롤트리거를 위해 만든 섹션, forgiveMyLack 이름의 의미 = 나의 부족함으로 인해 만든 섹션이라는 뜻-->
             <section id="forgiveMyLack" tabindex="-1" aria-hidden="true">
-                <h2 class="label_hidden">저의부족함으로 만든 섹션입니다, 이게 왜 필요한지는 설명페이지나 Velog를 참고해주세요</h2>
+                <h2 class="label_hidden" tabindex="-1">저의부족함으로 만든 섹션입니다, 이게 왜 필요한지는 설명페이지나 Velog를 참고해주세요</h2>
             </section>
 
             <!--그 후 article2가 올라가면서 서서히 보이는 스와이퍼 상품들-->
             <section id="swiper_products_section" class="swiper_products_section" tabindex="0">
-                <h2 class="label_hidden">스와이퍼 프로덕트 섹션입니다</h2>
+                <h2 class="label_hidden" tabindex="-1">스와이퍼 프로덕트 섹션입니다</h2>
 
                 <div class="sticky-wrapper">
-                    <article class="garigae" tabindex="-1" aria-hidden="true"></article>
+                    <article class="garigae" tabindex="-1" aria-hidden="true"><h2 class="label_hidden" tabindex="-1">단순한 가리개입니다. gsap scrolltrigger를 위한 trick입니다</h2></article>
                     <div class="sticky-one">
                     <article class="big_products_swiper_wrapper">
+                        <h2 class="label_hidden" tabindex="-1">대표상품 스와이퍼 wrapper 아티클입니다.</h2>
                         <div class="swiper mySwiper sec3-swiper">
                             <div class="swiper-wrapper">
                                 <div class="swiper-gimmick"></div>
@@ -433,6 +435,7 @@
 
                 <div class="sec3_products_marquee_wrapper">
                     <article class="sec3_products_marquee sec3_products_marquee1">
+                        <h2 class="label_hidden" tabindex="-1">첫번째 마키 아티클입니다.</h2>
                         <ul>
                             <li tabindex="-1">
                                 <a href="#">
@@ -583,6 +586,7 @@
                     </article>
 
                     <article class="sec3_products_marquee sec3_products_marquee2">
+                        <h2 class="label_hidden" tabindex="-1">마키 아티클입니다</h2>
                         <ul>
                             <li>
                                 <a href="#">
@@ -736,6 +740,7 @@
 
             <!--Sec04 - Anywhere, Anytime. 어디서든, 언제든. -->
             <section id="anytime_section" class="section_top_mg_gutter non-parallax-section" tabindex="0">
+                <h2 class="label_hidden" tabindex="-1">애니타임 섹션입니다</h2>
                 <div class="lookup">
                     <img src="../../public/icons/100x100svglogo.svg" alt="100x100logo">
                     <h2 class="title_font text_balance article_margin_top sec4h2">
@@ -803,9 +808,8 @@
             <!--Se05 - Thank you section, 감사인사와 다음 컬렉션 예고-->
             <section id="thank_you_section_wrapper" tabindex="0">
                 <section id="thank_you_section" class="section_top_mg_gutter non-parallax-section">
+                    <h2 class="label_hidden" tabindex="-1">thank you section입니다</h2>
                     <div class="lookup">
-                        <?xml version="1.0" encoding="utf-8"?>
-                        <!-- Generator: Adobe Illustrator 24.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
                         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                             viewBox="0 0 1200 394" style="enable-background:new 0 0 1200 394;" xml:space="preserve">
                         <style type="text/css">
@@ -833,6 +837,7 @@
                     </article>
                     <!--figure>, <blockquote>, <figcaption> 태그는 HTML에서 각각 이미지/미디어와 인용문을 표현하는 데 사용되는 태그-->
                     <article class="about_section_col">
+                        <h2 class="label_hidden" tabindex="-1">about_section_col</h2>
                         <figure>
                             <blockquote class="point_font">
                                 <p>"그것은 당신의 공간을 고요하고 강렬한</p>
@@ -840,9 +845,7 @@
                                 <p class="right-align">– Dustin Jung</p>
                             </blockquote>
                             <figcaption>
-                                <?xml version="1.0" encoding="utf-8"?>
-                                <!-- Generator: Adobe Illustrator 24.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                <svg version="1.1" id="Layer_1_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                     viewBox="0 0 424 197" style="enable-background:new 0 0 424 197;" xml:space="preserve" class="figcaptionSvg">
                                 <style type="text/css">
                                     .st0{fill:none;stroke:#222222;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
@@ -863,6 +866,7 @@
                     </article>
 
                     <article class="about_section_col">
+                        <h2 class="label_hidden" tabindex="-1">사이트 제작에 사용한 소스들의 출처를 밝히는 아티클입니다.</h2>
                         <!--
                             <dl> 태그는 **설명 목록 (Description List)**을 만들 때 사용하는 HTML 태그임.
 
@@ -874,7 +878,7 @@
                             <div class="o-dl_row">
                                 <dt class="o-dl_title o-body-text">POTTERY ARTIST</dt>
                                 <dd class="o-dl_desc o-body-text">
-                                    <a href="#" target="_balnk">편유재</a>
+                                    <a href="#" target="_blank">편유재</a>
                                     <a href="https://yarnnakarn.co.kr/" target="_blank">야나칸</a>
                                     <a href="https://samjakso.com/" target="_blank">삼작소</a>
                                     <a href="https://www.ceradu.com/" target="_blank">세라듀</a>
@@ -897,6 +901,7 @@
                     </article>
 
                     <article class="about_section_col">
+                        <h2 class="label_hidden" tabindex="-1">CLAYN에 신념을 담는 섹션 article입니다.</h2>
                         <div class="about_col">
                             <p class="text_balance">
                                 "CLAYN은 자연의 아름다움과 미니멀리즘을 결합한 도자기 예술을 창조하고, 단순함 속에서 깊이를 찾아 손길 하나하나에 담긴 정성과 열정을 통해 세상에 단 하나뿐인 아름다움을 선사합니다"
@@ -926,7 +931,7 @@
                             <div class="footer-form-wrapper">
                                 <div class="input-wrapper">
                                     <input type="email" id="newsletter-email" name="email" placeholder="이메일" autocomplete="email" required>
-                                    <label for="newsletter-email" class="label_hidden">이메일</label>
+                                    <label for="newsletter-email" class="label_hidden" tabindex="-1">이메일</label>
                                 </div>
                                 <button type="submit" class="footer-submit-btn">구독하기</button>
                             </div>
@@ -942,9 +947,7 @@
                     <p class="text_balnce point_font uppercase mobile-font-small">©2025 Project CLAYN</p>
 
                     <a href="#">
-                        <?xml version="1.0" encoding="utf-8"?>
-                        <!-- Generator: Adobe Illustrator 24.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-                        <svg id="footer-bottom-logo" version="1.1" id="레이어_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                        <svg id="footer-bottom-logo" version="1.1" id="레이어_1_4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
                             y="0px" viewBox="0 0 209.9 97.4" style="enable-background:new 0 0 209.9 97.4;" xml:space="preserve">
                         <style type="text/css">
                             .st1{fill:#FBCCCD;}
@@ -1018,7 +1021,7 @@
                                 c-0.2,0.3-0.5,0.5-0.9,0.7s-0.7,0.3-1.1,0.4v-1.3c0.5-0.2,0.8-0.4,1-0.7s0.3-0.7,0.3-1.2h-1.2v-2.8H204.4z"/>
                         </g>
                         </svg>
-                        <span class="label_hidden">footer Clayn 로고 - 클릭 시 페이지 맨 위로 올라가는 기능을 함</span>
+                        <span class="label_hidden" tabindex="-1">footer Clayn 로고 - 클릭 시 페이지 맨 위로 올라가는 기능을 함</span>
                     </a>
 
                     <p class="text_balnce point_font uppercase mobile-font-small">Website by DustinJung</p>
@@ -1042,9 +1045,7 @@
             </div>
         </div>
         <button aria-label="장바구니" class="header_nav_btn header_fixed header_bucket" tabindex="0">
-            <?xml version="1.0" encoding="utf-8"?>
-            <!-- Generator: Adobe Illustrator 24.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+            <svg version="1.1" id="Layer_1_234" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                 viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
             <style type="text/css">
                 .st0{fill:none;stroke:#1E1E1E;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
@@ -1066,8 +1067,8 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
 
     <!-- Custom Scripts -->
-    <script type="module" src="../js/dustinNormalize.js" defer></script> <!--최적화-->
-    <script type="module" src="../js/main.js" defer></script>   <!--import와 자체 함수들로 모든 스크립트를 총괄 -->
+    <script type="module" src="../js/dustinNormalize.js"></script> <!--최적화-->
+    <script type="module" src="../js/main.js"></script>   <!--import와 자체 함수들로 모든 스크립트를 총괄 -->
 
 
 </body>
